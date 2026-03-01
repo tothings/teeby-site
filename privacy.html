@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teeby - プライバシーポリシー / Privacy Policy</title>
+    <style>
+        :root {
+            --bg: #0d1117;
+            --fg: #c9d1d9;
+            --accent: #58a6ff;
+            --border: #30363d;
+            --card-bg: #161b22;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #f0f6fc;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+            color: #f0f6fc;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.3rem;
+        }
+
+        p,
+        li {
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        .subtitle {
+            color: #8b949e;
+            margin-bottom: 2rem;
+        }
+
+        .lang-switch {
+            display: inline-block;
+            margin-bottom: 2rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .lang-switch a {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            color: var(--fg);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .lang-switch a.active {
+            background: var(--accent);
+            color: #0d1117;
+        }
+
+        .section {
+            margin-bottom: 1.5rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            color: #8b949e;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="lang-switch">
+            <a href="#ja" class="active" onclick="showLang('ja')">日本語</a>
+            <a href="#en" onclick="showLang('en')">English</a>
+        </div>
+
+        <!-- 日本語 -->
+        <div id="ja">
+            <h1>プライバシーポリシー</h1>
+            <p class="subtitle">Teeby — 最終更新日: 2026年3月1日</p>
+
+            <div class="section">
+                <h2>はじめに</h2>
+                <p>Teeby（以下「本アプリ」）は、Akinori
+                    Tokita（以下「開発者」）が開発・提供するmacOS向けAI搭載ノートアプリケーションです。本プライバシーポリシーは、本アプリにおけるユーザーの個人情報の取り扱いについて説明します。</p>
+            </div>
+
+            <div class="section">
+                <h2>データの収集について</h2>
+                <p><strong>本アプリは、ユーザーの個人情報を一切収集しません。</strong></p>
+                <ul>
+                    <li>ノート、プロジェクト、設定情報を含むすべてのデータは、ユーザーのMac上にのみ保存されます。</li>
+                    <li>開発者のサーバーへのデータ送信は一切行いません。</li>
+                    <li>ユーザー分析やトラッキングツールは使用していません。</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>外部サービスとの通信</h2>
+                <p>本アプリのAI機能は、ユーザーが自ら設定したAPIキー（BYOK: Bring Your Own Key）を使用して、以下の外部サービスと通信します：</p>
+                <ul>
+                    <li><strong>Google AI Studio (Gemini API)</strong> — AIチャット、ノート検索、Web検索、音声入力に使用</li>
+                    <li><strong>Anthropic (Claude API)</strong> — AIチャットに使用（オプション）</li>
+                </ul>
+                <p>これらのサービスへ送信されるデータ（チャットメッセージ、ノート内容等）の取り扱いは、各サービスのプライバシーポリシーに準じます：</p>
+                <ul>
+                    <li><a href="https://policies.google.com/privacy" target="_blank">Google プライバシーポリシー</a></li>
+                    <li><a href="https://www.anthropic.com/privacy" target="_blank">Anthropic プライバシーポリシー</a></li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>マイクの使用</h2>
+                <p>本アプリは、音声入力機能のためにマイクへのアクセスを要求することがあります。マイクから取得した音声データは、一時的にAI
+                    APIへ送信されテキストに変換された後、ローカルに破棄されます。音声データが保存されることはありません。</p>
+            </div>
+
+            <div class="section">
+                <h2>APIキーの管理</h2>
+                <p>ユーザーが設定したAPIキーは、macOSのキーチェーンに安全に保存されます。APIキーは開発者に共有されることはありません。</p>
+            </div>
+
+            <div class="section">
+                <h2>お子様のプライバシー</h2>
+                <p>本アプリは特定の年齢層を対象としていません。個人情報の収集を行わないため、お子様のプライバシーに関する特別なリスクはありません。</p>
+            </div>
+
+            <div class="section">
+                <h2>プライバシーポリシーの変更</h2>
+                <p>本プライバシーポリシーは、必要に応じて更新されることがあります。重要な変更がある場合は、アプリのアップデートを通じてお知らせします。</p>
+            </div>
+
+            <div class="section">
+                <h2>お問い合わせ</h2>
+                <p>プライバシーに関するご質問やお問い合わせは、以下のメールアドレスまでご連絡ください：</p>
+                <p><a href="mailto:teeby.note.app@gmail.com">teeby.note.app@gmail.com</a></p>
+            </div>
+        </div>
+
+        <!-- English -->
+        <div id="en" style="display:none;">
+            <h1>Privacy Policy</h1>
+            <p class="subtitle">Teeby — Last Updated: March 1, 2026</p>
+
+            <div class="section">
+                <h2>Introduction</h2>
+                <p>Teeby ("the App") is an AI-powered note-taking application for macOS, developed by Akinori Tokita
+                    ("the Developer"). This Privacy Policy explains how user information is handled within the App.</p>
+            </div>
+
+            <div class="section">
+                <h2>Data Collection</h2>
+                <p><strong>The App does not collect any personal information from users.</strong></p>
+                <ul>
+                    <li>All data, including notes, projects, and settings, is stored exclusively on the user's Mac.</li>
+                    <li>No data is transmitted to the Developer's servers.</li>
+                    <li>No analytics or tracking tools are used.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Communication with External Services</h2>
+                <p>The App's AI features communicate with the following external services using API keys provided by the
+                    user (BYOK: Bring Your Own Key):</p>
+                <ul>
+                    <li><strong>Google AI Studio (Gemini API)</strong> — Used for AI chat, note search, web search, and
+                        voice input</li>
+                    <li><strong>Anthropic (Claude API)</strong> — Used for AI chat (optional)</li>
+                </ul>
+                <p>Data sent to these services (chat messages, note content, etc.) is handled according to each
+                    service's privacy policy:</p>
+                <ul>
+                    <li><a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></li>
+                    <li><a href="https://www.anthropic.com/privacy" target="_blank">Anthropic Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Microphone Usage</h2>
+                <p>The App may request access to the microphone for voice input functionality. Audio data from the
+                    microphone is temporarily sent to the AI API for text transcription and then discarded locally. No
+                    audio data is stored.</p>
+            </div>
+
+            <div class="section">
+                <h2>API Key Management</h2>
+                <p>API keys configured by the user are securely stored in the macOS Keychain. API keys are never shared
+                    with the Developer.</p>
+            </div>
+
+            <div class="section">
+                <h2>Children's Privacy</h2>
+                <p>The App is not directed at any specific age group. Since no personal information is collected, there
+                    are no special privacy risks for children.</p>
+            </div>
+
+            <div class="section">
+                <h2>Changes to This Policy</h2>
+                <p>This Privacy Policy may be updated as needed. Significant changes will be communicated through app
+                    updates.</p>
+            </div>
+
+            <div class="section">
+                <h2>Contact</h2>
+                <p>For questions or concerns about privacy, please contact:</p>
+                <p><a href="mailto:teeby.note.app@gmail.com">teeby.note.app@gmail.com</a></p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2026 Akinori Tokita. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        function showLang(lang) {
+            document.getElementById('ja').style.display = lang === 'ja' ? 'block' : 'none';
+            document.getElementById('en').style.display = lang === 'en' ? 'block' : 'none';
+            document.querySelectorAll('.lang-switch a').forEach(a => a.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+
+</html>

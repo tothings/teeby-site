@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teeby - サポート / Support</title>
+    <style>
+        :root {
+            --bg: #0d1117;
+            --fg: #c9d1d9;
+            --accent: #58a6ff;
+            --border: #30363d;
+            --card-bg: #161b22;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #f0f6fc;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+            color: #f0f6fc;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.3rem;
+        }
+
+        p,
+        li {
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        .subtitle {
+            color: #8b949e;
+            margin-bottom: 2rem;
+        }
+
+        .lang-switch {
+            display: inline-block;
+            margin-bottom: 2rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .lang-switch a {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            color: var(--fg);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .lang-switch a.active {
+            background: var(--accent);
+            color: #0d1117;
+        }
+
+        .section {
+            margin-bottom: 1.5rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .footer {
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            color: #8b949e;
+            font-size: 0.85rem;
+        }
+
+        .nav {
+            margin-bottom: 1rem;
+        }
+
+        .nav a {
+            margin-right: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="lang-switch">
+            <a href="#ja" class="active" onclick="showLang('ja')">日本語</a>
+            <a href="#en" onclick="showLang('en')">English</a>
+        </div>
+
+        <!-- 日本語 -->
+        <div id="ja">
+            <h1>Teeby サポート</h1>
+            <p class="subtitle">お困りのことがございましたら、お気軽にお問い合わせください。</p>
+
+            <div class="nav">
+                <a href="privacy.html">プライバシーポリシー</a>
+            </div>
+
+            <div class="section">
+                <h2>お問い合わせ</h2>
+                <div class="contact-card">
+                    <p>📧 メール: <a href="mailto:teeby.note.app@gmail.com">teeby.note.app@gmail.com</a></p>
+                    <p>通常、2営業日以内に返信いたします。</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>よくある質問</h2>
+
+                <h3 style="margin-top:1rem; color:#f0f6fc;">Q: APIキーはどこで取得できますか？</h3>
+                <p>Google AI StudioのAPIキーは <a href="https://aistudio.google.com/apikey" target="_blank">Google AI
+                        Studio</a> から取得できます。Claude APIキーは <a href="https://console.anthropic.com/"
+                        target="_blank">Anthropic Console</a> から取得できます。</p>
+
+                <h3 style="margin-top:1rem; color:#f0f6fc;">Q: データはどこに保存されますか？</h3>
+                <p>すべてのノート、プロジェクト、設定データはお使いのMacのローカルストレージにのみ保存されます。外部サーバーへのアップロードは一切行いません。</p>
+
+                <h3 style="margin-top:1rem; color:#f0f6fc;">Q: APIキーなしでも使えますか？</h3>
+                <p>はい。ノートの作成・編集機能はAPIキーなしでご利用いただけます。AI機能（チャット、検索、音声入力）のみAPIキーが必要です。</p>
+
+                <h3 style="margin-top:1rem; color:#f0f6fc;">Q: どのAIモデルに対応していますか？</h3>
+                <p>Google Gemini（Gemini 2.5 Pro, Flash等）およびAnthropic Claude（Sonnet, Opus等）に対応しています。</p>
+            </div>
+        </div>
+
+        <!-- English -->
+        <div id="en" style="display:none;">
+            <h1>Teeby Support</h1>
+            <p class="subtitle">If you need help, please don't hesitate to contact us.</p>
+
+            <div class="nav">
+                <a href="privacy.html">Privacy Policy</a>
+            </div>
+
+            <div class="section">
+                <h2>Contact</h2>
+                <div class="contact-card">
+                    <p>📧 Email: <a href="mailto:teeby.app@gmail.com">teeby.app@gmail.com</a></p>
+                    <p>We typically respond within 2 business days.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>FAQ</h2>
+
+                <h3 style="margin-top:1rem; color:#f0f6fc;">Q: Where can I get an API key?</h3>
+                <p>You can get a Google AI Studio API key from <a href="https://aistudio.google.com/apikey"
+                        target="_blank">Google AI Studio</a>. Claude API keys are available from <a
+                        href="https://console.anthropic.com/" target="_blank">Anthropic Console</a>.</p>
+
+                <h3 style="margin-top:1rem; color:#f0f6fc;">Q: Where is my data stored?</h3>
+                <p>All notes, projects, and settings are stored exclusively on your Mac's local storage. No data is
+                    uploaded to external servers.</p>
+
+                <h3 style="margin-top:1rem; color:#f0f6fc;">Q: Can I use the app without an API key?</h3>
+                <p>Yes. Note creation and editing features work without an API key. Only AI features (chat, search,
+                    voice input) require an API key.</p>
+
+                <h3 style="margin-top:1rem; color:#f0f6fc;">Q: Which AI models are supported?</h3>
+                <p>The app supports Google Gemini (Gemini 2.5 Pro, Flash, etc.) and Anthropic Claude (Sonnet, Opus,
+                    etc.).</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2026 Akinori Tokita. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        function showLang(lang) {
+            document.getElementById('ja').style.display = lang === 'ja' ? 'block' : 'none';
+            document.getElementById('en').style.display = lang === 'en' ? 'block' : 'none';
+            document.querySelectorAll('.lang-switch a').forEach(a => a.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+
+</html>
