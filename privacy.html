@@ -111,8 +111,8 @@
 <body>
     <div class="container">
         <div class="lang-switch">
-            <a href="#ja" class="active" onclick="showLang('ja')">日本語</a>
-            <a href="#en" onclick="showLang('en')">English</a>
+            <a href="#ja" class="active" onclick="showLang('ja', event)">日本語</a>
+            <a href="#en" onclick="showLang('en', event)">English</a>
         </div>
 
         <!-- 日本語 -->
@@ -254,12 +254,24 @@
     </div>
 
     <script>
-        function showLang(lang) {
+        function showLang(lang, event) {
             document.getElementById('ja').style.display = lang === 'ja' ? 'block' : 'none';
             document.getElementById('en').style.display = lang === 'en' ? 'block' : 'none';
             document.querySelectorAll('.lang-switch a').forEach(a => a.classList.remove('active'));
-            event.target.classList.add('active');
+            if (event && event.currentTarget) {
+                event.currentTarget.classList.add('active');
+            } else {
+                const targetLink = document.querySelector(`.lang-switch a[href="#${lang}"]`);
+                if (targetLink) targetLink.classList.add('active');
+            }
         }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash === 'en' || hash === 'ja') {
+                showLang(hash);
+            }
+        });
     </script>
 </body>
 
