@@ -72,6 +72,15 @@
             overflow: hidden;
         }
 
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
         .lang-switch a {
             display: inline-block;
             padding: 0.4rem 1rem;
@@ -87,15 +96,6 @@
 
         .section {
             margin-bottom: 1.5rem;
-        }
-
-        a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
         }
 
         .footer {
@@ -118,7 +118,7 @@
         <!-- 日本語 -->
         <div id="ja">
             <h1>利用規約</h1>
-            <p class="subtitle">Teeby — 最終更新日: 2026年3月1日</p>
+            <p class="subtitle">Teeby — 最終更新日: 2026年3月7日</p>
 
             <div class="section">
                 <h2>1. はじめに</h2>
@@ -140,9 +140,21 @@
 
             <div class="section">
                 <h2>4. AI機能の利用とデータ送信</h2>
-                <p>本アプリはGoogleのGemini
-                    API等の各種APIを利用しています。ユーザーが入力したAPIキーを用いて通信を行うため、入力データ（ノート内容、チャット履歴等）は当該APIプロバイダへ送信されます。通信内容の保護等は各APIプロバイダの規約および仕様に依存し、開発者はそれについて一切の責任を負いません。本アプリが開発者の別サーバーにデータを送信することはありません。
-                </p>
+                <p>本アプリは、ユーザーが自ら設定したAPIキー（BYOK方式）を用いて、以下のサードパーティAIサービスと通信します：</p>
+                <ul>
+                    <li><strong>Google LLC（Google AI Studio / Gemini API）</strong> — AIチャット、ノート検索用エンベディング、Web検索、音声入力</li>
+                    <li><strong>Anthropic PBC（Claude API）</strong> — AIチャット（Claudeモデル選択時のみ）</li>
+                </ul>
+                <p>以下のデータがこれらのサービスに送信されます：</p>
+                <ul>
+                    <li>ノートのテキスト内容（検索用エンベディング処理）</li>
+                    <li>チャットの入力テキスト・添付ファイル</li>
+                    <li>関連ノートの内容（AIが参照するコンテキスト）</li>
+                    <li>チャットの会話履歴（セッション内）</li>
+                    <li>音声データ（音声入力使用時、テキスト変換後に即時破棄）</li>
+                    <li>システム情報（日時・タイムゾーンのみ）</li>
+                </ul>
+                <p>通信内容の保護等は各APIプロバイダの規約および仕様に依存し、開発者はそれについて一切の責任を負いません。<strong>本アプリが開発者のサーバーにデータを送信することはありません。</strong>APIキーを設定しない場合、外部サービスへのデータ送信は一切行われません。</p>
             </div>
 
             <div class="section">
@@ -166,7 +178,7 @@
         <!-- English -->
         <div id="en" style="display:none;">
             <h1>Terms of Service</h1>
-            <p class="subtitle">Teeby — Last Updated: March 1, 2026</p>
+            <p class="subtitle">Teeby — Last Updated: March 7, 2026</p>
 
             <div class="section">
                 <h2>1. Introduction</h2>
@@ -190,11 +202,21 @@
 
             <div class="section">
                 <h2>4. Use of AI Features and Data Transmission</h2>
-                <p>The App uses various APIs, including Google's Gemini API. Because communication is performed using
-                    the API key entered by the user, input data (note content, chat history, etc.) is transmitted to the
-                    respective API providers. Data protection depends on the terms and specifications of each API
-                    provider, and the Developer holds no responsibility for this. The App never transmits any data to
-                    the Developer's own servers.</p>
+                <p>The App communicates with the following third-party AI services using API keys set up by the user (BYOK model):</p>
+                <ul>
+                    <li><strong>Google LLC (Google AI Studio / Gemini API)</strong> — AI chat, note search embeddings, web search, voice input</li>
+                    <li><strong>Anthropic PBC (Claude API)</strong> — AI chat (only when Claude model is selected)</li>
+                </ul>
+                <p>The following data is transmitted to these services:</p>
+                <ul>
+                    <li>Note text content (for search embedding processing)</li>
+                    <li>Chat input text and attached files</li>
+                    <li>Related note content (context referenced by AI)</li>
+                    <li>Chat conversation history (within the session)</li>
+                    <li>Audio data (when using voice input; immediately discarded after text conversion)</li>
+                    <li>System information (date/time and timezone only)</li>
+                </ul>
+                <p>Data protection depends on the terms and specifications of each API provider, and the Developer holds no responsibility for this. <strong>The App never transmits any data to the Developer's own servers.</strong> If you do not set up API keys, no data is transmitted to any external service.</p>
             </div>
 
             <div class="section">
@@ -226,8 +248,8 @@
         function showLang(lang, event) {
             document.getElementById('ja').style.display = lang === 'ja' ? 'block' : 'none';
             document.getElementById('en').style.display = lang === 'en' ? 'block' : 'none';
-            document.querySelectorAll('.lang-switch a').forEach(a => a.classList.remove('active'));
-            if (event && event.currentTarget) {
+            document.querySelectorAll('.lang-switch a').forEach(a => { a.classList.remove('active'); });
+            if (event?.currentTarget) {
                 event.currentTarget.classList.add('active');
             } else {
                 const targetLink = document.querySelector(`.lang-switch a[href="#${lang}"]`);

@@ -72,6 +72,15 @@
             overflow: hidden;
         }
 
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
         .lang-switch a {
             display: inline-block;
             padding: 0.4rem 1rem;
@@ -87,15 +96,6 @@
 
         .section {
             margin-bottom: 1.5rem;
-        }
-
-        a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
         }
 
         .contact-card {
@@ -218,8 +218,8 @@
         function showLang(lang, event) {
             document.getElementById('ja').style.display = lang === 'ja' ? 'block' : 'none';
             document.getElementById('en').style.display = lang === 'en' ? 'block' : 'none';
-            document.querySelectorAll('.lang-switch a').forEach(a => a.classList.remove('active'));
-            if (event && event.currentTarget) {
+            document.querySelectorAll('.lang-switch a').forEach(a => { a.classList.remove('active'); });
+            if (event?.currentTarget) {
                 event.currentTarget.classList.add('active');
             } else {
                 const targetLink = document.querySelector(`.lang-switch a[href="#${lang}"]`);
