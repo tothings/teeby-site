@@ -1,19 +1,191 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://teeby.nanakumi.net/</loc>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://teeby.nanakumi.net/privacy.html</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://teeby.nanakumi.net/terms.html</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://teeby.nanakumi.net/support.html</loc>
-    <priority>0.5</priority>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+      <loc>https://teeby.nanakumi.net/ja/</loc>
+      <xhtml:link rel="alternate" hreflang="ja" href="https://teeby.nanakumi.net/ja/"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://teeby.nanakumi.net/en/"/>
+      <xhtml:link rel="alternate" hreflang="ko" href="https://teeby.nanakumi.net/ko/"/>
+      <xhtml:link rel="alternate" hreflang="de" href="https://teeby.nanakumi.net/de/"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://teeby.nanakumi.net/es/"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://teeby.nanakumi.net/fr/"/>
+      <xhtml:link rel="alternate" hreflang="it" href="https://teeby.nanakumi.net/it/"/>
+      <xhtml:link rel="alternate" hreflang="ru" href="https://teeby.nanakumi.net/ru/"/>
+      <xhtml:link rel="alternate" hreflang="pt-BR" href="https://teeby.nanakumi.net/pt-BR/"/>
+      <xhtml:link rel="alternate" hreflang="hi" href="https://teeby.nanakumi.net/hi/"/>
+      <xhtml:link rel="alternate" hreflang="zh-CN" href="https://teeby.nanakumi.net/zh-CN/"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://teeby.nanakumi.net/en/"/>
+      <priority>1.0</priority>
+    </url>
+    <url>
+      <loc>https://teeby.nanakumi.net/en/</loc>
+      <xhtml:link rel="alternate" hreflang="ja" href="https://teeby.nanakumi.net/ja/"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://teeby.nanakumi.net/en/"/>
+      <xhtml:link rel="alternate" hreflang="ko" href="https://teeby.nanakumi.net/ko/"/>
+      <xhtml:link rel="alternate" hreflang="de" href="https://teeby.nanakumi.net/de/"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://teeby.nanakumi.net/es/"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://teeby.nanakumi.net/fr/"/>
+      <xhtml:link rel="alternate" hreflang="it" href="https://teeby.nanakumi.net/it/"/>
+      <xhtml:link rel="alternate" hreflang="ru" href="https://teeby.nanakumi.net/ru/"/>
+      <xhtml:link rel="alternate" hreflang="pt-BR" href="https://teeby.nanakumi.net/pt-BR/"/>
+      <xhtml:link rel="alternate" hreflang="hi" href="https://teeby.nanakumi.net/hi/"/>
+      <xhtml:link rel="alternate" hreflang="zh-CN" href="https://teeby.nanakumi.net/zh-CN/"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://teeby.nanakumi.net/en/"/>
+      <priority>1.0</priority>
+    </url>
+    <url>
+      <loc>https://teeby.nanakumi.net/ko/</loc>
+      <xhtml:link rel="alternate" hreflang="ja" href="https://teeby.nanakumi.net/ja/"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://teeby.nanakumi.net/en/"/>
+      <xhtml:link rel="alternate" hreflang="ko" href="https://teeby.nanakumi.net/ko/"/>
+      <xhtml:link rel="alternate" hreflang="de" href="https://teeby.nanakumi.net/de/"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://teeby.nanakumi.net/es/"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://teeby.nanakumi.net/fr/"/>
+      <xhtml:link rel="alternate" hreflang="it" href="https://teeby.nanakumi.net/it/"/>
+      <xhtml:link rel="alternate" hreflang="ru" href="https://teeby.nanakumi.net/ru/"/>
+      <xhtml:link rel="alternate" hreflang="pt-BR" href="https://teeby.nanakumi.net/pt-BR/"/>
+      <xhtml:link rel="alternate" hreflang="hi" href="https://teeby.nanakumi.net/hi/"/>
+      <xhtml:link rel="alternate" hreflang="zh-CN" href="https://teeby.nanakumi.net/zh-CN/"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://teeby.nanakumi.net/en/"/>
+      <priority>1.0</priority>
+    </url>
+    <url>
+      <loc>https://teeby.nanakumi.net/de/</loc>
+      <xhtml:link rel="alternate" hreflang="ja" href="https://teeby.nanakumi.net/ja/"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://teeby.nanakumi.net/en/"/>
+      <xhtml:link rel="alternate" hreflang="ko" href="https://teeby.nanakumi.net/ko/"/>
+      <xhtml:link rel="alternate" hreflang="de" href="https://teeby.nanakumi.net/de/"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://teeby.nanakumi.net/es/"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://teeby.nanakumi.net/fr/"/>
+      <xhtml:link rel="alternate" hreflang="it" href="https://teeby.nanakumi.net/it/"/>
+      <xhtml:link rel="alternate" hreflang="ru" href="https://teeby.nanakumi.net/ru/"/>
+      <xhtml:link rel="alternate" hreflang="pt-BR" href="https://teeby.nanakumi.net/pt-BR/"/>
+      <xhtml:link rel="alternate" hreflang="hi" href="https://teeby.nanakumi.net/hi/"/>
+      <xhtml:link rel="alternate" hreflang="zh-CN" href="https://teeby.nanakumi.net/zh-CN/"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://teeby.nanakumi.net/en/"/>
+      <priority>1.0</priority>
+    </url>
+    <url>
+      <loc>https://teeby.nanakumi.net/es/</loc>
+      <xhtml:link rel="alternate" hreflang="ja" href="https://teeby.nanakumi.net/ja/"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://teeby.nanakumi.net/en/"/>
+      <xhtml:link rel="alternate" hreflang="ko" href="https://teeby.nanakumi.net/ko/"/>
+      <xhtml:link rel="alternate" hreflang="de" href="https://teeby.nanakumi.net/de/"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://teeby.nanakumi.net/es/"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://teeby.nanakumi.net/fr/"/>
+      <xhtml:link rel="alternate" hreflang="it" href="https://teeby.nanakumi.net/it/"/>
+      <xhtml:link rel="alternate" hreflang="ru" href="https://teeby.nanakumi.net/ru/"/>
+      <xhtml:link rel="alternate" hreflang="pt-BR" href="https://teeby.nanakumi.net/pt-BR/"/>
+      <xhtml:link rel="alternate" hreflang="hi" href="https://teeby.nanakumi.net/hi/"/>
+      <xhtml:link rel="alternate" hreflang="zh-CN" href="https://teeby.nanakumi.net/zh-CN/"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://teeby.nanakumi.net/en/"/>
+      <priority>1.0</priority>
+    </url>
+    <url>
+      <loc>https://teeby.nanakumi.net/fr/</loc>
+      <xhtml:link rel="alternate" hreflang="ja" href="https://teeby.nanakumi.net/ja/"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://teeby.nanakumi.net/en/"/>
+      <xhtml:link rel="alternate" hreflang="ko" href="https://teeby.nanakumi.net/ko/"/>
+      <xhtml:link rel="alternate" hreflang="de" href="https://teeby.nanakumi.net/de/"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://teeby.nanakumi.net/es/"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://teeby.nanakumi.net/fr/"/>
+      <xhtml:link rel="alternate" hreflang="it" href="https://teeby.nanakumi.net/it/"/>
+      <xhtml:link rel="alternate" hreflang="ru" href="https://teeby.nanakumi.net/ru/"/>
+      <xhtml:link rel="alternate" hreflang="pt-BR" href="https://teeby.nanakumi.net/pt-BR/"/>
+      <xhtml:link rel="alternate" hreflang="hi" href="https://teeby.nanakumi.net/hi/"/>
+      <xhtml:link rel="alternate" hreflang="zh-CN" href="https://teeby.nanakumi.net/zh-CN/"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://teeby.nanakumi.net/en/"/>
+      <priority>1.0</priority>
+    </url>
+    <url>
+      <loc>https://teeby.nanakumi.net/it/</loc>
+      <xhtml:link rel="alternate" hreflang="ja" href="https://teeby.nanakumi.net/ja/"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://teeby.nanakumi.net/en/"/>
+      <xhtml:link rel="alternate" hreflang="ko" href="https://teeby.nanakumi.net/ko/"/>
+      <xhtml:link rel="alternate" hreflang="de" href="https://teeby.nanakumi.net/de/"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://teeby.nanakumi.net/es/"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://teeby.nanakumi.net/fr/"/>
+      <xhtml:link rel="alternate" hreflang="it" href="https://teeby.nanakumi.net/it/"/>
+      <xhtml:link rel="alternate" hreflang="ru" href="https://teeby.nanakumi.net/ru/"/>
+      <xhtml:link rel="alternate" hreflang="pt-BR" href="https://teeby.nanakumi.net/pt-BR/"/>
+      <xhtml:link rel="alternate" hreflang="hi" href="https://teeby.nanakumi.net/hi/"/>
+      <xhtml:link rel="alternate" hreflang="zh-CN" href="https://teeby.nanakumi.net/zh-CN/"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://teeby.nanakumi.net/en/"/>
+      <priority>1.0</priority>
+    </url>
+    <url>
+      <loc>https://teeby.nanakumi.net/ru/</loc>
+      <xhtml:link rel="alternate" hreflang="ja" href="https://teeby.nanakumi.net/ja/"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://teeby.nanakumi.net/en/"/>
+      <xhtml:link rel="alternate" hreflang="ko" href="https://teeby.nanakumi.net/ko/"/>
+      <xhtml:link rel="alternate" hreflang="de" href="https://teeby.nanakumi.net/de/"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://teeby.nanakumi.net/es/"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://teeby.nanakumi.net/fr/"/>
+      <xhtml:link rel="alternate" hreflang="it" href="https://teeby.nanakumi.net/it/"/>
+      <xhtml:link rel="alternate" hreflang="ru" href="https://teeby.nanakumi.net/ru/"/>
+      <xhtml:link rel="alternate" hreflang="pt-BR" href="https://teeby.nanakumi.net/pt-BR/"/>
+      <xhtml:link rel="alternate" hreflang="hi" href="https://teeby.nanakumi.net/hi/"/>
+      <xhtml:link rel="alternate" hreflang="zh-CN" href="https://teeby.nanakumi.net/zh-CN/"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://teeby.nanakumi.net/en/"/>
+      <priority>1.0</priority>
+    </url>
+    <url>
+      <loc>https://teeby.nanakumi.net/pt-BR/</loc>
+      <xhtml:link rel="alternate" hreflang="ja" href="https://teeby.nanakumi.net/ja/"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://teeby.nanakumi.net/en/"/>
+      <xhtml:link rel="alternate" hreflang="ko" href="https://teeby.nanakumi.net/ko/"/>
+      <xhtml:link rel="alternate" hreflang="de" href="https://teeby.nanakumi.net/de/"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://teeby.nanakumi.net/es/"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://teeby.nanakumi.net/fr/"/>
+      <xhtml:link rel="alternate" hreflang="it" href="https://teeby.nanakumi.net/it/"/>
+      <xhtml:link rel="alternate" hreflang="ru" href="https://teeby.nanakumi.net/ru/"/>
+      <xhtml:link rel="alternate" hreflang="pt-BR" href="https://teeby.nanakumi.net/pt-BR/"/>
+      <xhtml:link rel="alternate" hreflang="hi" href="https://teeby.nanakumi.net/hi/"/>
+      <xhtml:link rel="alternate" hreflang="zh-CN" href="https://teeby.nanakumi.net/zh-CN/"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://teeby.nanakumi.net/en/"/>
+      <priority>1.0</priority>
+    </url>
+    <url>
+      <loc>https://teeby.nanakumi.net/hi/</loc>
+      <xhtml:link rel="alternate" hreflang="ja" href="https://teeby.nanakumi.net/ja/"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://teeby.nanakumi.net/en/"/>
+      <xhtml:link rel="alternate" hreflang="ko" href="https://teeby.nanakumi.net/ko/"/>
+      <xhtml:link rel="alternate" hreflang="de" href="https://teeby.nanakumi.net/de/"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://teeby.nanakumi.net/es/"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://teeby.nanakumi.net/fr/"/>
+      <xhtml:link rel="alternate" hreflang="it" href="https://teeby.nanakumi.net/it/"/>
+      <xhtml:link rel="alternate" hreflang="ru" href="https://teeby.nanakumi.net/ru/"/>
+      <xhtml:link rel="alternate" hreflang="pt-BR" href="https://teeby.nanakumi.net/pt-BR/"/>
+      <xhtml:link rel="alternate" hreflang="hi" href="https://teeby.nanakumi.net/hi/"/>
+      <xhtml:link rel="alternate" hreflang="zh-CN" href="https://teeby.nanakumi.net/zh-CN/"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://teeby.nanakumi.net/en/"/>
+      <priority>1.0</priority>
+    </url>
+    <url>
+      <loc>https://teeby.nanakumi.net/zh-CN/</loc>
+      <xhtml:link rel="alternate" hreflang="ja" href="https://teeby.nanakumi.net/ja/"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://teeby.nanakumi.net/en/"/>
+      <xhtml:link rel="alternate" hreflang="ko" href="https://teeby.nanakumi.net/ko/"/>
+      <xhtml:link rel="alternate" hreflang="de" href="https://teeby.nanakumi.net/de/"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://teeby.nanakumi.net/es/"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://teeby.nanakumi.net/fr/"/>
+      <xhtml:link rel="alternate" hreflang="it" href="https://teeby.nanakumi.net/it/"/>
+      <xhtml:link rel="alternate" hreflang="ru" href="https://teeby.nanakumi.net/ru/"/>
+      <xhtml:link rel="alternate" hreflang="pt-BR" href="https://teeby.nanakumi.net/pt-BR/"/>
+      <xhtml:link rel="alternate" hreflang="hi" href="https://teeby.nanakumi.net/hi/"/>
+      <xhtml:link rel="alternate" hreflang="zh-CN" href="https://teeby.nanakumi.net/zh-CN/"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://teeby.nanakumi.net/en/"/>
+      <priority>1.0</priority>
+    </url>
+    <url>
+      <loc>https://teeby.nanakumi.net/privacy.html</loc>
+      <priority>0.3</priority>
+    </url>
+    <url>
+      <loc>https://teeby.nanakumi.net/terms.html</loc>
+      <priority>0.3</priority>
+    </url>
+    <url>
+      <loc>https://teeby.nanakumi.net/support.html</loc>
+      <priority>0.3</priority>
+    </url>
 </urlset>
