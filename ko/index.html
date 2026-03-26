@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teeby - 누구나 안심할 수 있는 AI 노트 앱 (macOS)</title>
-    <meta name="description" content="Teeby는 안전하고 사용하기 쉬운 macOS용 AI 노트 앱입니다. 완전 로컬 저장, BYOK(자체 API 키). AI가 과거 노트를 맥락으로 활용하여 문서 작성을 지원합니다.">
-    <meta name="keywords" content="AI,노트,메모,macOS,BYOK,Gemini,Claude,지식,Markdown,문서,생산성,AI노트앱">
+    <title>Teeby - 누구나 안심할 수 있는 AI 노트 앱 (macOS / iPad)</title>
+    <meta name="description" content="Teeby는 안전하고 사용하기 쉬운 macOS / iPad용 AI 노트 앱입니다. 완전 로컬 저장, BYOK(자체 API 키). AI가 과거 노트를 맥락으로 활용하여 문서 작성을 지원합니다.">
+    <meta name="keywords" content="AI,노트,메모,macOS,iPad,iPadOS,BYOK,Gemini,Claude,지식,Markdown,문서,생산성,AI노트앱">
     <link rel="canonical" href="https://teeby.nanakumi.net/ko/">
     <link rel="alternate" hreflang="ja" href="https://teeby.nanakumi.net/ja/">
     <link rel="alternate" hreflang="en" href="https://teeby.nanakumi.net/en/">
@@ -22,8 +22,8 @@
     <link rel="alternate" hreflang="x-default" href="https://teeby.nanakumi.net/en/">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Teeby - 누구나 안심할 수 있는 AI 노트 앱 (macOS)">
-    <meta property="og:description" content="Teeby는 안전하고 사용하기 쉬운 macOS용 AI 노트 앱입니다. 완전 로컬 저장, BYOK(자체 API 키). AI가 과거 노트를 맥락으로 활용하여 문서 작성을 지원합니다.">
+    <meta property="og:title" content="Teeby - 누구나 안심할 수 있는 AI 노트 앱 (macOS / iPad)">
+    <meta property="og:description" content="Teeby는 안전하고 사용하기 쉬운 macOS / iPad용 AI 노트 앱입니다. 완전 로컬 저장, BYOK(자체 API 키). AI가 과거 노트를 맥락으로 활용하여 문서 작성을 지원합니다.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://teeby.nanakumi.net/ko/">
     <meta property="og:image" content="https://teeby.nanakumi.net/appstore/01.png">
@@ -32,8 +32,8 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Teeby - 누구나 안심할 수 있는 AI 노트 앱 (macOS)">
-    <meta name="twitter:description" content="Teeby는 안전하고 사용하기 쉬운 macOS용 AI 노트 앱입니다. 완전 로컬 저장, BYOK(자체 API 키). AI가 과거 노트를 맥락으로 활용하여 문서 작성을 지원합니다.">
+    <meta name="twitter:title" content="Teeby - 누구나 안심할 수 있는 AI 노트 앱 (macOS / iPad)">
+    <meta name="twitter:description" content="Teeby는 안전하고 사용하기 쉬운 macOS / iPad용 AI 노트 앱입니다. 완전 로컬 저장, BYOK(자체 API 키). AI가 과거 노트를 맥락으로 활용하여 문서 작성을 지원합니다.">
     <meta name="twitter:image" content="https://teeby.nanakumi.net/appstore/01.png">
 
     <!-- Structured Data -->
@@ -42,9 +42,9 @@
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "Teeby",
-        "operatingSystem": "macOS",
+        "operatingSystem": "macOS, iPadOS",
         "applicationCategory": "ProductivityApplication",
-        "description": "Teeby는 안전하고 사용하기 쉬운 macOS용 AI 노트 앱입니다. 완전 로컬 저장, BYOK(자체 API 키). AI가 과거 노트를 맥락으로 활용하여 문서 작성을 지원합니다.",
+        "description": "Teeby는 안전하고 사용하기 쉬운 macOS / iPad용 AI 노트 앱입니다. 완전 로컬 저장, BYOK(자체 API 키). AI가 과거 노트를 맥락으로 활용하여 문서 작성을 지원합니다.",
         "inLanguage": "ko",
         "offers": {
             "@type": "Offer",
@@ -277,6 +277,14 @@
 
         .feature-icon.models svg {
             stroke: #c084fc;
+        }
+
+        .feature-icon.tasks {
+            background: #78350f;
+        }
+
+        .feature-icon.tasks svg {
+            stroke: #fbbf24;
         }
 
         .feature-icon.local {
@@ -588,7 +596,7 @@
                     <option value="hi">हिन्दी</option>
                     <option value="zh-CN">中文</option>
                 </select>
-                <a href="https://apps.apple.com/jp/app/teeby/id6759851366?mt=12" class="btn-download">
+                <a href="https://apps.apple.com/jp/app/teeby/id6759851366" class="btn-download">
                     <span class="btn-download-text">Download</span>
                     <span style="display:none" class="btn-download-icon">↓</span>
                 </a>
@@ -605,7 +613,7 @@
         <!-- Korean -->
         
             <h1>누구나 간편하고 안심할 수 있는<br>AI 노트</h1>
-            <p>데이터는 완전 로컬 저장. 자신의 API 키로 작동하여 안심. 과거 노트를 맥락으로 활용해 AI와 함께 문서를 작성하는 macOS 앱.</p>
+            <p>데이터는 완전 로컬 저장. 자신의 API 키로 작동하여 안심. 과거 노트를 맥락으로 활용해 AI와 함께 문서를 작성하는 macOS / iPad 앱.</p>
         
         <!-- German -->
         <!-- Spanish -->
@@ -616,8 +624,8 @@
         <!-- Hindi -->
         <!-- Chinese -->
 
-        <a href="https://apps.apple.com/jp/app/teeby/id6759851366?mt=12" class="appstore-badge">
-            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-mac-app-store/black/en-us?size=250x83" alt="Download on the Mac App Store">
+        <a href="https://apps.apple.com/jp/app/teeby/id6759851366" class="appstore-badge">
+            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
         </a>
         <br>
         <img src="../appstore/screenshot-hero.png" alt="Teeby App Screenshot" class="hero-screenshot" loading="eager">
@@ -689,8 +697,22 @@
                     <p>Gemini / Claude에서 최적의 모델을 선택. BYOK 방식으로 자신의 API 키로 사용.</p>
             </div>
 
-            <!-- Feature 5: Local Storage (full width) -->
-            <div class="feature-card full-width">
+            <!-- Feature 5: Task Management -->
+            <div class="feature-card">
+                <div class="feature-icon tasks">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" />
+                        <rect x="9" y="3" width="6" height="4" rx="1" />
+                        <path d="M9 14l2 2 4-4" />
+                    </svg>
+                </div>
+
+                    <h3>AI와 함께하는 작업 관리</h3>
+                    <p>칸반 형식으로 작업을 관리. AI가 작업 상황을 이해하여 노트 작성에 맞춘 정확한 지원을 제공합니다.</p>
+            </div>
+
+            <!-- Feature 6: Local Storage -->
+            <div class="feature-card">
                 <div class="feature-icon local">
                     <svg viewBox="0 0 24 24">
                         <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
@@ -700,7 +722,7 @@
                 </div>
                 
                     <h3>완전 로컬 저장</h3>
-                    <p>모든 데이터는 Mac에만 저장됩니다. 외부 서버 업로드 없음. 기밀 정보도 안심하고 취급 가능.</p>
+                    <p>모든 데이터는 기기에만 저장됩니다. 외부 서버 업로드 없음. 기밀 정보도 안심하고 취급 가능.</p>
             </div>
         </div>
     </section>
@@ -779,7 +801,7 @@
                 <div class="badge-text">
                     
                         <h4>완전 로컬 저장</h4>
-                        <p>Mac에만 데이터 보관</p>
+                        <p>기기에만 데이터 보관</p>
                 </div>
             </div>
 
@@ -840,9 +862,9 @@
         
             <h2>지금 바로 Teeby로 AI와 함께 노트를 만들어보세요</h2>
             <p>무료로 시작하세요</p>
-        <a href="https://apps.apple.com/jp/app/teeby/id6759851366?mt=12" class="appstore-badge">
-            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-mac-app-store/black/en-us?size=250x83"
-                alt="Download on the Mac App Store">
+        <a href="https://apps.apple.com/jp/app/teeby/id6759851366" class="appstore-badge">
+            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
+                alt="Download on the App Store">
         </a>
     </section>
 

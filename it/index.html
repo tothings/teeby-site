@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teeby - Note IA semplici e sicure per macOS</title>
-    <meta name="description" content="Teeby è un'app di note IA sicura e facile da usare per macOS. Archiviazione completamente locale, BYOK (la tua chiave API). L'IA sfrutta le tue note come contesto.">
-    <meta name="keywords" content="IA,note,macOS,BYOK,Gemini,Claude,conoscenza,Markdown,documento,produttività,app note IA">
+    <title>Teeby - Note IA semplici e sicure per macOS e iPad</title>
+    <meta name="description" content="Teeby è un'app di note IA sicura e facile da usare per macOS e iPad. Archiviazione completamente locale, BYOK (la tua chiave API). L'IA sfrutta le tue note come contesto.">
+    <meta name="keywords" content="IA,note,macOS,iPad,iPadOS,BYOK,Gemini,Claude,conoscenza,Markdown,documento,produttività,app note IA">
     <link rel="canonical" href="https://teeby.nanakumi.net/it/">
     <link rel="alternate" hreflang="ja" href="https://teeby.nanakumi.net/ja/">
     <link rel="alternate" hreflang="en" href="https://teeby.nanakumi.net/en/">
@@ -22,8 +22,8 @@
     <link rel="alternate" hreflang="x-default" href="https://teeby.nanakumi.net/en/">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Teeby - Note IA semplici e sicure per macOS">
-    <meta property="og:description" content="Teeby è un'app di note IA sicura e facile da usare per macOS. Archiviazione completamente locale, BYOK (la tua chiave API). L'IA sfrutta le tue note come contesto.">
+    <meta property="og:title" content="Teeby - Note IA semplici e sicure per macOS e iPad">
+    <meta property="og:description" content="Teeby è un'app di note IA sicura e facile da usare per macOS e iPad. Archiviazione completamente locale, BYOK (la tua chiave API). L'IA sfrutta le tue note come contesto.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://teeby.nanakumi.net/it/">
     <meta property="og:image" content="https://teeby.nanakumi.net/appstore/01.png">
@@ -32,8 +32,8 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Teeby - Note IA semplici e sicure per macOS">
-    <meta name="twitter:description" content="Teeby è un'app di note IA sicura e facile da usare per macOS. Archiviazione completamente locale, BYOK (la tua chiave API). L'IA sfrutta le tue note come contesto.">
+    <meta name="twitter:title" content="Teeby - Note IA semplici e sicure per macOS e iPad">
+    <meta name="twitter:description" content="Teeby è un'app di note IA sicura e facile da usare per macOS e iPad. Archiviazione completamente locale, BYOK (la tua chiave API). L'IA sfrutta le tue note come contesto.">
     <meta name="twitter:image" content="https://teeby.nanakumi.net/appstore/01.png">
 
     <!-- Structured Data -->
@@ -42,9 +42,9 @@
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "Teeby",
-        "operatingSystem": "macOS",
+        "operatingSystem": "macOS, iPadOS",
         "applicationCategory": "ProductivityApplication",
-        "description": "Teeby è un'app di note IA sicura e facile da usare per macOS. Archiviazione completamente locale, BYOK (la tua chiave API). L'IA sfrutta le tue note come contesto.",
+        "description": "Teeby è un'app di note IA sicura e facile da usare per macOS e iPad. Archiviazione completamente locale, BYOK (la tua chiave API). L'IA sfrutta le tue note come contesto.",
         "inLanguage": "it",
         "offers": {
             "@type": "Offer",
@@ -277,6 +277,14 @@
 
         .feature-icon.models svg {
             stroke: #c084fc;
+        }
+
+        .feature-icon.tasks {
+            background: #78350f;
+        }
+
+        .feature-icon.tasks svg {
+            stroke: #fbbf24;
         }
 
         .feature-icon.local {
@@ -588,7 +596,7 @@
                     <option value="hi">हिन्दी</option>
                     <option value="zh-CN">中文</option>
                 </select>
-                <a href="https://apps.apple.com/jp/app/teeby/id6759851366?mt=12" class="btn-download">
+                <a href="https://apps.apple.com/jp/app/teeby/id6759851366" class="btn-download">
                     <span class="btn-download-text">Download</span>
                     <span style="display:none" class="btn-download-icon">↓</span>
                 </a>
@@ -609,15 +617,15 @@
         <!-- Italian -->
         
             <h1>Note IA semplici<br>e sicure per tutti</h1>
-            <p>Archiviazione completamente locale. Funziona con la tua chiave API. Un'app macOS dove l'IA sfrutta le tue note per creare documenti contestuali.</p>
+            <p>Archiviazione completamente locale. Funziona con la tua chiave API. Un'app per macOS e iPad dove l'IA sfrutta le tue note per creare documenti contestuali.</p>
         
         <!-- Russian -->
         <!-- Portuguese -->
         <!-- Hindi -->
         <!-- Chinese -->
 
-        <a href="https://apps.apple.com/jp/app/teeby/id6759851366?mt=12" class="appstore-badge">
-            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-mac-app-store/black/en-us?size=250x83" alt="Download on the Mac App Store">
+        <a href="https://apps.apple.com/jp/app/teeby/id6759851366" class="appstore-badge">
+            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
         </a>
         <br>
         <img src="../appstore/screenshot-hero.png" alt="Teeby App Screenshot" class="hero-screenshot" loading="eager">
@@ -689,8 +697,22 @@
                     <p>Scegli il modello migliore tra Gemini / Claude. BYOK — usa la tua chiave API.</p>
             </div>
 
-            <!-- Feature 5: Local Storage (full width) -->
-            <div class="feature-card full-width">
+            <!-- Feature 5: Task Management -->
+            <div class="feature-card">
+                <div class="feature-icon tasks">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" />
+                        <rect x="9" y="3" width="6" height="4" rx="1" />
+                        <path d="M9 14l2 2 4-4" />
+                    </svg>
+                </div>
+
+                    <h3>Gestione attività con l'IA</h3>
+                    <p>Gestisci le attività in stile kanban. L'IA comprende lo stato delle tue attività e offre supporto contestuale allineato ai tuoi appunti.</p>
+            </div>
+
+            <!-- Feature 6: Local Storage -->
+            <div class="feature-card">
                 <div class="feature-icon local">
                     <svg viewBox="0 0 24 24">
                         <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
@@ -700,7 +722,7 @@
                 </div>
                 
                     <h3>Archiviazione completamente locale</h3>
-                    <p>Tutti i dati solo sul tuo Mac. Nessun caricamento su server esterni. Gestisci informazioni riservate in sicurezza.</p>
+                    <p>Tutti i dati solo sul tuo dispositivo. Nessun caricamento su server esterni. Gestisci informazioni riservate in sicurezza.</p>
             </div>
         </div>
     </section>
@@ -779,7 +801,7 @@
                 <div class="badge-text">
                     
                         <h4>Archiviazione locale</h4>
-                        <p>Dati solo sul tuo Mac</p>
+                        <p>Dati solo sul tuo dispositivo</p>
                 </div>
             </div>
 
@@ -840,9 +862,9 @@
         
             <h2>Inizia a creare note con l'IA. Scarica Teeby oggi.</h2>
             <p>Inizia gratis</p>
-        <a href="https://apps.apple.com/jp/app/teeby/id6759851366?mt=12" class="appstore-badge">
-            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-mac-app-store/black/en-us?size=250x83"
-                alt="Download on the Mac App Store">
+        <a href="https://apps.apple.com/jp/app/teeby/id6759851366" class="appstore-badge">
+            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
+                alt="Download on the App Store">
         </a>
     </section>
 
