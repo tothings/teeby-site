@@ -4,13 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="shortcut icon" href="/favicon.ico">
-    <title>Teeby - Safe &amp; Simple AI Notes for macOS &amp; iPad</title>
-    <meta name="description" content="Teeby is a secure, easy-to-use AI note app for macOS and iPad. Fully local storage, BYOK (your own API key). AI leverages your past notes to help create documents. Gemini &amp; Claude support.">
-    <meta name="keywords" content="AI,notes,macOS,iPad,iPadOS,BYOK,Gemini,Claude,knowledge,Markdown,document,productivity,note-taking,AI note app">
+    <title>Teeby - Safe &amp; Simple AI Notes for macOS</title>
+    <meta name="description" content="Teeby is a secure, easy-to-use AI note app for macOS. Fully local storage, BYOK (your own API key). AI leverages your past notes to help create documents. Gemini &amp; Claude support.">
+    <meta name="keywords" content="AI,notes,macOS,BYOK,Gemini,Claude,knowledge,Markdown,document,productivity,note-taking,AI note app">
     <link rel="canonical" href="https://teeby.nanakumi.net/en/">
     <link rel="alternate" hreflang="ja" href="https://teeby.nanakumi.net/ja/">
     <link rel="alternate" hreflang="en" href="https://teeby.nanakumi.net/en/">
@@ -26,8 +22,8 @@
     <link rel="alternate" hreflang="x-default" href="https://teeby.nanakumi.net/en/">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Teeby - Safe &amp; Simple AI Notes for macOS &amp; iPad">
-    <meta property="og:description" content="Teeby is a secure, easy-to-use AI note app for macOS and iPad. Fully local storage, BYOK (your own API key). AI leverages your past notes to help create documents. Gemini &amp; Claude support.">
+    <meta property="og:title" content="Teeby - Safe &amp; Simple AI Notes for macOS">
+    <meta property="og:description" content="Teeby is a secure, easy-to-use AI note app for macOS. Fully local storage, BYOK (your own API key). AI leverages your past notes to help create documents. Gemini &amp; Claude support.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://teeby.nanakumi.net/en/">
     <meta property="og:image" content="https://teeby.nanakumi.net/appstore/01.png">
@@ -36,8 +32,8 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Teeby - Safe &amp; Simple AI Notes for macOS &amp; iPad">
-    <meta name="twitter:description" content="Teeby is a secure, easy-to-use AI note app for macOS and iPad. Fully local storage, BYOK (your own API key). AI leverages your past notes to help create documents. Gemini &amp; Claude support.">
+    <meta name="twitter:title" content="Teeby - Safe &amp; Simple AI Notes for macOS">
+    <meta name="twitter:description" content="Teeby is a secure, easy-to-use AI note app for macOS. Fully local storage, BYOK (your own API key). AI leverages your past notes to help create documents. Gemini &amp; Claude support.">
     <meta name="twitter:image" content="https://teeby.nanakumi.net/appstore/01.png">
 
     <!-- Structured Data -->
@@ -46,9 +42,9 @@
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "Teeby",
-        "operatingSystem": "macOS, iPadOS",
+        "operatingSystem": "macOS",
         "applicationCategory": "ProductivityApplication",
-        "description": "Teeby is a secure, easy-to-use AI note app for macOS and iPad. Fully local storage, BYOK (your own API key). AI leverages your past notes to help create documents. Gemini & Claude support.",
+        "description": "Teeby is a secure, easy-to-use AI note app for macOS. Fully local storage, BYOK (your own API key). AI leverages your past notes to help create documents. Gemini & Claude support.",
         "inLanguage": "en",
         "offers": {
             "@type": "Offer",
@@ -63,14 +59,18 @@
     </script>
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
         :root {
-            --bg: #0d1117;
-            --fg: #c9d1d9;
-            --accent: #58a6ff;
-            --border: #30363d;
-            --card-bg: #161b22;
-            --heading: #f0f6fc;
-            --muted: #8b949e;
+            --bg: #09090b;
+            --fg: #fafafa;
+            --accent: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.5);
+            --border: rgba(255, 255, 255, 0.1);
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-hover: rgba(255, 255, 255, 0.05);
+            --heading: #ffffff;
+            --muted: #a1a1aa;
         }
 
         * {
@@ -80,23 +80,39 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
             background: var(--bg);
             color: var(--fg);
             line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Nav */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -20vh;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80vw;
+            height: 50vh;
+            background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.12), transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .reveal-hidden { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-visible { opacity: 1; transform: translateY(0); }
+
         .nav {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             z-index: 100;
-            background: rgba(13, 17, 23, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(9, 9, 11, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
 
         .nav-inner {
@@ -109,462 +125,294 @@
         }
 
         .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
-            color: var(--heading);
-            font-weight: 700;
-            font-size: 1.2rem;
+            display: flex; align-items: center; gap: 0.75rem;
+            text-decoration: none; color: var(--heading);
+            font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em;
         }
 
         .nav-brand img {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
+            width: 32px; height: 32px; border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
+        .nav-right { display: flex; align-items: center; gap: 1.25rem; }
 
         .lang-select {
-            background: var(--card-bg);
-            color: var(--fg);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 0.3rem 0.5rem;
-            font-size: 0.85rem;
-            cursor: pointer;
+            background: rgba(255,255,255,0.05); color: var(--fg);
+            border: 1px solid var(--border); border-radius: 8px;
+            padding: 0.4rem 0.6rem; font-size: 0.85rem; cursor: pointer;
+            transition: all 0.2s ease; backdrop-filter: blur(8px);
         }
+
+        .lang-select:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); }
+        .lang-select option { background: var(--bg); color: var(--fg); }
 
         .btn-download {
             display: inline-block;
-            background: var(--accent);
-            color: var(--bg);
-            padding: 0.4rem 1rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: opacity 0.2s;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: #ffffff;
+            padding: 0.5rem 1.2rem; border-radius: 10px;
+            text-decoration: none; font-weight: 600; font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .btn-download:hover {
-            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
         }
 
-        /* Hero */
-        .hero {
-            padding: 8rem 1.5rem 4rem;
-            text-align: center;
-            background: linear-gradient(180deg, #0d1117 0%, #111827 50%, #0d1117 100%);
+        @keyframes floating { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
+        @keyframes screenshotFloat { 0% { transform: translateY(0px) rotateX(1deg); } 50% { transform: translateY(-15px) rotateX(0deg); } 100% { transform: translateY(0px) rotateX(1deg); } }
+        @keyframes textShine { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+
+        .hero { padding: 10rem 1.5rem 6.5rem; text-align: center; position: relative; }
+        .hero::after {
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
         }
 
         .hero-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 20px;
-            margin: 0 auto 1.5rem;
-            box-shadow: 0 8px 32px rgba(88, 166, 255, 0.15);
+            width: 88px; height: 88px; border-radius: 22px; margin: 0 auto 2rem;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255,255,255,0.1);
+            animation: floating 6s ease-in-out infinite;
         }
 
         .hero h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--heading);
-            margin-bottom: 1rem;
-            line-height: 1.3;
+            font-size: 3.5rem; font-weight: 800; margin-bottom: 1.25rem;
+            line-height: 1.15; letter-spacing: -0.03em;
+            background: linear-gradient(to right, #ffffff 20%, #a1a1aa 40%, #a1a1aa 60%, #ffffff 80%);
+            background-size: 200% auto; color: transparent;
+            -webkit-background-clip: text; background-clip: text;
+            animation: textShine 6s linear infinite;
         }
 
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--muted);
-            max-width: 600px;
-            margin: 0 auto 2rem;
+        .hero p { font-size: 1.2rem; color: var(--muted); max-width: 650px; margin: 0 auto 2.5rem; font-weight: 400; line-height: 1.6; }
+
+        .hero-screenshot-container { perspective: 1000px; margin-top: 3.5rem; position: relative; }
+        .hero-screenshot-container::before {
+            content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 90%; height: 80%; background: #3b82f6; filter: blur(140px); opacity: 0.15; z-index: -1; border-radius: 50%;
         }
 
         .hero-screenshot {
-            max-width: 900px;
-            width: 100%;
-            margin: 2rem auto 0;
-            border-radius: 12px;
-            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
+            max-width: 960px; width: 100%; border-radius: 14px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.1);
+            animation: screenshotFloat 10s ease-in-out infinite; transform-style: preserve-3d;
         }
 
-        .appstore-badge {
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
+        .appstore-badge { display: inline-block; transition: transform 0.2s ease, filter 0.2s ease; }
+        .appstore-badge:hover { transform: scale(1.03); filter: drop-shadow(0 4px 12px rgba(255,255,255,0.1)); }
+        .appstore-badge img { height: 52px; }
 
-        .appstore-badge img {
-            height: 48px;
-        }
+        .section { max-width: 1100px; margin: 0 auto; padding: 7.5rem 1.5rem; position: relative; }
+        .section-title { font-size: 2.25rem; font-weight: 700; color: var(--heading); text-align: center; margin-bottom: 4rem; letter-spacing: -0.02em; }
 
-        /* Sections */
-        .section {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 5rem 1.5rem;
-        }
-
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--heading);
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        /* Features */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-
+        .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
         .feature-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
+            background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px; padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative; overflow: hidden;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px); background: var(--card-hover); border-color: rgba(255,255,255,0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 40px rgba(59, 130, 246, 0.1);
         }
 
         .feature-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
+            width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center;
+            margin-bottom: 1.5rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            position: relative; z-index: 2; transition: transform 0.3s ease;
         }
+        .feature-card:hover .feature-icon { transform: scale(1.1); }
+        .feature-icon svg { width: 28px; height: 28px; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; fill: none; }
 
-        .feature-icon svg {
-            width: 24px;
-            height: 24px;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            fill: none;
-        }
+        .feature-icon.collab { background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2)); border-color: rgba(168, 85, 247, 0.3); } .feature-icon.collab svg { stroke: #c084fc; }
+        .feature-icon.smart { background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(56, 189, 248, 0.2)); border-color: rgba(56, 189, 248, 0.3); } .feature-icon.smart svg { stroke: #38bdf8; }
+        .feature-icon.skills { background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(74, 222, 128, 0.2)); border-color: rgba(74, 222, 128, 0.3); } .feature-icon.skills svg { stroke: #4ade80; }
+        .feature-icon.models { background: linear-gradient(135deg, rgba(217, 70, 239, 0.2), rgba(232, 121, 249, 0.2)); border-color: rgba(232, 121, 249, 0.3); } .feature-icon.models svg { stroke: #e879f9; }
+        .feature-icon.tasks { background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(251, 191, 36, 0.2)); border-color: rgba(251, 191, 36, 0.3); } .feature-icon.tasks svg { stroke: #fbbf24; }
+        .feature-icon.local { background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(34, 211, 238, 0.2)); border-color: rgba(34, 211, 238, 0.3); } .feature-icon.local svg { stroke: #22d3ee; }
 
-        .feature-icon.collab {
-            background: #1e1b4b;
-        }
+        .feature-card h3 { font-size: 1.25rem; color: var(--heading); margin-bottom: 0.75rem; font-weight: 600; z-index: 2; position: relative; }
+        .feature-card p { font-size: 0.95rem; color: var(--muted); line-height: 1.6; z-index: 2; position: relative; }
 
-        .feature-icon.collab svg {
-            stroke: #a78bfa;
-        }
-
-        .feature-icon.smart {
-            background: #0c4a6e;
-        }
-
-        .feature-icon.smart svg {
-            stroke: #38bdf8;
-        }
-
-        .feature-icon.skills {
-            background: #14532d;
-        }
-
-        .feature-icon.skills svg {
-            stroke: #4ade80;
-        }
-
-        .feature-icon.models {
-            background: #3b0764;
-        }
-
-        .feature-icon.models svg {
-            stroke: #c084fc;
-        }
-
-        .feature-icon.tasks {
-            background: #78350f;
-        }
-
-        .feature-icon.tasks svg {
-            stroke: #fbbf24;
-        }
-
-        .feature-icon.local {
-            background: #164e63;
-        }
-
-        .feature-icon.local svg {
-            stroke: #22d3ee;
-        }
-
-        .feature-card h3 {
-            font-size: 1.1rem;
-            color: var(--heading);
-            margin-bottom: 0.5rem;
-        }
-
-        .feature-card p {
-            font-size: 0.9rem;
-            color: var(--muted);
-        }
-
-        /* Use Cases */
-        .usecases-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
+        .usecases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
         .usecase-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            text-align: center;
+            background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem 1.5rem;
+            text-align: center; transition: all 0.3s ease;
         }
-
-        .usecase-emoji {
-            font-size: 2.5rem;
-            margin-bottom: 0.75rem;
+        .usecase-card:hover {
+            transform: translateY(-5px); background: var(--card-hover); border-color: rgba(255,255,255,0.15); box-shadow: 0 15px 30px rgba(0,0,0,0.3);
         }
+        .usecase-emoji { font-size: 3.5rem; margin-bottom: 1.25rem; transition: transform 0.3s ease; display: block; }
+        .usecase-card:hover .usecase-emoji { transform: scale(1.1) rotate(5deg); }
+        .usecase-card h3 { font-size: 1.15rem; color: var(--heading); margin-bottom: 0.75rem; font-weight: 600; }
+        .usecase-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
 
-        .usecase-card h3 {
-            font-size: 1rem;
-            color: var(--heading);
-            margin-bottom: 0.4rem;
-        }
-
-        .usecase-card p {
-            font-size: 0.85rem;
-            color: var(--muted);
-        }
-
-        /* Security */
-        .security-badges {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
+        .security-badges { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
         .security-badge {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            flex: 1;
-            min-width: 280px;
-            max-width: 340px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%); border: 1px solid var(--border);
+            border-radius: 20px; padding: 2.25rem; display: flex; align-items: flex-start; gap: 1.25rem; flex: 1; min-width: 320px; max-width: 380px; transition: all 0.3s ease;
         }
+        .security-badge:hover { border-color: rgba(255,255,255,0.2); transform: translateY(-4px); box-shadow: 0 15px 30px rgba(0,0,0,0.3); }
+        .badge-icon { width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(255,255,255,0.1); }
+        .badge-icon svg { width: 28px; height: 28px; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+        .badge-icon.b-local { background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(56, 189, 248, 0.2)); } .badge-icon.b-local svg { stroke: #38bdf8; }
+        .badge-icon.b-byok { background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(192, 132, 252, 0.2)); } .badge-icon.b-byok svg { stroke: #c084fc; }
+        .badge-icon.b-models { background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(74, 222, 128, 0.2)); } .badge-icon.b-models svg { stroke: #4ade80; }
+        .badge-text h4 { font-size: 1.1rem; color: var(--heading); margin-bottom: 0.5rem; font-weight: 600; }
+        .badge-text p { font-size: 0.95rem; color: var(--muted); line-height: 1.5; }
 
-        .badge-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .badge-icon svg {
-            width: 24px;
-            height: 24px;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            fill: none;
-        }
-
-        .badge-icon.b-local {
-            background: #0c4a6e;
-        }
-
-        .badge-icon.b-local svg {
-            stroke: #38bdf8;
-        }
-
-        .badge-icon.b-byok {
-            background: #4a1d6e;
-        }
-
-        .badge-icon.b-byok svg {
-            stroke: #c084fc;
-        }
-
-        .badge-icon.b-models {
-            background: #14532d;
-        }
-
-        .badge-icon.b-models svg {
-            stroke: #4ade80;
-        }
-
-        .badge-text h4 {
-            font-size: 0.95rem;
-            color: var(--heading);
-            margin-bottom: 0.2rem;
-        }
-
-        .badge-text p {
-            font-size: 0.85rem;
-            color: var(--muted);
-        }
-
-        .security-checks {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .check-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
-            color: var(--fg);
-        }
-
+        .security-checks { display: flex; justify-content: center; gap: 3rem; margin-top: 4rem; flex-wrap: wrap; }
+        .check-item { display: flex; align-items: center; gap: 0.75rem; font-size: 1.05rem; color: var(--fg); font-weight: 500; }
         .check-circle {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: #10b981;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
+            width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 10px rgba(16, 185, 129, 0.4);
         }
+        .check-circle svg { width: 16px; height: 16px; stroke: white; stroke-width: 3; fill: none; }
 
-        .check-circle svg {
-            width: 14px;
-            height: 14px;
-            stroke: white;
-            stroke-width: 3;
-            fill: none;
-        }
-
-        /* CTA */
         .cta {
-            text-align: center;
-            padding: 5rem 1.5rem;
-            background: linear-gradient(180deg, var(--bg) 0%, #111827 50%, var(--bg) 100%);
+            text-align: center; padding: 8rem 1.5rem;
+            background: radial-gradient(ellipse at top, rgba(255,255,255,0.03) 0%, transparent 70%);
+            border-top: 1px solid var(--border); position: relative;
         }
+        .cta h2 { font-size: 2.75rem; font-weight: 800; color: var(--heading); margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+        .cta p { color: var(--muted); margin-bottom: 3.5rem; font-size: 1.15rem; max-width: 550px; margin-left: auto; margin-right: auto; }
+        .cta .appstore-badge img { height: 60px; }
 
-        .cta h2 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--heading);
-            margin-bottom: 1rem;
-        }
+        .footer { max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; }
+        .footer-links { display: flex; gap: 2.5rem; }
+        .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.95rem; transition: color 0.2s ease; }
+        .footer-links a:hover { color: var(--fg); }
+        .footer-copy { color: var(--muted); font-size: 0.95rem; }
 
-        .cta p {
-            color: var(--muted);
-            margin-bottom: 2rem;
-            font-size: 0.95rem;
-        }
+        .feature-card.full-width { grid-column: 1 / -1; display: flex; align-items: center; gap: 2.5rem; }
+        .feature-card.full-width .feature-icon { flex-shrink: 0; margin-bottom: 0; width: 80px; height: 80px; border-radius: 20px; }
+        .feature-card.full-width svg { width: 40px; height: 40px; }
 
-        .cta .appstore-badge img {
-            height: 56px;
-        }
-
-        /* Footer */
-        .footer {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
-            border-top: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .footer-links a {
-            color: var(--muted);
-            text-decoration: none;
-            font-size: 0.85rem;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent);
-        }
-
-        .footer-copy {
-            color: var(--muted);
-            font-size: 0.85rem;
-        }
-
-        /* Feature card that spans full width (5th card) */
-        .feature-card.full-width {
-            grid-column: 1 / -1;
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            .hero {
-                padding: 6rem 1rem 3rem;
-            }
+            .hero { padding: 8rem 1rem 4.5rem; }
+            .hero h1 { font-size: 2.4rem; }
+            .hero p { font-size: 1.1rem; }
+            .features-grid { grid-template-columns: 1fr; }
+            .feature-card.full-width { grid-column: auto; flex-direction: column; text-align: center; gap: 1.5rem; }
+            .feature-card.full-width .feature-icon { width: 64px; height: 64px; }
+            .security-badges { flex-direction: column; align-items: center; }
+            .security-badge { max-width: 100%; flex-direction: column; text-align: center; align-items: center; }
+            .security-checks { flex-direction: column; align-items: center; gap: 1.5rem; }
+            .usecases-grid { grid-template-columns: 1fr; }
+            .footer { flex-direction: column; text-align: center; }
+            .cta h2 { font-size: 2rem; }
+            .btn-download-text { display: none; }
+        }
 
-            .hero h1 {
-                font-size: 1.8rem;
-            }
+        /* Animation System */
+        .reveal-stagger { opacity: 0; transform: translateY(20px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-stagger.reveal-active { opacity: 1; transform: translateY(0); }
+        
+        @keyframes ambient-glow {
+            0% { transform: translate(-20%, -20%) scale(1); }
+            50% { transform: translate(10%, 10%) scale(1.1); }
+            100% { transform: translate(-20%, -20%) scale(1); }
+        }
 
-            .hero p {
-                font-size: 1rem;
-            }
+        /* Hero Enhancements */
+        .hero { position: relative; overflow: hidden; padding: 8rem 1.5rem 4rem; }
+        .hero::before, .hero::after {
+            content: ''; position: absolute; width: 60vw; height: 60vw; border-radius: 50%;
+            filter: blur(120px); opacity: 0.08; z-index: -1; pointer-events: none;
+            animation: ambient-glow 20s infinite ease-in-out;
+        }
+        .hero::before { background: var(--accent); top: -20%; left: -20%; }
+        .hero::after { background: #4f46e5; bottom: -10%; right: -20%; animation-delay: -10s; }
 
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
+        .gradient-text {
+            background: linear-gradient(135deg, #a78bfa 0%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+        }
 
-            .feature-card.full-width {
-                grid-column: auto;
-            }
+        .hero-icon { transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        .hero-icon:hover { transform: scale(1.1) rotate(5deg); }
 
-            .security-badges {
-                flex-direction: column;
-                align-items: center;
-            }
+        .hero-screenshot-container { 
+            perspective: 1000px;
+            margin-top: 5rem;
+        }
+        .hero-screenshot {
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+            transform: rotateX(2deg);
+        }
+        .hero-screenshot:hover {
+            transform: rotateX(0deg) scale(1.02);
+            box-shadow: 0 50px 100px rgba(0,0,0,0.7);
+        }
 
-            .security-badge {
-                max-width: 100%;
-            }
+        /* Hero Shine Effect (Full Width Seamless Loop) */
+        @keyframes shine {
+            0% { transform: translateX(-150%) skewX(-25deg); }
+            100% { transform: translateX(250%) skewX(-25deg); }
+        }
+        .hero-shine {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 1; pointer-events: none; overflow: hidden;
+        }
+        .hero-shine::before, .hero-shine::after {
+            content: ''; position: absolute; top: 0; left: 0; width: 40%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.06), transparent);
+            animation: shine 20s linear infinite;
+        }
+        .hero-shine::after {
+            animation-delay: -10s;
+        }
 
-            .security-checks {
-                flex-direction: column;
-                align-items: center;
-            }
+        /* Showcase */
+        .showcase-section { max-width: 1200px; margin: 0 auto; padding: 4rem 1.5rem; }
+        .showcase-row { display: flex; align-items: center; gap: 4rem; margin-bottom: 8rem; }
+        .showcase-row:nth-child(even) { flex-direction: row-reverse; }
+        .showcase-row:last-child { margin-bottom: 0; }
+        .showcase-img-container { flex: 1; position: relative; transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); overflow: hidden; border-radius: 16px; }
+        .showcase-img-container::before {
+            content: ''; position: absolute; top: 15%; left: 15%; right: 15%; bottom: 15%;
+            background: var(--accent); filter: blur(80px); opacity: 0.1; z-index: -1; border-radius: 50%;
+        }
+        .showcase-img { width: 100%; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); display: block; }
+        .showcase-row:hover .showcase-img-container { transform: translateY(-8px) scale(1.02); }
+        .showcase-content { flex: 1; }
+        .showcase-content h3 { font-size: 2rem; font-weight: 700; color: var(--heading); margin-bottom: 1.25rem; line-height: 1.3; font-family: 'Inter', sans-serif; letter-spacing: -0.02em; }
+        .showcase-content p { font-size: 1.1rem; color: var(--muted); line-height: 1.7; }
 
-            .usecases-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        /* Focus Enhancements */
+        .showcase-img.focus-left {
+            object-fit: cover;
+            object-position: left center;
+            height: 440px;
+        }
+        .showcase-img.focus-right {
+            object-fit: cover;
+            object-position: right center;
+            height: 440px;
+        }
+        .showcase-row-focus-left .showcase-img-container::after {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to right, transparent 25%, var(--bg) 85%);
+            pointer-events: none;
+            border-radius: 16px;
+        }
+        .showcase-row-focus-right .showcase-img-container::after {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to left, transparent 25%, var(--bg) 85%);
+            pointer-events: none;
+            border-radius: 16px;
+        }
 
-            .footer {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .cta h2 {
-                font-size: 1.4rem;
-            }
-
-            .btn-download-text {
-                display: none;
-            }
+        @media (max-width: 900px) {
+            .showcase-row, .showcase-row:nth-child(even) { flex-direction: column; gap: 2.5rem; margin-bottom: 5rem; text-align: center; }
+            .showcase-content h3 { font-size: 1.75rem; }
         }
     </style>
 
@@ -600,7 +448,7 @@
                     <option value="hi">हिन्दी</option>
                     <option value="zh-CN">中文</option>
                 </select>
-                <a href="https://apps.apple.com/jp/app/teeby/id6759851366" class="btn-download">
+                <a href="https://apps.apple.com/jp/app/teeby/id6759851366?mt=12" class="btn-download">
                     <span class="btn-download-text">Download</span>
                     <span style="display:none" class="btn-download-icon">↓</span>
                 </a>
@@ -610,13 +458,14 @@
 
     <!-- Hero -->
     <section class="hero">
-        <img src="../appstore/app-icon.png" alt="Teeby" class="hero-icon">
+        <div class="hero-shine"></div>
+        <img src="../appstore/app-icon.png" alt="Teeby" class="hero-icon reveal-stagger">
 
         <!-- Japanese -->
         <!-- English -->
         
-            <h1>Safe &amp; Simple<br>AI Notes for Everyone</h1>
-            <p>Fully local storage. Runs on your own API key. An app for macOS and iPad where AI leverages your past notes to help create documents with full context.</p>
+            <h1 class="reveal-stagger">Safe &amp; Simple<br><span class="gradient-text">AI Notes</span> for Everyone</h1>
+            <p class="reveal-stagger">Fully local storage. Runs on your own API key. A macOS app where AI leverages your past notes to help create documents with full context.</p>
         
         <!-- Korean -->
         <!-- German -->
@@ -628,11 +477,12 @@
         <!-- Hindi -->
         <!-- Chinese -->
 
-        <a href="https://apps.apple.com/jp/app/teeby/id6759851366" class="appstore-badge">
-            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
+        <a href="https://apps.apple.com/jp/app/teeby/id6759851366?mt=12" class="appstore-badge reveal-stagger">
+            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-mac-app-store/black/en-us?size=250x83" alt="Download on the Mac App Store">
         </a>
-        <br>
-        <img src="../appstore/screenshot-hero.png" alt="Teeby App Screenshot" class="hero-screenshot" loading="eager">
+        <div class="hero-screenshot-container reveal-stagger">
+            <img src="../appstore/screenshot-hero.png" alt="Teeby App Screenshot" class="hero-screenshot" loading="eager">
+        </div>
     </section>
 
     <!-- Features -->
@@ -701,22 +551,8 @@
                     <p>Choose the best model from Gemini / Claude. BYOK — use your own API key.</p>
             </div>
 
-            <!-- Feature 5: Task Management -->
-            <div class="feature-card">
-                <div class="feature-icon tasks">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" />
-                        <rect x="9" y="3" width="6" height="4" rx="1" />
-                        <path d="M9 14l2 2 4-4" />
-                    </svg>
-                </div>
-
-                    <h3>Task Management with AI</h3>
-                    <p>Manage tasks in kanban style. AI understands your task status, enabling context-aware support aligned with your note-taking workflow.</p>
-            </div>
-
-            <!-- Feature 6: Local Storage -->
-            <div class="feature-card">
+            <!-- Feature 5: Local Storage (full width) -->
+            <div class="feature-card full-width">
                 <div class="feature-icon local">
                     <svg viewBox="0 0 24 24">
                         <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
@@ -726,7 +562,70 @@
                 </div>
                 
                     <h3>Fully Local Storage</h3>
-                    <p>All data stored only on your device. Nothing ever uploaded to external servers. Handle confidential information with confidence.</p>
+                    <p>All data stored only on your Mac. Nothing ever uploaded to external servers. Handle confidential information with confidence.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showcase Sections -->
+    <section class="section showcase-section">
+        <!-- 01: Simple UI -->
+        <div class="showcase-row reveal-hidden">
+            <div class="showcase-img-container">
+                <img src="../appstore/raw/01.png" alt="Teeby Interface 1" class="showcase-img" loading="lazy">
+            </div>
+            <div class="showcase-content">
+                
+                    <h3>AI Notes Made Simple<br>for Everyone</h3>
+                    <p>Jot down ideas and let AI do the rest. A simple interface gets out of your way so you can focus on writing.</p>
+            </div>
+        </div>
+
+        <!-- 02: Collaboration -->
+        <div class="showcase-row reveal-hidden">
+            <div class="showcase-img-container">
+                <img src="../appstore/raw/02.png" alt="Teeby Interface 2" class="showcase-img" loading="lazy">
+            </div>
+            <div class="showcase-content">
+                
+                    <h3>Create Documents<br>Effortlessly with AI</h3>
+                    <p>Open a chat right next to your notes. Ask AI to draft, rewrite, or brainstorm with you to speed up your workflow.</p>
+            </div>
+        </div>
+
+        <!-- 03: Smart Context -->
+        <div class="showcase-row showcase-row-focus-left reveal-hidden">
+            <div class="showcase-img-container">
+                <img src="../appstore/raw/03.png" alt="Teeby Interface 3" class="showcase-img focus-left" loading="lazy">
+            </div>
+            <div class="showcase-content">
+                
+                    <h3>Gets Smarter<br>the More You Use It</h3>
+                    <p>Automatically pulls in your past notes and files as context. You don’t need to repeat yourself or set up complex rules.</p>
+            </div>
+        </div>
+
+        <!-- 04: AI Agents -->
+        <div class="showcase-row showcase-row-focus-right reveal-hidden">
+            <div class="showcase-img-container">
+                <img src="../appstore/raw/04.png" alt="Teeby Interface 4" class="showcase-img focus-right" loading="lazy">
+            </div>
+            <div class="showcase-content">
+                
+                    <h3>An AI Agent with<br>Versatile Skills</h3>
+                    <p>Use specialized AI agents for different tasks like summarizing, translating, researching, or explaining code.</p>
+            </div>
+        </div>
+
+        <!-- 05: Privacy -->
+        <div class="showcase-row reveal-hidden">
+            <div class="showcase-img-container">
+                <img src="../appstore/raw/05.png" alt="Teeby Interface 5" class="showcase-img" loading="lazy">
+            </div>
+            <div class="showcase-content">
+                
+                    <h3>Your Data Stays Local,<br>Safe and Secure</h3>
+                    <p>Your notes are never stored on external servers. Secure BYOK (Bring Your Own Key) model connects directly to providers.</p>
             </div>
         </div>
     </section>
@@ -805,7 +704,7 @@
                 <div class="badge-text">
                     
                         <h4>Fully Local Storage</h4>
-                        <p>Data stays on your device only</p>
+                        <p>Data stays on your Mac only</p>
                 </div>
             </div>
 
@@ -866,9 +765,9 @@
         
             <h2>Start creating notes with AI. Download Teeby today.</h2>
             <p>Free to get started</p>
-        <a href="https://apps.apple.com/jp/app/teeby/id6759851366" class="appstore-badge">
-            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
-                alt="Download on the App Store">
+        <a href="https://apps.apple.com/jp/app/teeby/id6759851366?mt=12" class="appstore-badge">
+            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-mac-app-store/black/en-us?size=250x83"
+                alt="Download on the Mac App Store">
         </a>
     </section>
 
@@ -887,6 +786,42 @@
         </div>
         <div class="footer-copy">&copy; 2026 Akinori Tokita. All rights reserved.</div>
     </footer>
+
+    <!-- Animation Logic (Preserved during generation) -->
+    <script id="animation-script">
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Elements to animate
+        document.querySelectorAll('.hero, .section-title, .feature-card, .usecase-card, .security-badge, .cta, .showcase-row').forEach(el => {
+            if (!el.classList.contains('reveal-hidden')) {
+                el.classList.add('reveal-hidden');
+            }
+            observer.observe(el);
+        });
+
+        // Hero staggered load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelectorAll('.hero .reveal-stagger').forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('reveal-active');
+                    }, index * 100);
+                });
+            }, 300);
+        });
+    </script>
 </body>
 
 </html>
