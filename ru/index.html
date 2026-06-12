@@ -9,8 +9,9 @@
     <meta name="keywords" content="ИИ,заметки,Mac,iPad,macOS,iPadOS,BYOK,Gemini,Claude,Deep Research,глубокое исследование,локальное хранение,Markdown,продуктивность,приложение для заметок с ИИ,планирование,управление задачами,второе мнение,приватность">
     <meta name="author" content="Akinori Tokita">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-    <meta name="theme-color" content="#faf8f3">
-    <meta name="color-scheme" content="light">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#faf8f3">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#181613">
+    <meta name="color-scheme" content="light dark">
     <meta name="application-name" content="Teeby">
     <meta name="apple-mobile-web-app-title" content="Teeby">
     <meta name="generator" content="Teeby">
@@ -656,6 +657,67 @@
             .features { padding: 60px 0 80px; }
             .showcase, .usecases, .privacy, .cta { padding: 80px 0; }
         }
+    
+        /* ------------------------------------------------------------------
+         * DARK MODE (OS設定に追従)
+         * ------------------------------------------------------------------ */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --paper: #181613;
+                --paper-2: #211e1a;
+                --ink: #ece8df;
+                --ink-2: #b8b2a6;
+                --ink-3: #8b877e;
+                --line: #322e28;
+                --line-2: #453f36;
+                --accent: #8b7fff;
+                --accent-ink: #b3a8ff;
+                --accent-wash: rgba(107, 92, 255, 0.16);
+                --highlight: rgba(255, 220, 90, 0.28);
+                --green: #5fb98a;
+            }
+            body::before {
+                background-image: radial-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+                mix-blend-mode: normal;
+            }
+            .nav { background: rgba(24, 22, 19, 0.85); }
+            .btn:hover { background: #fff; }
+            .device-chip,
+            .context-chip,
+            .plan-row,
+            .model-row,
+            .skill-pill,
+            .faq-item,
+            .uc,
+            .card,
+            .coedit-doc {
+                background: #211e1a;
+            }
+            .card-coedit,
+            .card-research { background: var(--paper-2); }
+            .hero-shot-frame,
+            .sc-img {
+                background: #211e1a;
+                box-shadow:
+                    0 30px 60px -20px rgba(0, 0, 0, 0.55),
+                    0 12px 24px -12px rgba(0, 0, 0, 0.4);
+            }
+            .brand img { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
+            .coedit-line .human-add { background: rgba(255, 226, 110, 0.22); color: var(--ink); }
+            .hero-sticky-note { background: #e8cf6a; }
+            .research-stat { background: rgba(255, 255, 255, 0.08); }
+            .card-local { border-color: var(--line-2); }
+            .privacy { background: #131110; }
+            .sc-img-wrap.focus-right .mask {
+                background: linear-gradient(to left, transparent 0%, transparent 35%, rgba(33, 30, 26, 0.6) 65%, rgba(33, 30, 26, 0.95) 90%);
+            }
+            .sc-img-wrap.focus-left .mask {
+                background: linear-gradient(to right, transparent 0%, transparent 38%, rgba(33, 30, 26, 0.6) 65%, rgba(33, 30, 26, 0.95) 90%);
+            }
+            .sc-img-wrap.focus-center .mask {
+                background: linear-gradient(to right, rgba(33, 30, 26, 0.92) 0%, rgba(33, 30, 26, 0.3) 22%, transparent 38%, transparent 62%, rgba(33, 30, 26, 0.3) 78%, rgba(33, 30, 26, 0.92) 100%);
+            }
+        }
     </style>
 
     <!-- Google Analytics -->
@@ -680,7 +742,7 @@
                 <a href="#features" class="nav-link">Возможности</a>
                 <a href="#usecases" class="nav-link">Сценарии</a>
                 <a href="#faq" class="nav-link">FAQ</a>
-                <select class="lang-select" onchange="window.location.href='/' + this.value + '/'">
+                <select class="lang-select" aria-label="Выбрать язык" onchange="window.location.href='/' + this.value + '/'">
                     <option value="ja">日本語</option>
                     <option value="en">English</option>
                     <option value="ko">한국어</option>
@@ -919,7 +981,7 @@
                     <div class="sc-quote">«Просто оставляешь записи — а на выходе уже читаемый документ».</div>
                 </div>
                 <div class="sc-img sc-img-wrap focus-center">
-                    <img src="../appstore/raw/01.png" alt="Простой экран заметки в Teeby" loading="lazy">
+                    <img src="../appstore/raw/01.png" alt="Простой экран заметки в Teeby" loading="lazy" decoding="async">
                     <div class="mask"></div>
                     <div class="pin" style="top: 18%; left: 50%; transform: translateX(-50%);">Простой UI — сразу за дело</div>
                 </div>
@@ -933,7 +995,7 @@
                     <p>Чат стоит прямо рядом с текстом: попросите ИИ написать черновик или подправить фразу — и он на лету превратит ваши мысли в готовый документ.</p>
                 </div>
                 <div class="sc-img sc-img-wrap focus-right">
-                    <img src="../appstore/raw/02.png" alt="ИИ-чат рядом с документом" loading="lazy">
+                    <img src="../appstore/raw/02.png" alt="ИИ-чат рядом с документом" loading="lazy" decoding="async">
                     <div class="mask"></div>
                     <div class="pin" style="top: 8%; right: 6%;">Совместная работа с ИИ рядом с документом</div>
                 </div>
@@ -947,7 +1009,7 @@
                     <p>ИИ автоматически подхватывает заметки и файлы того же проекта. Вручную пересылать «вот это тоже почитай, прежде чем ответить» больше не нужно.</p>
                 </div>
                 <div class="sc-img sc-img-wrap focus-left">
-                    <img src="../appstore/raw/03.png" alt="Автоматическое обращение к связанным заметкам" loading="lazy">
+                    <img src="../appstore/raw/03.png" alt="Автоматическое обращение к связанным заметкам" loading="lazy" decoding="async">
                     <div class="mask"></div>
                     <div class="pin" style="top: 22%; left: 8%;">Связанные заметки подтягиваются сами</div>
                 </div>
@@ -961,7 +1023,7 @@
                     <p>Поиск в Web, Deep Research, сквозной поиск по заметкам, планирование, задачи, второе мнение. ИИ читает контекст и сам выбирает, какой инструмент сейчас уместен.</p>
                 </div>
                 <div class="sc-img sc-img-wrap focus-right">
-                    <img src="../appstore/raw/04.png" alt="ИИ переключается между разными инструментами" loading="lazy">
+                    <img src="../appstore/raw/04.png" alt="ИИ переключается между разными инструментами" loading="lazy" decoding="async">
                     <div class="mask"></div>
                     <div class="pin" style="top: 14%; right: 6%;">ИИ сам подбирает инструмент</div>
                 </div>
@@ -975,7 +1037,7 @@
                     <p>Содержимое заметок остаётся только на вашем Mac или iPad. Запросы к ИИ идут с вашим API-ключом напрямую в Gemini / Claude — без серверов Teeby между вами.</p>
                 </div>
                 <div class="sc-img sc-img-wrap">
-                    <img src="../appstore/raw/05.png" alt="Локальное хранение и приватность" loading="lazy">
+                    <img src="../appstore/raw/05.png" alt="Локальное хранение и приватность" loading="lazy" decoding="async">
                     <div class="pin" style="top: 6%; left: 50%; transform: translateX(-50%);">Формат хранения — Markdown</div>
                 </div>
             </div>

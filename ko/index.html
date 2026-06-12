@@ -9,8 +9,9 @@
     <meta name="keywords" content="AI,노트,메모,Mac,iPad,macOS,iPadOS,BYOK,Gemini,Claude,Deep Research,로컬 저장,Markdown,생산성,AI 노트 앱,계획 수립,작업 관리,세컨드 오피니언,프라이버시">
     <meta name="author" content="Akinori Tokita">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-    <meta name="theme-color" content="#faf8f3">
-    <meta name="color-scheme" content="light">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#faf8f3">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#181613">
+    <meta name="color-scheme" content="light dark">
     <meta name="application-name" content="Teeby">
     <meta name="apple-mobile-web-app-title" content="Teeby">
     <meta name="generator" content="Teeby">
@@ -656,6 +657,67 @@
             .features { padding: 60px 0 80px; }
             .showcase, .usecases, .privacy, .cta { padding: 80px 0; }
         }
+    
+        /* ------------------------------------------------------------------
+         * DARK MODE (OS設定に追従)
+         * ------------------------------------------------------------------ */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --paper: #181613;
+                --paper-2: #211e1a;
+                --ink: #ece8df;
+                --ink-2: #b8b2a6;
+                --ink-3: #8b877e;
+                --line: #322e28;
+                --line-2: #453f36;
+                --accent: #8b7fff;
+                --accent-ink: #b3a8ff;
+                --accent-wash: rgba(107, 92, 255, 0.16);
+                --highlight: rgba(255, 220, 90, 0.28);
+                --green: #5fb98a;
+            }
+            body::before {
+                background-image: radial-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+                mix-blend-mode: normal;
+            }
+            .nav { background: rgba(24, 22, 19, 0.85); }
+            .btn:hover { background: #fff; }
+            .device-chip,
+            .context-chip,
+            .plan-row,
+            .model-row,
+            .skill-pill,
+            .faq-item,
+            .uc,
+            .card,
+            .coedit-doc {
+                background: #211e1a;
+            }
+            .card-coedit,
+            .card-research { background: var(--paper-2); }
+            .hero-shot-frame,
+            .sc-img {
+                background: #211e1a;
+                box-shadow:
+                    0 30px 60px -20px rgba(0, 0, 0, 0.55),
+                    0 12px 24px -12px rgba(0, 0, 0, 0.4);
+            }
+            .brand img { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
+            .coedit-line .human-add { background: rgba(255, 226, 110, 0.22); color: var(--ink); }
+            .hero-sticky-note { background: #e8cf6a; }
+            .research-stat { background: rgba(255, 255, 255, 0.08); }
+            .card-local { border-color: var(--line-2); }
+            .privacy { background: #131110; }
+            .sc-img-wrap.focus-right .mask {
+                background: linear-gradient(to left, transparent 0%, transparent 35%, rgba(33, 30, 26, 0.6) 65%, rgba(33, 30, 26, 0.95) 90%);
+            }
+            .sc-img-wrap.focus-left .mask {
+                background: linear-gradient(to right, transparent 0%, transparent 38%, rgba(33, 30, 26, 0.6) 65%, rgba(33, 30, 26, 0.95) 90%);
+            }
+            .sc-img-wrap.focus-center .mask {
+                background: linear-gradient(to right, rgba(33, 30, 26, 0.92) 0%, rgba(33, 30, 26, 0.3) 22%, transparent 38%, transparent 62%, rgba(33, 30, 26, 0.3) 78%, rgba(33, 30, 26, 0.92) 100%);
+            }
+        }
     </style>
 
     <!-- Google Analytics -->
@@ -680,7 +742,7 @@
                 <a href="#features" class="nav-link">기능</a>
                 <a href="#usecases" class="nav-link">활용법</a>
                 <a href="#faq" class="nav-link">FAQ</a>
-                <select class="lang-select" onchange="window.location.href='/' + this.value + '/'">
+                <select class="lang-select" aria-label="언어 선택" onchange="window.location.href='/' + this.value + '/'">
                     <option value="ja">日本語</option>
                     <option value="en">English</option>
                     <option value="ko" selected>한국어</option>
@@ -919,7 +981,7 @@
                     <div class="sc-quote">"메모만 남겨도, 제대로 읽히는 문서가 되어 있다."</div>
                 </div>
                 <div class="sc-img sc-img-wrap focus-center">
-                    <img src="../appstore/raw/01.png" alt="Teeby의 깔끔한 노트 화면" loading="lazy">
+                    <img src="../appstore/raw/01.png" alt="Teeby의 깔끔한 노트 화면" loading="lazy" decoding="async">
                     <div class="mask"></div>
                     <div class="pin" style="top: 18%; left: 50%; transform: translateX(-50%);">간결한 UI로 즉시 시작</div>
                 </div>
@@ -933,7 +995,7 @@
                     <p>본문 옆 채팅에서 초안 작성도, 문장 다듬기도 그 자리에서 AI에게 부탁. 당신의 생각을 AI가 잇따라 문서에 옮겨 담습니다.</p>
                 </div>
                 <div class="sc-img sc-img-wrap focus-right">
-                    <img src="../appstore/raw/02.png" alt="문서 옆에서 AI 채팅" loading="lazy">
+                    <img src="../appstore/raw/02.png" alt="문서 옆에서 AI 채팅" loading="lazy" decoding="async">
                     <div class="mask"></div>
                     <div class="pin" style="top: 8%; right: 6%;">문서 옆에서 AI와 협업</div>
                 </div>
@@ -947,7 +1009,7 @@
                     <p>같은 프로젝트의 노트와 파일을 AI가 자동으로 읽어 들입니다. "이것도 먼저 봐 줘"라고 하나하나 붙여 넣을 필요는 더 이상 없습니다.</p>
                 </div>
                 <div class="sc-img sc-img-wrap focus-left">
-                    <img src="../appstore/raw/03.png" alt="관련 노트를 자동으로 참조" loading="lazy">
+                    <img src="../appstore/raw/03.png" alt="관련 노트를 자동으로 참조" loading="lazy" decoding="async">
                     <div class="mask"></div>
                     <div class="pin" style="top: 22%; left: 8%;">관련 노트를 자동으로 읽어 들임</div>
                 </div>
@@ -961,7 +1023,7 @@
                     <p>웹 검색, Deep Research, 노트 횡단 검색, 계획 수립, 작업 관리, 세컨드 오피니언. AI가 문맥을 읽어 필요한 도구를 스스로 골라 씁니다.</p>
                 </div>
                 <div class="sc-img sc-img-wrap focus-right">
-                    <img src="../appstore/raw/04.png" alt="AI가 다양한 도구를 가려 쓰는 모습" loading="lazy">
+                    <img src="../appstore/raw/04.png" alt="AI가 다양한 도구를 가려 쓰는 모습" loading="lazy" decoding="async">
                     <div class="mask"></div>
                     <div class="pin" style="top: 14%; right: 6%;">AI가 도구를 가려 씀</div>
                 </div>
@@ -975,7 +1037,7 @@
                     <p>노트 본문은 Mac이나 iPad의 기기 안에만 저장. AI 요청은 본인의 API 키로 Gemini / Claude에 직접. Teeby 서버는 끼우지 않습니다.</p>
                 </div>
                 <div class="sc-img sc-img-wrap">
-                    <img src="../appstore/raw/05.png" alt="로컬 저장과 프라이버시" loading="lazy">
+                    <img src="../appstore/raw/05.png" alt="로컬 저장과 프라이버시" loading="lazy" decoding="async">
                     <div class="pin" style="top: 6%; left: 50%; transform: translateX(-50%);">저장 형식은 Markdown</div>
                 </div>
             </div>

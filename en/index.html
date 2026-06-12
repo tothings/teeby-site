@@ -9,8 +9,9 @@
     <meta name="keywords" content="AI,notes,note-taking,Mac,iPad,macOS,iPadOS,BYOK,Gemini,Claude,Deep Research,local-first,Markdown,productivity,AI notes app,planning,task management,second opinion,privacy">
     <meta name="author" content="Akinori Tokita">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-    <meta name="theme-color" content="#faf8f3">
-    <meta name="color-scheme" content="light">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#faf8f3">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#181613">
+    <meta name="color-scheme" content="light dark">
     <meta name="application-name" content="Teeby">
     <meta name="apple-mobile-web-app-title" content="Teeby">
     <meta name="generator" content="Teeby">
@@ -656,6 +657,67 @@
             .features { padding: 60px 0 80px; }
             .showcase, .usecases, .privacy, .cta { padding: 80px 0; }
         }
+    
+        /* ------------------------------------------------------------------
+         * DARK MODE (OS設定に追従)
+         * ------------------------------------------------------------------ */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --paper: #181613;
+                --paper-2: #211e1a;
+                --ink: #ece8df;
+                --ink-2: #b8b2a6;
+                --ink-3: #8b877e;
+                --line: #322e28;
+                --line-2: #453f36;
+                --accent: #8b7fff;
+                --accent-ink: #b3a8ff;
+                --accent-wash: rgba(107, 92, 255, 0.16);
+                --highlight: rgba(255, 220, 90, 0.28);
+                --green: #5fb98a;
+            }
+            body::before {
+                background-image: radial-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+                mix-blend-mode: normal;
+            }
+            .nav { background: rgba(24, 22, 19, 0.85); }
+            .btn:hover { background: #fff; }
+            .device-chip,
+            .context-chip,
+            .plan-row,
+            .model-row,
+            .skill-pill,
+            .faq-item,
+            .uc,
+            .card,
+            .coedit-doc {
+                background: #211e1a;
+            }
+            .card-coedit,
+            .card-research { background: var(--paper-2); }
+            .hero-shot-frame,
+            .sc-img {
+                background: #211e1a;
+                box-shadow:
+                    0 30px 60px -20px rgba(0, 0, 0, 0.55),
+                    0 12px 24px -12px rgba(0, 0, 0, 0.4);
+            }
+            .brand img { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
+            .coedit-line .human-add { background: rgba(255, 226, 110, 0.22); color: var(--ink); }
+            .hero-sticky-note { background: #e8cf6a; }
+            .research-stat { background: rgba(255, 255, 255, 0.08); }
+            .card-local { border-color: var(--line-2); }
+            .privacy { background: #131110; }
+            .sc-img-wrap.focus-right .mask {
+                background: linear-gradient(to left, transparent 0%, transparent 35%, rgba(33, 30, 26, 0.6) 65%, rgba(33, 30, 26, 0.95) 90%);
+            }
+            .sc-img-wrap.focus-left .mask {
+                background: linear-gradient(to right, transparent 0%, transparent 38%, rgba(33, 30, 26, 0.6) 65%, rgba(33, 30, 26, 0.95) 90%);
+            }
+            .sc-img-wrap.focus-center .mask {
+                background: linear-gradient(to right, rgba(33, 30, 26, 0.92) 0%, rgba(33, 30, 26, 0.3) 22%, transparent 38%, transparent 62%, rgba(33, 30, 26, 0.3) 78%, rgba(33, 30, 26, 0.92) 100%);
+            }
+        }
     </style>
 
     <!-- Google Analytics -->
@@ -680,7 +742,7 @@
                 <a href="#features" class="nav-link">Features</a>
                 <a href="#usecases" class="nav-link">How it's used</a>
                 <a href="#faq" class="nav-link">FAQ</a>
-                <select class="lang-select" onchange="window.location.href='/' + this.value + '/'">
+                <select class="lang-select" aria-label="Select language" onchange="window.location.href='/' + this.value + '/'">
                     <option value="ja">日本語</option>
                     <option value="en" selected>English</option>
                     <option value="ko">한국어</option>
@@ -919,7 +981,7 @@
                     <div class="sc-quote">"Just by leaving notes, I end up with a document that actually reads well."</div>
                 </div>
                 <div class="sc-img sc-img-wrap focus-center">
-                    <img src="../appstore/raw/01.png" alt="The clean Teeby note screen" loading="lazy">
+                    <img src="../appstore/raw/01.png" alt="The clean Teeby note screen" loading="lazy" decoding="async">
                     <div class="mask"></div>
                     <div class="pin" style="top: 18%; left: 50%; transform: translateX(-50%);">Simple UI — start right away</div>
                 </div>
@@ -933,7 +995,7 @@
                     <p>From the chat right beside the page, request a draft or a quick rewrite — and watch the AI shape your thinking into the document, line by line.</p>
                 </div>
                 <div class="sc-img sc-img-wrap focus-right">
-                    <img src="../appstore/raw/02.png" alt="AI chat alongside the document" loading="lazy">
+                    <img src="../appstore/raw/02.png" alt="AI chat alongside the document" loading="lazy" decoding="async">
                     <div class="mask"></div>
                     <div class="pin" style="top: 8%; right: 6%;">Work with AI right next to the document</div>
                 </div>
@@ -947,7 +1009,7 @@
                     <p>Notes and files from the same project are picked up automatically. No more pasting in "read this first" one item at a time.</p>
                 </div>
                 <div class="sc-img sc-img-wrap focus-left">
-                    <img src="../appstore/raw/03.png" alt="Related notes are referenced automatically" loading="lazy">
+                    <img src="../appstore/raw/03.png" alt="Related notes are referenced automatically" loading="lazy" decoding="async">
                     <div class="mask"></div>
                     <div class="pin" style="top: 22%; left: 8%;">Related notes are loaded automatically</div>
                 </div>
@@ -961,7 +1023,7 @@
                     <p>Web search, Deep Research, cross-note search, planning, task management, second opinion. The AI reads the situation and chooses the tool itself.</p>
                 </div>
                 <div class="sc-img sc-img-wrap focus-right">
-                    <img src="../appstore/raw/04.png" alt="The AI switching between tools" loading="lazy">
+                    <img src="../appstore/raw/04.png" alt="The AI switching between tools" loading="lazy" decoding="async">
                     <div class="mask"></div>
                     <div class="pin" style="top: 14%; right: 6%;">AI switches between tools as needed</div>
                 </div>
@@ -975,7 +1037,7 @@
                     <p>Note contents live only on your Mac or iPad. AI requests go to Gemini / Claude directly with your own API key. No Teeby server in between.</p>
                 </div>
                 <div class="sc-img sc-img-wrap">
-                    <img src="../appstore/raw/05.png" alt="Local storage and privacy" loading="lazy">
+                    <img src="../appstore/raw/05.png" alt="Local storage and privacy" loading="lazy" decoding="async">
                     <div class="pin" style="top: 6%; left: 50%; transform: translateX(-50%);">Stored as Markdown</div>
                 </div>
             </div>
