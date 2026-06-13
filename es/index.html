@@ -9,8 +9,8 @@
     <meta name="keywords" content="IA,notas,memo,Mac,iPad,macOS,iPadOS,BYOK,Gemini,Claude,Deep Research,investigación profunda,almacenamiento local,Markdown,productividad,app de notas con IA,planificación,gestión de tareas,segunda opinión,privacidad">
     <meta name="author" content="Akinori Tokita">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#faf8f3">
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#181613">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
     <meta name="color-scheme" content="light dark">
     <meta name="application-name" content="Teeby">
     <meta name="apple-mobile-web-app-title" content="Teeby">
@@ -186,7 +186,7 @@
                 "name": "¿Qué modelos de IA admite?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Compatible con Gemini 3.1 Pro / 3 Flash / 3.1 Flash Lite y Claude Opus 4.7 / Sonnet 4.6. Puedes elegir entre el modo automático (que decide cada vez el modelo idóneo según el prompt) y la selección manual."
+                    "text": "Compatible con Gemini 3.5 Flash / 3.1 Flash Lite y Claude Opus 4.7 / Sonnet 4.6. Puedes elegir entre el modo automático (que decide cada vez el modelo idóneo según el prompt) y la selección manual."
                 }
             },
             {
@@ -201,524 +201,322 @@
     }
     </script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Noto+Sans:wght@400;500;700&family=Noto+Serif:wght@500;700&display=swap" rel="stylesheet">
-
     <style>
+        /* ============================================================
+         * Teeby LP — Mac ネイティブアプリのプロダクトサイト
+         * システムフォント／白基調／深い影／控えめな動き
+         * ============================================================ */
         :root {
-            --paper: #faf8f3;
-            --paper-2: #f3efe6;
-            --ink: #2b2a27;
-            --ink-2: #57554f;
-            --ink-3: #8b877e;
-            --line: #e8e2d4;
-            --line-2: #d9d1bc;
+            --bg: #ffffff;
+            --bg-2: #f5f5f7;
+            --bg-3: #ececef;
+            --ink: #1d1d1f;
+            --ink-2: #515154;
+            --ink-3: #86868b;
+            --line: #d2d2d7;
+            --line-2: #e8e8ed;
             --accent: #6b5cff;
-            --accent-ink: #3b2fb0;
-            --accent-wash: #eeeaff;
-            --highlight: #fff2a8;
-            --warm: #e9a86b;
-            --green: #3d8a5f;
+            --accent-2: #5646e8;
+            --accent-wash: #f1eeff;
+            --radius: 18px;
+            --maxw: 1080px;
+            --ease: cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        html, body { background: var(--paper); color: var(--ink); font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; -webkit-font-smoothing: antialiased; font-feature-settings: "palt"; }
-        body { line-height: 1.7; }
-        .serif { font-family: 'Instrument Serif', 'Noto Serif', serif; font-weight: 400; letter-spacing: -0.01em; }
-        .serif-jp { font-family: 'Noto Serif', serif; }
+
+        html { scroll-behavior: smooth; }
+        body {
+            background: var(--bg);
+            color: var(--ink);
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+            font-size: 17px;
+            line-height: 1.6;
+            letter-spacing: 0.01em;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
         a { color: inherit; text-decoration: none; }
-        img { max-width: 100%; }
-        :lang(es) h1, :lang(es) h2, :lang(es) h3, :lang(es) h4, :lang(es) h5,
-        :lang(es) .hero-sub, :lang(es) .pitch-lede, :lang(es) .privacy-lede,
-        :lang(es) .card p, :lang(es) .sc-row p, :lang(es) .uc p,
-        :lang(es) .cta p, :lang(es) .hero-tag, :lang(es) .hero-meta,
-        :lang(es) .nav-link, :lang(es) .btn, :lang(es) .card-label,
-        :lang(es) .skill-pill, :lang(es) .pin, :lang(es) .price-tag,
-        :lang(es) .sc-quote {
-            word-break: keep-all;
-            line-break: strict;
+        img { max-width: 100%; display: block; }
+
+        h1, h2, h3, h4 {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", system-ui, sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.022em;
+            line-height: 1.1;
+            color: var(--ink);
         }
 
-        /* subtle paper grain */
-        body::before {
-            content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
-            background-image: radial-gradient(rgba(120, 100, 60, 0.035) 1px, transparent 1px);
-            background-size: 3px 3px;
-            mix-blend-mode: multiply;
+        .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+        .accent { color: var(--accent); }
+
+        /* ---- scroll reveal ---- */
+        .reveal { opacity: 1; transform: none; }
+        .reveal.in { opacity: 1; transform: none; }
+        .reveal.d1 { transition-delay: .04s; }
+        .reveal.d2 { transition-delay: .08s; }
+        .reveal.d3 { transition-delay: .12s; }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .reveal { opacity: 1; transform: none; transition: none; }
         }
 
-        .wrap { max-width: 1120px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
-
-        /* NAV */
-        .nav {
-            position: sticky; top: 0; z-index: 50;
-            background: rgba(250, 248, 243, 0.85);
-            backdrop-filter: saturate(180%) blur(14px);
-            -webkit-backdrop-filter: saturate(180%) blur(14px);
-            border-bottom: 1px solid var(--line);
-        }
-        .nav-inner { max-width: 1120px; margin: 0 auto; padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-        .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 17px; letter-spacing: -0.01em; color: var(--ink); }
-        .brand img { width: 28px; height: 28px; border-radius: 7px; box-shadow: 0 1px 3px rgba(40, 30, 10, 0.18); display: block; }
-        .nav-right { display: flex; align-items: center; gap: 18px; }
-        .nav-link { font-size: 14px; color: var(--ink-2); }
-        .nav-link:hover { color: var(--ink); }
-        .lang-select { font-size: 13px; color: var(--ink-2); border: 1px solid var(--line-2); background: transparent; padding: 6px 10px; border-radius: 8px; cursor: pointer; font-family: inherit; }
-        .lang-select:hover { background: var(--paper-2); }
+        /* ---- buttons ---- */
         .btn {
-            display: inline-flex; align-items: center; gap: 6px;
-            background: var(--ink); color: var(--paper);
-            padding: 9px 16px; border-radius: 10px; font-size: 14px; font-weight: 500;
-            transition: transform .15s ease, background .15s ease;
+            display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+            font-size: 16px; font-weight: 500; line-height: 1;
+            padding: 13px 24px; border-radius: 980px;
+            background: var(--ink); color: var(--bg);
+            transition: transform .2s var(--ease), opacity .2s var(--ease), background .2s var(--ease);
         }
-        .btn:hover { background: #000; transform: translateY(-1px); }
-        .btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line-2); }
-        .btn.ghost:hover { background: var(--paper-2); }
+        .btn:hover { opacity: 0.88; transform: scale(1.02); }
+        .btn-ghost {
+            background: transparent; color: var(--ink);
+            box-shadow: inset 0 0 0 1px var(--line);
+        }
+        .btn-ghost:hover { background: var(--bg-2); opacity: 1; box-shadow: inset 0 0 0 1px var(--ink-3); }
+        .btn svg { width: 16px; height: 16px; }
 
-        /* HERO */
-        .hero { padding: 90px 0 40px; position: relative; }
-        .hero-tag {
-            display: inline-flex; align-items: center; gap: 8px;
-            background: var(--accent-wash); color: var(--accent-ink);
-            padding: 6px 12px; border-radius: 999px; font-size: 12.5px; font-weight: 500;
-            margin-bottom: 28px; border: 1px solid rgba(107, 92, 255, 0.15);
+        .appstore img { height: 50px; display: block; transition: transform .2s var(--ease); }
+        .appstore:hover img { transform: scale(1.03); }
+
+        /* ---- window frame for screenshots ---- */
+        .window {
+            border-radius: 14px; overflow: hidden;
+            background: var(--bg-2);
+            box-shadow: 0 1px 4px rgba(0,0,0,.05), 0 12px 28px -12px rgba(20,20,40,.18);
+            outline: 1px solid rgba(0,0,0,.06); outline-offset: -1px;
         }
-        .hero-tag .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px rgba(107, 92, 255, 0.2); }
+        .window img { width: 100%; }
+
+        /* =====================  NAV  ===================== */
+        .nav {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(255,255,255,0.93);
+            border-bottom: 1px solid transparent;
+            transition: border-color .3s var(--ease), background .3s var(--ease);
+        }
+        .nav.scrolled { border-bottom-color: var(--line-2); }
+        .nav-inner { max-width: 1180px; margin: 0 auto; padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+        .brand { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 19px; letter-spacing: -0.01em; }
+        .brand img { width: 26px; height: 26px; border-radius: 7px; }
+        .nav-links { display: flex; align-items: center; gap: 30px; }
+        .nav-link { font-size: 14.5px; color: var(--ink-2); transition: color .2s var(--ease); }
+        .nav-link:hover { color: var(--ink); }
+        .nav-right { display: flex; align-items: center; gap: 18px; }
+        .lang-select {
+            font-size: 13px; color: var(--ink-2); font-family: inherit;
+            border: 0; background: transparent; cursor: pointer; padding: 4px 2px;
+        }
+        .nav .btn { padding: 8px 17px; font-size: 14px; }
+
+        /* =====================  HERO  ===================== */
+        .hero { position: relative; text-align: center; padding: 88px 0 0; overflow: hidden; }
+        .hero::before {
+            content: ''; position: absolute; top: -180px; left: 50%; transform: translateX(-50%);
+            width: 1100px; height: 700px; pointer-events: none; z-index: -1;
+            background: radial-gradient(ellipse at center, rgba(107,92,255,0.10), rgba(107,92,255,0) 62%);
+        }
+        .hero-eyebrow { font-size: 15px; font-weight: 500; color: var(--accent); margin-bottom: 18px; letter-spacing: 0; }
         .hero h1 {
-            font-family: 'Noto Serif', serif; font-weight: 500;
-            font-size: clamp(38px, 5.8vw, 72px);
-            line-height: 1.15; letter-spacing: -0.025em;
-            margin-bottom: 28px; color: var(--ink);
-            max-width: 18ch;
-        }
-        .hero h1 .marker {
-            position: relative; display: inline-block; padding: 0 6px;
-            background: linear-gradient(180deg, transparent 55%, var(--highlight) 55%, var(--highlight) 95%, transparent 95%);
-        }
-        .hero h1 em {
-            font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400;
-            color: var(--accent); letter-spacing: 0;
+            font-size: clamp(40px, 6vw, 76px); line-height: 1.07; letter-spacing: -0.03em;
+            margin: 0 auto 24px; max-width: 16ch;
         }
         .hero-sub {
-            font-size: 19px; line-height: 1.75; color: var(--ink-2);
-            max-width: 560px; margin-bottom: 36px;
+            font-size: clamp(18px, 2.2vw, 21px); color: var(--ink-2); line-height: 1.55;
+            max-width: 34em; margin: 0 auto 34px; font-weight: 400;
         }
-        .hero-ctas { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
-        .hero-appstore { display: inline-flex; transition: transform .15s ease; }
-        .hero-appstore:hover { transform: translateY(-1px); }
-        .hero-appstore img { height: 50px; display: block; }
-        .hero-platforms { display: flex; gap: 10px; align-items: center; margin-top: 18px; flex-wrap: wrap; }
-        .device-chip {
-            display: inline-flex; align-items: center; gap: 7px;
-            background: #fff; border: 1px solid var(--line-2);
-            padding: 7px 14px; border-radius: 999px; font-size: 13px; color: var(--ink); font-weight: 500;
-        }
-        .device-chip svg { width: 16px; height: 16px; opacity: 0.85; }
-        .device-chip.universal { background: var(--accent-wash); border-color: rgba(107, 92, 255, 0.25); color: var(--accent-ink); }
-        .hero-meta { display: flex; gap: 18px; margin-top: 22px; color: var(--ink-3); font-size: 13px; flex-wrap: wrap; }
-        .hero-meta span { display: inline-flex; align-items: center; gap: 6px; }
-        .hero-meta svg { width: 14px; height: 14px; }
+        .hero-ctas { display: flex; gap: 14px; justify-content: center; align-items: center; flex-wrap: wrap; }
+        .hero-note { margin-top: 22px; font-size: 13px; color: var(--ink-3); }
+        .hero-note b { color: var(--ink-2); font-weight: 500; }
 
-        .hero-shot { margin-top: 72px; position: relative; }
-        .hero-shot-frame {
-            background: #fff; border: 1px solid var(--line-2); border-radius: 16px; padding: 10px;
-            box-shadow:
-                0 1px 0 rgba(255, 255, 255, 0.8) inset,
-                0 30px 60px -20px rgba(40, 30, 10, 0.18),
-                0 12px 24px -12px rgba(40, 30, 10, 0.12);
-        }
-        .hero-shot-frame img { width: 100%; display: block; border-radius: 8px; }
-        .hero-sticky-note {
-            position: absolute; top: -18px; right: 40px; z-index: 2;
-            background: var(--highlight);
-            padding: 14px 18px;
-            font-family: 'Instrument Serif', 'Noto Serif', serif;
-            font-style: italic; font-size: 17px; color: #5a4500;
-            transform: rotate(2.5deg);
-            box-shadow: 0 6px 14px -4px rgba(100, 80, 20, 0.3);
-            border-radius: 2px;
-            max-width: 240px; line-height: 1.5;
-        }
-        .hero-sticky-note::before {
-            content: ''; position: absolute; top: -6px; left: 50%; transform: translateX(-50%);
-            width: 40px; height: 12px; background: rgba(255, 200, 80, 0.4); border-radius: 2px;
-        }
-        .hero-sticky-note .who { display: block; font-size: 12px; margin-top: 6px; opacity: 0.7; font-family: 'Noto Sans', sans-serif; font-style: normal; }
+        .hero-shot { max-width: 1180px; margin: 64px auto 0; padding: 0 24px; }
 
-        /* PITCH */
-        .pitch { padding: 140px 0 120px; border-top: 1px solid var(--line); margin-top: 100px; }
-        .pitch-eyebrow { font-size: 13px; color: var(--accent-ink); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; font-weight: 500; }
+        /* =====================  MARQUEE / PITCH  ===================== */
+        .pitch { padding: 150px 0 130px; text-align: center; }
         .pitch h2 {
-            font-family: 'Noto Serif', serif; font-weight: 500;
-            font-size: clamp(28px, 3.6vw, 44px); line-height: 1.45; letter-spacing: -0.02em;
-            max-width: 26ch; color: var(--ink);
+            font-size: clamp(30px, 4.4vw, 52px); line-height: 1.16; letter-spacing: -0.025em;
+            max-width: 21ch; margin: 0 auto;
         }
-        .pitch h2 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); font-weight: 400; }
-        .pitch-lede { margin-top: 28px; font-size: 17px; line-height: 1.85; color: var(--ink-2); max-width: 48ch; }
+        .pitch h2 .muted { color: var(--ink-3); }
+        .pitch p { margin: 30px auto 0; max-width: 44em; font-size: 19px; color: var(--ink-2); line-height: 1.7; }
 
-        /* FEATURES */
-        .features { padding: 80px 0 120px; }
-        .feat-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; }
+        /* =====================  FEATURE ROWS  ===================== */
+        .feature { padding: 56px 0; }
+        .feature-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+        .feature.flip .feature-text { order: 2; }
+        .feature.flip .feature-media { order: 1; }
+        .feature-tag { display: inline-block; font-size: 14px; font-weight: 600; color: var(--accent); margin-bottom: 16px; letter-spacing: 0; }
+        .feature h3 { font-size: clamp(26px, 3.2vw, 38px); line-height: 1.18; letter-spacing: -0.025em; margin-bottom: 20px; }
+        .feature p { font-size: 18px; color: var(--ink-2); line-height: 1.72; max-width: 34em; }
+        .feature-list { margin-top: 26px; display: flex; flex-direction: column; gap: 14px; }
+        .feature-list li { list-style: none; display: flex; gap: 12px; align-items: flex-start; font-size: 16px; color: var(--ink-2); }
+        .feature-list .ic { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--accent-wash); color: var(--accent); display: grid; place-items: center; margin-top: 1px; }
+        .feature-list .ic svg { width: 13px; height: 13px; }
 
-        .card {
-            background: #fff; border: 1px solid var(--line);
-            border-radius: 14px; padding: 28px;
-            display: flex; flex-direction: column; gap: 14px;
+        /* inline demo card (co-edit) */
+        .demo-card {
+            background: var(--bg); border-radius: var(--radius); padding: 26px 28px;
+            box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 18px 40px -16px rgba(20,20,40,.18);
+            outline: 1px solid var(--line-2); outline-offset: -1px;
         }
-        .card-lg { grid-column: span 8; min-height: 360px; padding: 36px; }
-        .card-sm { grid-column: span 4; }
-        .card-md { grid-column: span 6; }
-        .card-wide { grid-column: span 12; padding: 36px 40px; }
+        .demo-doc-title { font-weight: 600; font-size: 18px; margin-bottom: 14px; letter-spacing: -0.01em; }
+        .demo-line { font-size: 15px; line-height: 2.05; color: var(--ink-2); }
+        .demo-line .strike { text-decoration: line-through; text-decoration-color: #e0796b; color: var(--ink-3); }
+        .demo-line .ins { color: var(--accent-2); background: var(--accent-wash); border-radius: 4px; padding: 0 4px; }
+        .demo-tags { display: flex; gap: 10px; margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line-2); }
+        .demo-pill { font-size: 12.5px; font-weight: 500; padding: 5px 11px; border-radius: 980px; }
+        .demo-pill.ai { background: var(--ink); color: #fff; }
+        .demo-pill.you { background: var(--accent-wash); color: var(--accent-2); }
 
-        .card h3 {
-            font-family: 'Noto Serif', serif; font-weight: 500;
-            font-size: 22px; letter-spacing: -0.01em; color: var(--ink); line-height: 1.5;
+        /* =====================  TOOLS BAND  ===================== */
+        .tools { padding: 130px 0; background: var(--bg-2); }
+        .tools-head { text-align: center; max-width: 40ch; margin: 0 auto 56px; }
+        .tools-head h2 { font-size: clamp(28px, 3.7vw, 45px); line-height: 1.14; letter-spacing: -0.025em; margin-bottom: 18px; }
+        .tools-head p { font-size: 18px; color: var(--ink-2); }
+        .tools-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .tool {
+            background: var(--bg); border-radius: var(--radius); padding: 28px 26px;
+            outline: 1px solid var(--line-2); outline-offset: -1px;
+            transition: transform .3s var(--ease), box-shadow .3s var(--ease);
         }
-        .card h3 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); font-weight: 400; }
-        .card p { font-size: 14.5px; color: var(--ink-2); line-height: 1.75; }
+        .tool:hover { transform: translateY(-3px); box-shadow: 0 16px 40px -18px rgba(20,20,40,.22); }
+        .tool .tool-ic { width: 40px; height: 40px; border-radius: 11px; background: var(--accent-wash); color: var(--accent); display: grid; place-items: center; margin-bottom: 18px; }
+        .tool .tool-ic svg { width: 21px; height: 21px; stroke-width: 1.7; }
+        .tool h4 { font-size: 18px; margin-bottom: 8px; letter-spacing: -0.01em; }
+        .tool p { font-size: 14.5px; color: var(--ink-2); line-height: 1.62; }
 
-        .card-label { font-size: 12px; color: var(--ink-3); letter-spacing: 0.06em; font-weight: 500; display: flex; align-items: center; gap: 6px; }
-        .card-label::before { content: ''; width: 14px; height: 1px; background: var(--ink-3); }
+        /* models inline */
+        .models { margin-top: 56px; max-width: 720px; margin-left: auto; margin-right: auto; background: var(--bg); border-radius: var(--radius); outline: 1px solid var(--line-2); outline-offset: -1px; overflow: hidden; }
+        .models-head { padding: 20px 26px; border-bottom: 1px solid var(--line-2); display: flex; align-items: center; justify-content: space-between; }
+        .models-head .t { font-weight: 600; font-size: 16px; }
+        .models-head .badge { font-size: 12px; font-weight: 500; color: var(--accent-2); background: var(--accent-wash); padding: 4px 10px; border-radius: 980px; }
+        .model-row { display: flex; align-items: center; gap: 14px; padding: 15px 26px; border-bottom: 1px solid var(--line-2); }
+        .model-row:last-child { border-bottom: 0; }
+        .model-row .v { width: 26px; height: 26px; border-radius: 7px; display: grid; place-items: center; font-weight: 700; font-size: 13px; color: #fff; flex-shrink: 0; }
+        .model-row .v.g { background: linear-gradient(135deg, #4587f4, #9b72f2); }
+        .model-row .v.c { background: linear-gradient(135deg, #d97757, #c2410c); }
+        .model-row .nm { font-weight: 500; font-size: 15.5px; }
+        .model-row .tier { margin-left: auto; font-size: 12px; color: var(--ink-3); font-family: ui-monospace, "SF Mono", Menlo, monospace; letter-spacing: 0.04em; }
 
-        /* card 1 — coedit */
-        .card-coedit { background: var(--paper-2); position: relative; overflow: hidden; }
-        .coedit-doc {
-            background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 22px;
-            margin-top: auto; font-size: 13px; line-height: 1.7;
-            box-shadow: 0 10px 22px -12px rgba(40, 30, 10, 0.12); position: relative;
+        /* =====================  PRIVACY (dark band)  ===================== */
+        .privacy { background: #000; color: #f5f5f7; padding: 140px 0; position: relative; overflow: hidden; }
+        .privacy::before {
+            content: ''; position: absolute; top: -200px; right: -100px; width: 700px; height: 700px; pointer-events: none;
+            background: radial-gradient(circle, rgba(107,92,255,0.22), rgba(107,92,255,0) 65%);
         }
-        .coedit-title { font-family: 'Noto Serif', serif; font-weight: 700; font-size: 16px; color: var(--ink); margin-bottom: 10px; }
-        .coedit-line { color: var(--ink-2); }
-        .coedit-line .human-add { background: #fff7c2; color: var(--ink); padding: 0 2px; border-radius: 2px; font-weight: 500; }
-        .coedit-line .ai-add { background: var(--accent-wash); color: var(--accent-ink); padding: 0 2px; border-radius: 2px; }
-        .coedit-line .strike { color: var(--ink-3); text-decoration: line-through; text-decoration-color: #d97a6e; text-decoration-thickness: 1.4px; margin-right: 2px; }
-        .coedit-cursor { display: inline-block; width: 2px; height: 14px; background: var(--accent); margin-left: 1px; vertical-align: -3px; animation: blink 1.1s steps(1) infinite; }
-        .coedit-ping { position: absolute; font-size: 11px; background: var(--accent); color: #fff; padding: 2px 7px; border-radius: 10px; font-family: 'Noto Sans', sans-serif; font-weight: 500; }
-        @keyframes blink { 50% { opacity: 0; } }
-
-        /* card 2 — context */
-        .context-stack { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
-        .context-chip {
-            background: #fff; border: 1px solid var(--line); border-radius: 8px;
-            padding: 10px 14px; display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--ink-2);
-        }
-        .context-chip .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
-        .context-chip.fade-1 { opacity: 0.85; }
-        .context-chip.fade-2 { opacity: 0.55; transform: scale(0.98); }
-        .context-chip.fade-3 { opacity: 0.3; transform: scale(0.96); }
-        .context-arrow { text-align: center; color: var(--ink-3); font-size: 18px; margin: 2px 0; }
-
-        /* card 3 — deep research */
-        .card-research { background: var(--paper-2); position: relative; overflow: hidden; }
-        .research-card {
-            background: var(--accent-wash); color: var(--ink);
-            border: 1px solid rgba(107, 92, 255, 0.25);
-            border-radius: 12px; padding: 18px 20px; margin-top: auto;
-            box-shadow: 0 10px 22px -12px rgba(40, 30, 10, 0.12);
-        }
-        .research-card-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-        .research-icon {
-            width: 30px; height: 30px; border-radius: 8px;
-            background: rgba(107, 92, 255, 0.18); color: var(--accent);
-            display: inline-flex; align-items: center; justify-content: center;
-            font-family: 'Instrument Serif', serif; font-size: 18px; line-height: 1;
-        }
-        .research-title { font-weight: 700; color: var(--accent-ink); font-size: 14px; }
-        .research-query { font-size: 13.5px; color: var(--ink); margin-bottom: 14px; line-height: 1.6; }
-        .research-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
-        .research-stat { background: rgba(255, 255, 255, 0.55); border-radius: 6px; padding: 8px 12px; }
-        .research-stat .stat-label { font-size: 11px; color: var(--accent-ink); font-weight: 600; }
-        .research-stat .stat-value { font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: var(--ink); margin-top: 2px; }
-        .research-actions { display: flex; gap: 6px; justify-content: flex-end; flex-wrap: wrap; }
-        .research-btn { font-size: 11.5px; padding: 5px 10px; border-radius: 6px; font-weight: 500; }
-        .research-btn.ghost { background: transparent; color: var(--ink-2); border: 1px solid var(--line-2); }
-        .research-btn.primary { background: var(--accent); color: #fff; border: 1px solid var(--accent); }
-
-        /* card 4 — plan & tasks */
-        .plan-list { display: flex; flex-direction: column; gap: 6px; margin-top: 2px; }
-        .plan-row {
-            display: flex; align-items: center; gap: 10px;
-            background: #fff; border: 1px solid var(--line); border-radius: 8px;
-            padding: 10px 12px; font-size: 13px;
-        }
-        .plan-row .checkbox { width: 14px; height: 14px; border-radius: 4px; border: 1.5px solid var(--line-2); flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; }
-        .plan-row.done .checkbox { background: var(--accent); border-color: var(--accent); color: #fff; font-size: 10px; }
-        .plan-row.done .label { color: var(--ink-3); text-decoration: line-through; }
-        .plan-row.now .checkbox { border-color: var(--accent); border-style: dashed; }
-        .plan-row.now .label { color: var(--ink); font-weight: 500; }
-        .plan-row .label { flex: 1; color: var(--ink-2); }
-        .plan-row .step { font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 10.5px; color: var(--ink-3); }
-
-        /* card 5 — skills */
-        .skills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
-        .skill-pill {
-            background: #fff; border: 1px solid var(--line); border-radius: 999px;
-            padding: 7px 13px; font-size: 12.5px; color: var(--ink-2);
-            display: inline-flex; align-items: center; gap: 6px;
-        }
-        .skill-pill .k { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
-
-        /* card 6 — models */
-        .models-list { display: flex; flex-direction: column; gap: 6px; margin-top: 2px; }
-        .model-row {
-            display: flex; align-items: center; gap: 10px;
-            background: #fff; border: 1px solid var(--line); border-radius: 8px;
-            padding: 10px 12px; font-size: 13px;
-        }
-        .model-row .vendor {
-            font-family: 'Instrument Serif', serif; font-style: italic;
-            font-size: 16px; line-height: 1; width: 14px; color: var(--accent);
-        }
-        .model-row .name { font-weight: 500; color: var(--ink); }
-        .model-row .tier { margin-left: auto; font-size: 11px; color: var(--ink-3); font-family: ui-monospace, 'SF Mono', Menlo, monospace; letter-spacing: 0.04em; }
-        .model-divider { height: 1px; background: var(--line); margin: 4px 2px; }
-
-        /* card 7 — local */
-        .card-local {
-            background: linear-gradient(135deg, #1f1e1c 0%, #2b2826 100%);
-            color: var(--paper);
-            border: 1px solid #1f1e1c;
-            display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px; align-items: center;
-        }
-        .card-local h3 { color: #fff; font-size: 26px; }
-        .card-local p { color: rgba(250, 248, 243, 0.72); font-size: 15px; }
-        .card-local .card-label { color: rgba(250, 248, 243, 0.6); }
-        .card-local .card-label::before { background: rgba(250, 248, 243, 0.4); }
-        .mac-badge {
-            background: rgba(250, 248, 243, 0.06); border: 1px solid rgba(250, 248, 243, 0.15);
-            border-radius: 14px; padding: 20px; backdrop-filter: blur(10px);
-        }
-        .mac-badge .path {
-            font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 12px;
-            color: rgba(250, 248, 243, 0.8); letter-spacing: 0.02em;
-            display: flex; align-items: center; gap: 10px; padding: 10px 0;
-            border-bottom: 1px dashed rgba(250, 248, 243, 0.15);
-        }
-        .mac-badge .path:last-child { border: 0; }
-        .mac-badge .path .ic { width: 14px; height: 14px; color: var(--accent); flex-shrink: 0; }
-        .mac-badge .path .status { margin-left: auto; color: #7fe5a0; font-size: 11px; }
-        .mac-badge .path .x { margin-left: auto; color: #ff8a7a; font-size: 11px; text-decoration: line-through; }
-
-        /* SHOWCASE */
-        .showcase { padding: 120px 0; border-top: 1px solid var(--line); background: var(--paper-2); }
-        .sc-img-wrap { position: relative; }
-        .sc-img-wrap .mask { position: absolute; inset: 8px; border-radius: 6px; pointer-events: none; }
-        .sc-img-wrap.focus-right .mask {
-            background: linear-gradient(to left, transparent 0%, transparent 35%, rgba(243, 239, 230, 0.6) 65%, rgba(243, 239, 230, 0.95) 90%);
-        }
-        .sc-img-wrap.focus-left .mask {
-            background: linear-gradient(to right, transparent 0%, transparent 38%, rgba(243, 239, 230, 0.6) 65%, rgba(243, 239, 230, 0.95) 90%);
-        }
-        .sc-img-wrap.focus-center .mask {
-            background: linear-gradient(to right, rgba(243, 239, 230, 0.92) 0%, rgba(243, 239, 230, 0.3) 22%, transparent 38%, transparent 62%, rgba(243, 239, 230, 0.3) 78%, rgba(243, 239, 230, 0.92) 100%);
-        }
-        .sc-img-wrap .pin {
-            position: absolute; z-index: 2;
-            background: var(--accent); color: #fff;
-            font-size: 12px; font-weight: 500;
-            padding: 6px 11px; border-radius: 999px;
-            box-shadow: 0 6px 16px -6px rgba(107, 92, 255, 0.5);
-            white-space: nowrap;
-        }
-        .showcase-wrap { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
-        .sc-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 64px; flex-wrap: wrap; gap: 20px; }
-        .sc-head h2 {
-            font-family: 'Noto Serif', serif; font-weight: 500; font-size: clamp(28px, 3.8vw, 42px);
-            line-height: 1.4; letter-spacing: -0.02em; max-width: 22ch;
-        }
-        .sc-head h2 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); font-weight: 400; }
-        .sc-head .sc-sub { color: var(--ink-2); font-size: 15px; max-width: 32ch; }
-
-        .sc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-bottom: 120px; }
-        .sc-row:last-child { margin-bottom: 0; }
-        .sc-row.flip { direction: rtl; }
-        .sc-row.flip > * { direction: ltr; }
-        .sc-num {
-            font-family: 'Instrument Serif', serif; font-size: 64px; color: var(--accent);
-            line-height: 1; font-style: italic; margin-bottom: 12px;
-        }
-        .sc-kicker { font-size: 12px; color: var(--ink-3); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
-        .sc-row h3 {
-            font-family: 'Noto Serif', serif; font-weight: 500;
-            font-size: clamp(24px, 3vw, 34px); line-height: 1.45; letter-spacing: -0.015em;
-            margin-bottom: 18px;
-        }
-        .sc-row h3 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); font-weight: 400; }
-        .sc-row p { font-size: 16px; color: var(--ink-2); line-height: 1.85; max-width: 42ch; }
-        .sc-quote {
-            margin-top: 28px; padding-left: 20px; border-left: 2px solid var(--accent);
-            font-family: 'Noto Serif', serif; font-style: italic; font-size: 15px; color: var(--ink-2); line-height: 1.7;
-        }
-        .sc-img {
-            background: #fff; border: 1px solid var(--line-2); border-radius: 12px; padding: 8px;
-            box-shadow: 0 20px 40px -20px rgba(40, 30, 10, 0.18), 0 8px 16px -8px rgba(40, 30, 10, 0.1);
-        }
-        .sc-img img { width: 100%; display: block; border-radius: 6px; }
-
-        /* USE CASES */
-        .usecases { padding: 140px 0; }
-        .uc-head { text-align: center; margin-bottom: 64px; }
-        .uc-head h2 {
-            font-family: 'Noto Serif', serif; font-weight: 500; font-size: clamp(30px, 4vw, 46px);
-            letter-spacing: -0.02em; margin-bottom: 16px; line-height: 1.35;
-        }
-        .uc-head h2 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); font-weight: 400; }
-        .uc-head p { color: var(--ink-2); font-size: 16px; max-width: 42ch; margin: 0 auto; }
-
-        .uc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
-        .uc {
-            background: #fff; padding: 32px 28px;
-            display: flex; flex-direction: column; gap: 12px; min-height: 200px;
-        }
-        .uc-num { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); font-size: 28px; line-height: 1; }
-        .uc h4 {
-            font-family: 'Noto Serif', serif; font-weight: 500; font-size: 18px;
-            color: var(--ink); letter-spacing: -0.01em; line-height: 1.5;
-        }
-        .uc p { font-size: 14px; color: var(--ink-2); line-height: 1.75; }
-
-        /* PRIVACY */
-        .privacy { background: #1f1e1c; color: var(--paper); padding: 120px 0; }
-        .privacy-wrap { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
-        .privacy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-        .privacy-kicker { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255, 255, 255, 0.5); margin-bottom: 18px; }
-        .privacy h2 {
-            font-family: 'Noto Serif', serif; font-weight: 500;
-            font-size: clamp(28px, 3.6vw, 46px); line-height: 1.4; letter-spacing: -0.02em; color: #fff;
-            max-width: 18ch;
-        }
-        .privacy h2 em { font-family: 'Instrument Serif', serif; font-style: italic; color: #a08fff; font-weight: 400; }
-        .privacy-lede { margin-top: 24px; font-size: 17px; line-height: 1.85; color: rgba(255, 255, 255, 0.68); max-width: 38ch; }
+        .privacy-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; position: relative; }
+        .privacy-eyebrow { font-size: 14px; font-weight: 600; color: #a08fff; margin-bottom: 18px; }
+        .privacy h2 { font-size: clamp(30px, 3.8vw, 48px); line-height: 1.12; letter-spacing: -0.03em; color: #fff; max-width: 15ch; }
+        .privacy .lede { margin-top: 24px; font-size: 18px; line-height: 1.7; color: #a1a1a6; max-width: 36em; }
         .privacy-stack { display: flex; flex-direction: column; gap: 14px; }
         .privacy-item {
-            background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px; padding: 22px 24px;
-            display: grid; grid-template-columns: 28px 1fr; gap: 16px; align-items: start;
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.09);
+            border-radius: var(--radius); padding: 22px 24px;
+            display: grid; grid-template-columns: 26px 1fr; gap: 16px; align-items: start;
         }
-        .privacy-item .check {
-            width: 22px; height: 22px; border-radius: 50%; background: rgba(160, 143, 255, 0.2);
-            display: grid; place-items: center; color: #a08fff; margin-top: 2px;
-        }
-        .privacy-item h5 { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 4px; font-family: 'Noto Sans', sans-serif; }
-        .privacy-item p { font-size: 14px; color: rgba(255, 255, 255, 0.6); line-height: 1.7; }
+        .privacy-item .check { width: 24px; height: 24px; border-radius: 50%; background: rgba(160,143,255,0.18); color: #a08fff; display: grid; place-items: center; }
+        .privacy-item .check svg { width: 13px; height: 13px; }
+        .privacy-item h5 { font-size: 16.5px; font-weight: 600; color: #fff; margin-bottom: 5px; }
+        .privacy-item p { font-size: 14px; color: #a1a1a6; line-height: 1.6; }
 
-        /* FAQ */
-        .faq { padding: 120px 0; border-top: 1px solid var(--line); }
+        /* =====================  USE CASES  ===================== */
+        .usecases { padding: 140px 0; }
+        .uc-head { text-align: center; max-width: 38ch; margin: 0 auto 64px; }
+        .uc-head h2 { font-size: clamp(28px, 3.7vw, 45px); line-height: 1.14; letter-spacing: -0.025em; margin-bottom: 18px; }
+        .uc-head p { font-size: 18px; color: var(--ink-2); }
+        .uc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 64px; }
+        .uc { display: grid; grid-template-columns: auto 1fr; gap: 18px; padding: 28px 0; border-top: 1px solid var(--line-2); align-items: start; }
+        .uc-no { font-size: 14px; font-weight: 600; color: var(--accent); font-family: ui-monospace, "SF Mono", Menlo, monospace; padding-top: 3px; }
+        .uc h4 { font-size: 19px; margin-bottom: 8px; letter-spacing: -0.01em; }
+        .uc p { font-size: 15px; color: var(--ink-2); line-height: 1.65; }
+
+        /* =====================  FAQ  ===================== */
+        .faq { padding: 30px 0 140px; }
         .faq-head { text-align: center; margin-bottom: 56px; }
-        .faq-head h2 {
-            font-family: 'Noto Serif', serif; font-weight: 500; font-size: clamp(28px, 3.6vw, 44px);
-            letter-spacing: -0.02em; margin-bottom: 16px; line-height: 1.4;
-        }
-        .faq-head h2 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); font-weight: 400; }
-        .faq-head p { color: var(--ink-2); font-size: 16px; max-width: 42ch; margin: 0 auto; }
-        .faq-list { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
-        .faq-item { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 24px 28px; }
-        .faq-q { font-family: 'Noto Serif', serif; font-weight: 700; font-size: 17px; color: var(--ink); margin-bottom: 10px; line-height: 1.5; }
-        .faq-q::before { content: 'Q.'; font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); margin-right: 8px; }
-        .faq-a { font-size: 15px; color: var(--ink-2); line-height: 1.85; }
+        .faq-head h2 { font-size: clamp(28px, 3.8vw, 46px); letter-spacing: -0.025em; }
+        .faq-list { max-width: 800px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid var(--line-2); }
+        .faq-q { width: 100%; text-align: left; background: none; border: 0; cursor: pointer; font-family: inherit; padding: 26px 40px 26px 0; position: relative; display: block; }
+        .faq-q .qt { font-size: 19px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; line-height: 1.4; }
+        .faq-q .chev { position: absolute; right: 4px; top: 30px; width: 18px; height: 18px; color: var(--ink-3); transition: transform .3s var(--ease); }
+        .faq-item[open] .faq-q .chev { transform: rotate(45deg); }
+        .faq-a { padding: 0 40px 28px 0; font-size: 16px; color: var(--ink-2); line-height: 1.72; }
+        .faq-a b { color: var(--ink); font-weight: 600; }
+        .faq-item summary { list-style: none; }
+        .faq-item summary::-webkit-details-marker { display: none; }
 
-        /* CTA */
-        .cta { padding: 140px 0; text-align: center; }
-        .cta h2 {
-            font-family: 'Noto Serif', serif; font-weight: 500;
-            font-size: clamp(30px, 4.4vw, 52px); line-height: 1.4; letter-spacing: -0.025em;
-            max-width: 24ch; margin: 0 auto 24px;
+        /* =====================  CTA  ===================== */
+        .cta { text-align: center; padding: 30px 0 150px; }
+        .cta-card {
+            position: relative; overflow: hidden;
+            background: linear-gradient(180deg, #faf9ff, #f1eeff);
+            border-radius: 32px; padding: 88px 32px;
+            outline: 1px solid var(--line-2); outline-offset: -1px;
         }
-        .cta h2 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); font-weight: 400; }
-        .cta p { color: var(--ink-2); font-size: 17px; margin-bottom: 36px; }
-        .cta .price-tag {
-            display: inline-flex; align-items: center; gap: 10px;
-            background: var(--paper-2); border: 1px solid var(--line-2);
-            padding: 8px 16px; border-radius: 999px; font-size: 13px; color: var(--ink-2); margin-bottom: 28px;
+        .cta-card::before {
+            content: ''; position: absolute; bottom: -200px; left: 50%; transform: translateX(-50%);
+            width: 800px; height: 500px; pointer-events: none;
+            background: radial-gradient(ellipse at center, rgba(107,92,255,0.16), rgba(107,92,255,0) 64%);
         }
-        .cta .price-tag b { color: var(--ink); }
-        .cta-actions { display: flex; gap: 12px; justify-content: center; align-items: center; flex-wrap: wrap; }
-        .appstore-badge img { height: 52px; display: block; }
+        .cta-card > * { position: relative; }
+        .cta h2 { font-size: clamp(30px, 4.2vw, 52px); line-height: 1.1; letter-spacing: -0.03em; max-width: 19ch; margin: 0 auto 20px; }
+        .cta p { font-size: 19px; color: var(--ink-2); margin-bottom: 36px; }
+        .cta .hero-ctas { margin-bottom: 0; }
+        .cta-note { margin-top: 22px; font-size: 13px; color: var(--ink-3); }
 
-        /* FOOTER */
-        .footer { border-top: 1px solid var(--line); padding: 40px 0 60px; }
-        .footer-wrap { max-width: 1120px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; font-size: 13px; color: var(--ink-3); }
-        .footer-links { display: flex; gap: 24px; }
+        /* =====================  FOOTER  ===================== */
+        .footer { border-top: 1px solid var(--line-2); padding: 40px 0; }
+        .footer-inner { max-width: 1180px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+        .footer-brand { display: flex; align-items: center; gap: 9px; font-size: 14px; color: var(--ink-2); }
+        .footer-brand img { width: 20px; height: 20px; border-radius: 5px; }
+        .footer-links { display: flex; gap: 24px; font-size: 13px; color: var(--ink-3); }
         .footer-links a:hover { color: var(--ink); }
 
-        svg.icon { width: 18px; height: 18px; stroke-width: 1.5; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
-
-        @media (max-width: 900px) {
-            .nav-link { display: none; }
-            .feat-grid > * { grid-column: span 12 !important; }
-            .sc-row, .privacy-grid { grid-template-columns: 1fr; gap: 40px; margin-bottom: 80px; }
-            .sc-row.flip { direction: ltr; }
-            .uc-grid { grid-template-columns: 1fr; }
-            .card-local { grid-template-columns: 1fr; }
-            .hero-sticky-note { right: 10px; top: -10px; font-size: 14px; max-width: 200px; }
-            .hero { padding: 60px 0 30px; }
-            .pitch { padding: 100px 0 80px; margin-top: 60px; }
-            .features { padding: 60px 0 80px; }
-            .showcase, .usecases, .privacy, .cta { padding: 80px 0; }
+        /* =====================  RESPONSIVE  ===================== */
+        @media (max-width: 860px) {
+            .nav-links { display: none; }
+            .feature-inner, .privacy-inner { grid-template-columns: 1fr; gap: 36px; }
+            .feature.flip .feature-text { order: 1; }
+            .feature.flip .feature-media { order: 2; }
+            .feature { padding: 44px 0; }
+            .pitch { padding: 100px 0 90px; }
+            .tools, .privacy, .usecases { padding: 90px 0; }
+            .tools-grid { grid-template-columns: 1fr; }
+            .uc-grid { grid-template-columns: 1fr; gap: 0; }
+            .uc-head, .tools-head { margin-bottom: 40px; }
+            .hero { padding-top: 60px; }
+            .hero-shot { margin-top: 44px; }
+            .cta-card { padding: 60px 24px; border-radius: 24px; }
+            .faq, .cta { padding-bottom: 96px; }
         }
-    
-        /* ------------------------------------------------------------------
-         * DARK MODE (OS設定に追従)
-         * ------------------------------------------------------------------ */
+
+        /* =====================  DARK MODE  ===================== */
         @media (prefers-color-scheme: dark) {
             :root {
-                --paper: #181613;
-                --paper-2: #211e1a;
-                --ink: #ece8df;
-                --ink-2: #b8b2a6;
-                --ink-3: #8b877e;
-                --line: #322e28;
-                --line-2: #453f36;
+                --bg: #000000;
+                --bg-2: #101012;
+                --bg-3: #1c1c1f;
+                --ink: #f5f5f7;
+                --ink-2: #a1a1a6;
+                --ink-3: #6e6e73;
+                --line: #38383c;
+                --line-2: #2a2a2e;
                 --accent: #8b7fff;
-                --accent-ink: #b3a8ff;
-                --accent-wash: rgba(107, 92, 255, 0.16);
-                --highlight: rgba(255, 220, 90, 0.28);
-                --green: #5fb98a;
+                --accent-2: #a195ff;
+                --accent-wash: rgba(139,127,255,0.14);
             }
-            body::before {
-                background-image: radial-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-                mix-blend-mode: normal;
-            }
-            .nav { background: rgba(24, 22, 19, 0.85); }
-            .btn:hover { background: #fff; }
-            .device-chip,
-            .context-chip,
-            .plan-row,
-            .model-row,
-            .skill-pill,
-            .faq-item,
-            .uc,
-            .card,
-            .coedit-doc {
-                background: #211e1a;
-            }
-            .card-coedit,
-            .card-research { background: var(--paper-2); }
-            .hero-shot-frame,
-            .sc-img {
-                background: #211e1a;
-                box-shadow:
-                    0 30px 60px -20px rgba(0, 0, 0, 0.55),
-                    0 12px 24px -12px rgba(0, 0, 0, 0.4);
-            }
-            .brand img { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
-            .coedit-line .human-add { background: rgba(255, 226, 110, 0.22); color: var(--ink); }
-            .hero-sticky-note { background: #e8cf6a; }
-            .research-stat { background: rgba(255, 255, 255, 0.08); }
-            .card-local { border-color: var(--line-2); }
-            .privacy { background: #131110; }
-            .sc-img-wrap.focus-right .mask {
-                background: linear-gradient(to left, transparent 0%, transparent 35%, rgba(33, 30, 26, 0.6) 65%, rgba(33, 30, 26, 0.95) 90%);
-            }
-            .sc-img-wrap.focus-left .mask {
-                background: linear-gradient(to right, transparent 0%, transparent 38%, rgba(33, 30, 26, 0.6) 65%, rgba(33, 30, 26, 0.95) 90%);
-            }
-            .sc-img-wrap.focus-center .mask {
-                background: linear-gradient(to right, rgba(33, 30, 26, 0.92) 0%, rgba(33, 30, 26, 0.3) 22%, transparent 38%, transparent 62%, rgba(33, 30, 26, 0.3) 78%, rgba(33, 30, 26, 0.92) 100%);
-            }
+            .nav { background: rgba(0,0,0,0.92); }
+            .window { background: var(--bg-2); outline-color: rgba(255,255,255,.08); box-shadow: 0 10px 28px -12px rgba(0,0,0,.6); }
+            .demo-card, .tool, .models { background: var(--bg-2); }
+            .demo-pill.ai { background: #f5f5f7; color: #000; }
+            .privacy { background: #0a0a0a; }
+            .privacy-item { background: rgba(255,255,255,0.04); }
+            .cta-card { background: linear-gradient(180deg, #131218, #1a1730); outline-color: rgba(255,255,255,.08); }
+            .hero-eyebrow, .feature-tag { color: var(--accent-2); }
         }
     </style>
+    <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE75FD70EP"></script>
@@ -732,16 +530,20 @@
 
 <body>
 
-    <nav class="nav">
+    <!-- NAV -->
+    <nav class="nav" id="nav">
         <div class="nav-inner">
             <a href="#" class="brand">
                 <img src="../appstore/app-icon.png" alt="Teeby">
                 <span>Teeby</span>
             </a>
-            <div class="nav-right">
+            <div class="nav-links">
                 <a href="#features" class="nav-link">Funciones</a>
+                <a href="#privacy" class="nav-link">Privacidad</a>
                 <a href="#usecases" class="nav-link">Usos</a>
                 <a href="#faq" class="nav-link">FAQ</a>
+            </div>
+            <div class="nav-right">
                 <select class="lang-select" aria-label="Seleccionar idioma" onchange="window.location.href='/' + this.value + '/'">
                     <option value="ja">日本語</option>
                     <option value="en">English</option>
@@ -763,45 +565,20 @@
     <!-- HERO -->
     <header class="hero">
         <div class="wrap">
-            <span class="hero-tag"><span class="dot"></span>Mac · iPad · BYOK · Tus datos solo en tu dispositivo</span>
-            <h1>
-                Escribir <em>junto</em> a la IA,<br>
-                una nota <span class="marker">solo tuya</span>.
-            </h1>
-            <p class="hero-sub">
-                Teeby es una app de notas para Mac y iPad: las notas que has acumulado se convierten en el contexto desde el que creas documentos de trabajo junto a la IA. Las notas viven en tu dispositivo; la clave de API, en tus manos. Sin servidor por medio, para usarla con total tranquilidad.
-            </p>
-            <div class="hero-ctas">
-                <a href="https://apps.apple.com/es/app/teeby/id6759851366" class="hero-appstore" aria-label="Descargar en el App Store">
+            <p class="hero-eyebrow reveal">La app de notas con IA para Mac y iPad</p>
+            <h1 class="reveal d1">Escribir junto a la IA,<br>una nota que es solo tuya.</h1>
+            <p class="hero-sub reveal d2">Las notas que has acumulado se convierten en el contexto desde el que creas documentos de trabajo junto a la IA. Las notas viven en tu dispositivo; la clave de API, en tus manos. Sin servidor por medio.</p>
+            <div class="hero-ctas reveal d2">
+                <a href="https://apps.apple.com/es/app/teeby/id6759851366" class="appstore" aria-label="Descargar en el App Store">
                     <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/es-es?size=250x83" alt="Descargar en el App Store">
                 </a>
-                <a href="#features" class="btn ghost">Ver funciones</a>
+                <a href="#features" class="btn btn-ghost">Ver funciones</a>
             </div>
-            <div class="hero-platforms" aria-label="Plataformas compatibles">
-                <span class="device-chip universal">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="11" rx="1"/><path d="M2 19h20"/></svg>
-                    Mac
-                </span>
-                <span class="device-chip universal">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="2"/><circle cx="12" cy="18" r="0.6" fill="currentColor"/></svg>
-                    iPad
-                </span>
-                <span style="font-size:13px; color: var(--ink-2); margin-left: 4px;">Una sola app universal para ambos</span>
-            </div>
-            <div class="hero-meta">
-                <span><svg class="icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Descarga gratuita</span>
-                <span><svg class="icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Compatible con Gemini / Claude</span>
-                <span><svg class="icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>macOS 14 / iPadOS 17 o posterior</span>
-            </div>
-
-            <div class="hero-shot">
-                <div class="hero-sticky-note">
-                    «Resume esta reunión en 3 líneas»
-                    <span class="who">— Yo, hace un rato</span>
-                </div>
-                <div class="hero-shot-frame">
-                    <img src="../appstore/screenshot-hero.png" alt="Pantalla de la app Teeby" loading="eager">
-                </div>
+            <p class="hero-note reveal d3"><b>Descarga gratuita</b> · Para Mac y iPad · macOS 14 / iPadOS 17 o posterior</p>
+        </div>
+        <div class="hero-shot reveal d2">
+            <div class="window">
+                <img src="../appstore/web/hero.png" alt="Pantalla de la app Teeby" loading="eager" width="1180">
             </div>
         </div>
     </header>
@@ -809,236 +586,160 @@
     <!-- PITCH -->
     <section class="pitch">
         <div class="wrap">
-            <div class="pitch-eyebrow">— Lo que persigue Teeby</div>
-            <h2>
-                Tus notas acumuladas <em>ya son contexto</em>.<br>
-                A partir de esa base nacen los nuevos documentos.
-            </h2>
-            <p class="pitch-lede">
-                Actas de reunión, apuntes de un plan, fragmentos de búsqueda. Esas notas que se desperdigan por las carpetas, Teeby las hace leer en conjunto a la IA y las convierte en la base sobre la que crear el siguiente documento. En lugar de buscar, empiezas a partir de lo que ya recuerdas. Una app de notas que cambia el punto de partida de cualquier documento de trabajo.
-            </p>
+            <h2 class="reveal">Tus notas acumuladas ya son contexto.<br><span class="muted">A partir de esa base, construyes nuevos documentos.</span></h2>
+            <p class="reveal d1">Actas de reunión, apuntes de un plan, fragmentos de búsqueda. Esas notas que se desperdigan por las carpetas, Teeby las hace leer en conjunto a la IA y las convierte en la base sobre la que crear el siguiente documento. En lugar de buscar, empiezas a partir de lo que ya recuerdas. Una app de notas que cambia el punto de partida de cualquier documento de trabajo.</p>
         </div>
     </section>
 
     <!-- FEATURES -->
-    <section class="features" id="features">
-        <div class="wrap">
-            <div class="feat-grid">
+    <div id="features">
 
-                <!-- 01 Co-edición -->
-                <div class="card card-lg card-coedit">
-                    <div class="card-label">01 · Co-edición</div>
-                    <h3>Un mismo documento, <em>terminado junto a la IA</em>.</h3>
+        <!-- 01 Co-edición -->
+        <section class="feature">
+            <div class="wrap feature-inner">
+                <div class="feature-text reveal">
+                    <span class="feature-tag">Co-edición</span>
+                    <h3>Un mismo documento, terminado junto a la IA.</h3>
                     <p>Lo que escribe la IA y lo que retocas tú se mezclan sobre el mismo documento, hasta dejarlo a punto. No es una sugerencia por chat ni una respuesta a un comentario: es una nueva forma de crear documentos.</p>
-                    <div class="coedit-doc">
-                        <div class="coedit-title">Informe semanal</div>
-                        <div class="coedit-line">Esta semana hemos avanzado los últimos ajustes para el lanzamiento de la beta.</div>
-                        <div class="coedit-line" style="margin-top:6px;">Identificamos 3 cuellos de botella de rendimiento y los <span class="strike">mejoramos</span><span class="human-add">resolvimos</span>.</div>
-                        <div class="coedit-line" style="margin-top:6px;">En las pruebas de UX recogimos <span class="strike">algunas</span><span class="human-add">5</span> peticiones de mejora.</div>
-                        <div class="coedit-line" style="margin-top:6px;">La próxima semana priorizaremos la <span class="strike">corrección</span><span class="human-add">estabilización</span>.<span class="coedit-cursor"></span></div>
-                        <div class="coedit-ping" style="top: 18%; right: 14%; background: #1f1e1c;">Borrador IA</div>
-                        <div class="coedit-ping" style="top: 70%; right: 14%;">Tú lo pules</div>
-                    </div>
                 </div>
-
-                <!-- 02 Contexto -->
-                <div class="card card-sm">
-                    <div class="card-label">02 · Contexto</div>
-                    <h3>Cuanto más la usas, <em>más se ajusta a ti</em>.</h3>
-                    <p>La IA consulta tus notas anteriores de forma automática. No tienes que volver a explicar el contexto cada vez.</p>
-                    <div class="context-stack">
-                        <div class="context-chip"><span class="dot"></span>Nota que estás escribiendo</div>
-                        <div class="context-chip fade-1"><span class="dot" style="background:#a08fff"></span>Acta de la última reunión</div>
-                        <div class="context-chip fade-2"><span class="dot" style="background:#a08fff"></span>Resumen del proyecto</div>
-                        <div class="context-chip fade-3"><span class="dot" style="background:#a08fff"></span>Notas de investigación</div>
-                        <div class="context-arrow">↓</div>
-                        <div class="context-chip" style="background: var(--accent-wash); border-color: rgba(107,92,255,0.3); color: var(--accent-ink); font-weight:500;">
-                            <span class="dot"></span>La IA responde teniendo el contexto en cuenta
+                <div class="feature-media reveal d1">
+                    <div class="demo-card">
+                        <div class="demo-doc-title">Informe semanal</div>
+                        <p class="demo-line">Esta semana hemos avanzado los últimos ajustes para el lanzamiento de la beta.</p>
+                        <p class="demo-line">Identificamos 3 cuellos de botella de rendimiento y los <span class="strike">mejoramos</span> <span class="ins">resolvimos</span>.</p>
+                        <p class="demo-line">En las pruebas de UX recogimos <span class="strike">algunas</span> <span class="ins">5</span> peticiones de mejora.</p>
+                        <p class="demo-line">La próxima semana priorizaremos la <span class="strike">corrección</span> <span class="ins">estabilización</span>.</p>
+                        <div class="demo-tags">
+                            <span class="demo-pill ai">Borrador de la IA</span>
+                            <span class="demo-pill you">Tus correcciones</span>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- 03 Investigación profunda -->
-                <div class="card card-lg card-research">
-                    <div class="card-label">03 · Investigación profunda <span style="margin-left:6px; color:var(--accent-ink); background:var(--accent-wash); border:1px solid rgba(107,92,255,0.2); padding:1px 8px; border-radius:999px; font-size:10.5px; letter-spacing:0;">NUEVO</span></div>
-                    <h3>Pídelo y tendrás <em>un informe con citas</em> en tus manos.</h3>
-                    <p>Basta con decir «investiga sobre…» y la IA traza su plan, recorre la web y deja un informe con citas dentro de la nota. Antes de empezar puedes ver el coste y el tiempo previstos: igual de sencillo que un chat normal.</p>
-                    <div class="research-card">
-                        <div class="research-card-head">
-                            <span class="research-icon">✦</span>
-                            <div class="research-title">Ejecutar Deep Research</div>
-                        </div>
-                        <div class="research-query">«Investiga las últimas tendencias del mercado de chips de IA».</div>
-                        <div class="research-stats">
-                            <div class="research-stat">
-                                <div class="stat-label">Coste estimado</div>
-                                <div class="stat-value">$1–$3</div>
-                            </div>
-                            <div class="research-stat">
-                                <div class="stat-label">Tiempo estimado</div>
-                                <div class="stat-value">15–20 min</div>
-                            </div>
-                        </div>
-                        <div class="research-actions">
-                            <span class="research-btn ghost">Rechazar</span>
-                            <span class="research-btn ghost">Búsqueda normal</span>
-                            <span class="research-btn primary">Obtener plan</span>
-                        </div>
-                    </div>
+        <!-- 02 Contexto -->
+        <section class="feature flip">
+            <div class="wrap feature-inner">
+                <div class="feature-text reveal">
+                    <span class="feature-tag">Contexto</span>
+                    <h3>Las notas anteriores se vuelven contexto, tal cual.</h3>
+                    <p>La IA consulta de forma automática las notas y archivos del mismo proyecto. No tienes que ir pegando «léete esto antes» una y otra vez. Os entendéis sin tener que explicar el contexto desde cero.</p>
+                    <ul class="feature-list">
+                        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Consulta automática de las notas relacionadas</li>
+                        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Búsqueda vectorial entre notas</li>
+                        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Cuanto más la usas, más se ajusta a ti</li>
+                    </ul>
                 </div>
-
-                <!-- 04 Plan y tareas -->
-                <div class="card card-sm">
-                    <div class="card-label">04 · Plan y tareas</div>
-                    <h3>Lo difícil, también: <em>paso a paso</em>, sin perderse.</h3>
-                    <p>Las peticiones complejas las divide la IA en pasos antes de empezar. El progreso queda como tarea, así puedes retomarlo cuando quieras.</p>
-                    <div class="plan-list">
-                        <div class="plan-row done"><span class="checkbox">✓</span><span class="label">Leer notas de referencia</span><span class="step">01</span></div>
-                        <div class="plan-row done"><span class="checkbox">✓</span><span class="label">Crear el esquema</span><span class="step">02</span></div>
-                        <div class="plan-row now"><span class="checkbox"></span><span class="label">Redactar el cuerpo</span><span class="step">03</span></div>
-                        <div class="plan-row"><span class="checkbox"></span><span class="label">Ordenar citas y fuentes</span><span class="step">04</span></div>
-                    </div>
+                <div class="feature-media reveal d1">
+                    <div class="window"><img src="../appstore/web/03.png" alt="Notas relacionadas consultadas automáticamente" loading="eager" decoding="async"></div>
                 </div>
+            </div>
+        </section>
 
-                <!-- 05 Todo en uno -->
-                <div class="card card-md">
-                    <div class="card-label">05 · Todo en uno</div>
-                    <h3>Tienes <em>todo</em> lo necesario, ya incluido.</h3>
-                    <p>De Deep Research a la nota del día. Búsqueda web, entrada de voz, archivos adjuntos, lectura de imágenes, búsqueda entre notas, planificación, gestión de tareas y segunda opinión. Toda la caja de herramientas para crear documentos, en una sola app.</p>
-                    <div class="skills">
-                        <span class="skill-pill"><span class="k"></span>Deep Research</span>
-                        <span class="skill-pill"><span class="k"></span>Búsqueda web</span>
-                        <span class="skill-pill"><span class="k"></span>Entrada de voz</span>
-                        <span class="skill-pill"><span class="k"></span>Archivos adjuntos</span>
-                        <span class="skill-pill"><span class="k"></span>Lectura de imágenes</span>
-                        <span class="skill-pill"><span class="k"></span>Búsqueda entre notas</span>
-                        <span class="skill-pill"><span class="k"></span>Planificación</span>
-                        <span class="skill-pill"><span class="k"></span>Gestión de tareas</span>
-                        <span class="skill-pill"><span class="k"></span>Segunda opinión</span>
-                        <span class="skill-pill"><span class="k"></span>Markdown</span>
-                    </div>
+        <!-- 03 Deep Research -->
+        <section class="feature">
+            <div class="wrap feature-inner">
+                <div class="feature-text reveal">
+                    <span class="feature-tag">Deep Research</span>
+                    <h3>Pídelo y tendrás un informe con citas en tus manos.</h3>
+                    <p>Basta con decir «investiga sobre…» y la IA traza su plan, recorre la web y deja un informe con citas dentro de la nota. Antes de empezar puedes ver el coste y el tiempo previstos, así que lo pides igual de fácil que un chat normal.</p>
                 </div>
-
-                <!-- 06 Modelos -->
-                <div class="card card-md">
-                    <div class="card-label">06 · Modelos</div>
-                    <h3>Deja que decida la IA — <em>o elige tú</em>.</h3>
-                    <p>En modo automático, la IA escoge cada vez el modelo más adecuado según el prompt. Por supuesto, también puedes fijarlo a mano. Usas Gemini y Claude con tu propia clave de API, mediante BYOK.</p>
-                    <div class="models-list">
-                        <div class="model-row"><span class="vendor">G</span><span class="name">Gemini 3.1 Pro</span><span class="tier">PRO</span></div>
-                        <div class="model-row"><span class="vendor">G</span><span class="name">Gemini 3 Flash</span><span class="tier">FAST</span></div>
-                        <div class="model-row"><span class="vendor">G</span><span class="name">Gemini 3.1 Flash Lite</span><span class="tier">LITE</span></div>
-                        <div class="model-divider"></div>
-                        <div class="model-row"><span class="vendor">C</span><span class="name">Claude Opus 4.7</span><span class="tier">OPUS</span></div>
-                        <div class="model-row"><span class="vendor">C</span><span class="name">Claude Sonnet 4.6</span><span class="tier">SONNET</span></div>
-                    </div>
+                <div class="feature-media reveal d1">
+                    <div class="window"><img src="../appstore/web/04.png" alt="Pantalla de ejecución de Deep Research" loading="eager" decoding="async"></div>
                 </div>
+            </div>
+        </section>
 
-                <!-- 07 Privacidad -->
-                <div class="card card-wide card-local">
-                    <div>
-                        <div class="card-label">07 · Privacidad</div>
-                        <h3>Las notas viven <em>solo en tu dispositivo</em>.</h3>
-                        <p>Lo que escribes nunca se envía a un servidor de Teeby. Tus notas se acumulan, en silencio, en tu Mac o iPad.</p>
-                    </div>
-                    <div class="mac-badge">
-                        <div class="path">
-                            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
-                            Sandbox de la app en tu dispositivo
-                            <span class="status">● Ubicación</span>
-                        </div>
-                        <div class="path">
-                            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-                            api.anthropic.com / generativelanguage.googleapis.com
-                            <span class="status">● Conexión directa</span>
-                        </div>
-                        <div class="path">
-                            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                            teeby-server.com
-                            <span class="x">No pasa por aquí</span>
-                        </div>
-                    </div>
+        <!-- 04 Siempre al lado -->
+        <section class="feature flip">
+            <div class="wrap feature-inner">
+                <div class="feature-text reveal">
+                    <span class="feature-tag">Siempre al lado</span>
+                    <h3>Consulta a la IA en el momento, junto al texto.</h3>
+                    <p>Desde el chat junto al cuerpo del documento, le pides a la IA borradores o ajustes y los aplicas al instante. Lo que piensas, la IA lo va vertiendo en el documento, línea a línea. Basta con desviar la mirada para que empiece la colaboración.</p>
                 </div>
+                <div class="feature-media reveal d1">
+                    <div class="window"><img src="../appstore/web/02.png" alt="Chat con la IA junto al documento" loading="eager" decoding="async"></div>
+                </div>
+            </div>
+        </section>
 
+    </div>
+
+    <!-- TOOLS BAND -->
+    <section class="tools">
+        <div class="wrap">
+            <div class="tools-head reveal">
+                <h2>Tienes todo lo necesario, ya incluido.</h2>
+                <p>De Deep Research a la nota del día. Todas las funciones para crear documentos, reunidas en una sola app.</p>
+            </div>
+            <div class="tools-grid">
+                <div class="tool reveal">
+                    <div class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+                    <h4>Deep Research</h4>
+                    <p>La IA traza un plan, recorre la web y resume un informe con citas.</p>
+                </div>
+                <div class="tool reveal d1">
+                    <div class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 4v5h5"/><path d="M12 7v5l3 2"/></svg></div>
+                    <h4>Planificación y tareas</h4>
+                    <p>Las peticiones complejas se dividen en pasos. El progreso queda como tarea y puedes retomarlo.</p>
+                </div>
+                <div class="tool reveal d2">
+                    <div class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></svg></div>
+                    <h4>Segunda opinión</h4>
+                    <p>Lanza la misma pregunta a otro modelo y compara los distintos puntos de vista.</p>
+                </div>
+                <div class="tool reveal">
+                    <div class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/></svg></div>
+                    <h4>Entrada de voz</h4>
+                    <p>Lo que dices, directo a la nota. Ni las ideas de camino se te escapan.</p>
+                </div>
+                <div class="tool reveal d1">
+                    <div class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05 12.25 20.24a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg></div>
+                    <h4>Adjuntos y lectura de imágenes</h4>
+                    <p>Adjunta PDFs o imágenes: la IA lee su contenido y lo incorpora al contexto.</p>
+                </div>
+                <div class="tool reveal d2">
+                    <div class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V5a2 2 0 0 1 2-2h2"/><path d="M4 17v2a2 2 0 0 0 2 2h2"/><path d="M16 3h2a2 2 0 0 1 2 2v2"/><path d="M16 21h2a2 2 0 0 0 2-2v-2"/><path d="M8 12h8"/></svg></div>
+                    <h4>Búsqueda web, entre notas y Markdown</h4>
+                    <p>Busca en la web al instante. Tus notas se guardan en Markdown y puedes llevártelas cuando quieras.</p>
+                </div>
+            </div>
+
+            <div class="models reveal">
+                <div class="models-head">
+                    <span class="t">Deja el modelo a la IA, o elígelo tú.</span>
+                    <span class="badge">BYOK</span>
+                </div>
+                <div class="model-row"><span class="v g">G</span><span class="nm">Gemini 3.5 Flash</span><span class="tier">FAST</span></div>
+                <div class="model-row"><span class="v g">G</span><span class="nm">Gemini 3.1 Flash Lite</span><span class="tier">LITE</span></div>
+                <div class="model-row"><span class="v c">C</span><span class="nm">Claude Opus 4.7</span><span class="tier">OPUS</span></div>
+                <div class="model-row"><span class="v c">C</span><span class="nm">Claude Sonnet 4.6</span><span class="tier">SONNET</span></div>
             </div>
         </div>
     </section>
 
-    <!-- SHOWCASE -->
-    <section class="showcase">
-        <div class="showcase-wrap">
-            <div class="sc-head">
-                <h2>Esto es lo que ocurre <em>dentro de la pantalla</em>.</h2>
-                <p class="sc-sub">Cinco escenas para que sientas cómo es usarla de verdad.</p>
+    <!-- PRIVACY -->
+    <section class="privacy" id="privacy">
+        <div class="wrap privacy-inner">
+            <div class="reveal">
+                <p class="privacy-eyebrow">Privacidad</p>
+                <h2>Las notas viven solo en tu dispositivo.</h2>
+                <p class="lede">No hace falta entregarlo todo a la nube para usar la IA. Teeby está pensada para funcionar con dos cosas: «tu dispositivo» y «tu clave de API».</p>
             </div>
-
-            <div class="sc-row">
-                <div>
-                    <div class="sc-num">01</div>
-                    <div class="sc-kicker">Simple to start</div>
-                    <h3>Tan sencillo, que <em>empiezas al instante</em>.</h3>
-                    <p>Sin ajustes ni gestos complicados. Solo apuntas la idea o la nota tal cual te llega; el resto lo asume la IA: resume, da forma, pule y termina convirtiéndolo en un documento.</p>
-                    <div class="sc-quote">«Solo dejo una nota y, al final, tengo un documento que se puede leer de verdad.»</div>
+            <div class="privacy-stack">
+                <div class="privacy-item reveal">
+                    <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+                    <div><h5>El contenido de las notas, totalmente local</h5><p>Las notas no se envían a servidores de Teeby. La copia de seguridad y la sincronización se gestionan en tu propio entorno.</p></div>
                 </div>
-                <div class="sc-img sc-img-wrap focus-center">
-                    <img src="../appstore/raw/01.png" alt="Pantalla sencilla de notas en Teeby" loading="lazy" decoding="async">
-                    <div class="mask"></div>
-                    <div class="pin" style="top: 18%; left: 50%; transform: translateX(-50%);">UI sencilla, lista para usar</div>
+                <div class="privacy-item reveal d1">
+                    <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+                    <div><h5>BYOK: funciona con tu propia clave de API</h5><p>Las peticiones a la IA viajan directamente a Gemini o Claude. Tarifas y términos los gestionas con cada proveedor.</p></div>
                 </div>
-            </div>
-
-            <div class="sc-row flip">
-                <div>
-                    <div class="sc-num">02</div>
-                    <div class="sc-kicker">Co-writing with AI</div>
-                    <h3>Cualquier documento, <em>creado junto a la IA</em>.</h3>
-                    <p>Desde el chat junto al cuerpo del texto, le pides a la IA borradores o ajustes y los aplicas en el momento. Lo que piensas, la IA lo va vertiendo en el documento.</p>
-                </div>
-                <div class="sc-img sc-img-wrap focus-right">
-                    <img src="../appstore/raw/02.png" alt="Chat con la IA junto al documento" loading="lazy" decoding="async">
-                    <div class="mask"></div>
-                    <div class="pin" style="top: 8%; right: 6%;">Trabajar con la IA al lado del documento</div>
-                </div>
-            </div>
-
-            <div class="sc-row">
-                <div>
-                    <div class="sc-num">03</div>
-                    <div class="sc-kicker">Context, automatic</div>
-                    <h3>Las notas anteriores, <em>contexto al instante</em>.</h3>
-                    <p>Las notas y archivos del mismo proyecto los carga la IA por sí sola. Ya no tienes que ir pegando «léete esto antes» una y otra vez.</p>
-                </div>
-                <div class="sc-img sc-img-wrap focus-left">
-                    <img src="../appstore/raw/03.png" alt="Notas relacionadas consultadas automáticamente" loading="lazy" decoding="async">
-                    <div class="mask"></div>
-                    <div class="pin" style="top: 22%; left: 8%;">Notas relacionadas cargadas en automático</div>
-                </div>
-            </div>
-
-            <div class="sc-row flip">
-                <div>
-                    <div class="sc-num">04</div>
-                    <div class="sc-kicker">Right tool for the job</div>
-                    <h3>Para cada situación, <em>la herramienta justa</em>.</h3>
-                    <p>Búsqueda web, Deep Research, búsqueda entre notas, planificación, gestión de tareas, segunda opinión. La IA lee el contexto y elige por sí misma la herramienta adecuada.</p>
-                </div>
-                <div class="sc-img sc-img-wrap focus-right">
-                    <img src="../appstore/raw/04.png" alt="La IA combinando distintas herramientas" loading="lazy" decoding="async">
-                    <div class="mask"></div>
-                    <div class="pin" style="top: 14%; right: 6%;">La IA elige la herramienta adecuada</div>
-                </div>
-            </div>
-
-            <div class="sc-row">
-                <div>
-                    <div class="sc-num">05</div>
-                    <div class="sc-kicker">Everything stays home</div>
-                    <h3>Almacenamiento local: <em>documentos confidenciales</em> a salvo.</h3>
-                    <p>El contenido de las notas se guarda solo dentro de tu Mac o iPad. Las peticiones a la IA viajan con tu propia clave de API directamente a Gemini o Claude. Sin un servidor de Teeby por medio.</p>
-                </div>
-                <div class="sc-img sc-img-wrap">
-                    <img src="../appstore/raw/05.png" alt="Almacenamiento local y privacidad" loading="lazy" decoding="async">
-                    <div class="pin" style="top: 6%; left: 50%; transform: translateX(-50%);">Formato de guardado: Markdown</div>
+                <div class="privacy-item reveal d2">
+                    <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+                    <div><h5>Sin servidor de paso</h5><p>Teeby no media en las comunicaciones. Tampoco guarda registros del contenido, así que puedes manejar información sensible con tranquilidad.</p></div>
                 </div>
             </div>
         </div>
@@ -1047,85 +748,17 @@
     <!-- USE CASES -->
     <section class="usecases" id="usecases">
         <div class="wrap">
-            <div class="uc-head">
-                <h2>Aquí es donde Teeby <em>se luce de verdad</em>.</h2>
-                <p>De las actas de reunión a los informes diarios. Crear documentos de trabajo es mucho más fluido con la IA al lado.</p>
+            <div class="uc-head reveal">
+                <h2>De las actas a los informes diarios: todos tus documentos de trabajo.</h2>
+                <p>Crear documentos de trabajo es mucho más fluido con la IA al lado.</p>
             </div>
             <div class="uc-grid">
-                <div class="uc">
-                    <div class="uc-num">i</div>
-                    <h4>Actas y notas de reunión</h4>
-                    <p>De los puntos sueltos al formato de acta, la IA lo cuida. Y, con las actas anteriores en mente, deja también los argumentos bien ordenados.</p>
-                </div>
-                <div class="uc">
-                    <div class="uc-num">ii</div>
-                    <h4>Briefings y propuestas</h4>
-                    <p>La IA capta el recorrido del proyecto. Con el contexto y el objetivo claros, el resultado convence.</p>
-                </div>
-                <div class="uc">
-                    <div class="uc-num">iii</div>
-                    <h4>Búsquedas e investigación</h4>
-                    <p>Con la búsqueda web consultas lo que te interesa al momento. Si pasas el relevo a Deep Research, recibirás un informe con citas, listo para leer.</p>
-                </div>
-                <div class="uc">
-                    <div class="uc-num">iv</div>
-                    <h4>Lluvia de ideas</h4>
-                    <p>Solo apuntas lo que se te ocurre y la IA lo enlaza con ideas anteriores para tirar del siguiente hilo.</p>
-                </div>
-                <div class="uc">
-                    <div class="uc-num">v</div>
-                    <h4>Documentación técnica</h4>
-                    <p>La IA ordena tus notas de diseño y especificaciones. Si adjuntas imágenes o PDFs, el contexto técnico se mantiene en el documento.</p>
-                </div>
-                <div class="uc">
-                    <div class="uc-num">vi</div>
-                    <h4>Informes diarios y revisiones</h4>
-                    <p>La IA pone en orden tu día a día. Avances y aprendizajes se acumulan, y el paso a un informe semanal o mensual queda servido.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PRIVACY -->
-    <section class="privacy" id="privacy">
-        <div class="privacy-wrap">
-            <div class="privacy-grid">
-                <div>
-                    <div class="privacy-kicker">— Privacy, by default</div>
-                    <h2>Lo confidencial y las propuestas, <em>en buenas manos</em>.</h2>
-                    <p class="privacy-lede">
-                        No hace falta entregarlo todo a la nube para usar la IA. Teeby está pensada para funcionar con dos cosas: «tu dispositivo (Mac / iPad)» y «tu clave de API».
-                    </p>
-                </div>
-                <div class="privacy-stack">
-                    <div class="privacy-item">
-                        <div class="check">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-                        </div>
-                        <div>
-                            <h5>El contenido de las notas, totalmente local</h5>
-                            <p>Las notas no se envían a servidores de Teeby. La copia de seguridad y la sincronización se gestionan en tu propio entorno.</p>
-                        </div>
-                    </div>
-                    <div class="privacy-item">
-                        <div class="check">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-                        </div>
-                        <div>
-                            <h5>BYOK: funciona con tu propia clave de API</h5>
-                            <p>Las peticiones a la IA viajan directamente a Gemini o Claude. Tarifas y términos los gestionas con cada proveedor.</p>
-                        </div>
-                    </div>
-                    <div class="privacy-item">
-                        <div class="check">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-                        </div>
-                        <div>
-                            <h5>Sin servidor de paso</h5>
-                            <p>Teeby no media en las comunicaciones. Tampoco guarda registros del contenido, así que puedes manejar información sensible con tranquilidad.</p>
-                        </div>
-                    </div>
-                </div>
+                <div class="uc reveal"><span class="uc-no">01</span><div><h4>Actas y notas de reunión</h4><p>De los puntos sueltos al formato de acta, la IA lo cuida. Y, con las actas anteriores en mente, deja también los argumentos bien ordenados.</p></div></div>
+                <div class="uc reveal d1"><span class="uc-no">02</span><div><h4>Briefings y propuestas</h4><p>La IA capta el recorrido del proyecto. Con el contexto y el objetivo claros, el resultado convence.</p></div></div>
+                <div class="uc reveal"><span class="uc-no">03</span><div><h4>Búsquedas e investigación</h4><p>Con la búsqueda web consultas lo que te interesa al momento. Si pasas el relevo a Deep Research, recibirás un informe con citas, listo para leer.</p></div></div>
+                <div class="uc reveal d1"><span class="uc-no">04</span><div><h4>Lluvia de ideas</h4><p>Solo apuntas lo que se te ocurre y la IA lo enlaza con ideas anteriores para tirar del siguiente hilo.</p></div></div>
+                <div class="uc reveal"><span class="uc-no">05</span><div><h4>Documentación técnica</h4><p>La IA ordena tus notas de diseño y especificaciones. Si adjuntas imágenes o PDFs, el contexto técnico se mantiene en el documento.</p></div></div>
+                <div class="uc reveal d1"><span class="uc-no">06</span><div><h4>Informes diarios y revisiones</h4><p>La IA pone en orden tu día a día. Avances y aprendizajes se acumulan, y el paso a un informe semanal o mensual queda servido.</p></div></div>
             </div>
         </div>
     </section>
@@ -1133,35 +766,32 @@
     <!-- FAQ -->
     <section class="faq" id="faq">
         <div class="wrap">
-            <div class="faq-head">
-                <h2>Preguntas frecuentes</h2>
-                <p>Las preguntas que más nos llegan sobre Teeby, con sus respuestas.</p>
-            </div>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <div class="faq-q">¿Qué es Teeby?</div>
+            <div class="faq-head reveal"><h2>Preguntas frecuentes</h2></div>
+            <div class="faq-list reveal">
+                <details class="faq-item">
+                    <summary class="faq-q"><span class="qt">¿Qué es Teeby?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
                     <div class="faq-a">Teeby es una app de notas para Mac y iPad con la que terminas tus textos junto a la IA, usando como contexto las notas que has ido acumulando. Incluye Deep Research, planificación, gestión de tareas, segunda opinión, búsqueda web, entrada de voz, lectura de imágenes y búsqueda entre notas. Los datos se guardan totalmente en local y, mediante BYOK (Bring Your Own Key), Gemini o Claude se utilizan directamente.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-q">¿Tiene algún coste?</div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-q"><span class="qt">¿Tiene algún coste?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
                     <div class="faq-a">La descarga desde el App Store es gratuita y puedes usar Teeby sin coste hasta <b>10 notas</b>. Si quieres crear y gestionar más de 10, puedes desbloquear el límite con una compra dentro de la app (<b>mejora a la versión Premium, pago único</b>) en el App Store. No hay suscripciones mensuales. Las funciones de IA usan <b>BYOK</b> (Bring Your Own Key): empleas tu propia clave de API de Gemini o Claude, y los costes de uso de la IA se facturan directamente según las tarifas de cada proveedor.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-q">¿Dónde se guardan las notas?</div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-q"><span class="qt">¿Dónde se guardan las notas?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
                     <div class="faq-a">El contenido de las notas se guarda exclusivamente en la sandbox de la app de tu dispositivo (Mac o iPad). En ningún momento se envía a servidores de Teeby. Las copias de seguridad y la sincronización también se gestionan dentro de tu propio entorno.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-q">¿Qué es Deep Research (investigación profunda)?</div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-q"><span class="qt">¿Qué es Deep Research (investigación profunda)?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
                     <div class="faq-a">Basta con pedir «investiga sobre…»: la IA traza su propio plan, navega por la web y resume un informe con citas dentro de una nota. Antes de ejecutarlo puedes consultar el coste y el tiempo previstos. Requiere una capa de pago de la API de Gemini.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-q">¿Qué modelos de IA admite?</div>
-                    <div class="faq-a">Compatible con Gemini 3.1 Pro / 3 Flash / 3.1 Flash Lite y Claude Opus 4.7 / Sonnet 4.6. Puedes elegir entre el modo automático (que decide cada vez el modelo idóneo según el prompt) y la selección manual.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-q">¿Cuáles son los requisitos del sistema?</div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-q"><span class="qt">¿Qué modelos de IA admite?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+                    <div class="faq-a">Compatible con Gemini 3.5 Flash / 3.1 Flash Lite y Claude Opus 4.7 / Sonnet 4.6. Puedes elegir entre el modo automático (que decide cada vez el modelo idóneo según el prompt) y la selección manual.</div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-q"><span class="qt">¿Cuáles son los requisitos del sistema?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
                     <div class="faq-a">Se necesita macOS 14 o posterior, o iPadOS 17 o posterior. En Mac funciona tanto en Apple Silicon como en Intel.</div>
-                </div>
+                </details>
             </div>
         </div>
     </section>
@@ -1169,21 +799,26 @@
     <!-- CTA -->
     <section class="cta">
         <div class="wrap">
-            <div class="price-tag">Descarga gratuita · <b>macOS 14 / iPadOS 17 o posterior</b></div>
-            <h2>Empieza tu próximo documento <em style="white-space:nowrap;">con Teeby</em>.</h2>
-            <p>En Mac o en iPad: introduces la clave de API y, en 5 minutos, ya estás escribiendo.</p>
-            <div class="cta-actions">
-                <a href="https://apps.apple.com/es/app/teeby/id6759851366" class="appstore-badge">
-                    <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/es-es?size=250x83" alt="Descargar en el App Store">
-                </a>
+            <div class="cta-card reveal">
+                <h2>Empieza tu próximo documento con Teeby.</h2>
+                <p>En Mac o en iPad: introduces la clave de API y, en 5 minutos, ya estás escribiendo.</p>
+                <div class="hero-ctas">
+                    <a href="https://apps.apple.com/es/app/teeby/id6759851366" class="appstore" aria-label="Descargar en el App Store">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/es-es?size=250x83" alt="Descargar en el App Store">
+                    </a>
+                </div>
+                <p class="cta-note">Descarga gratuita · Hasta 10 notas gratis · macOS 14 / iPadOS 17 o posterior</p>
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="footer">
-        <div class="footer-wrap">
-            <div>&copy; 2026 Akinori Tokita</div>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img src="../appstore/app-icon.png" alt="Teeby">
+                <span>&copy; 2026 Akinori Tokita</span>
+            </div>
             <div class="footer-links">
                 <a href="../privacy.html">Política de privacidad</a>
                 <a href="../terms.html">Términos de uso</a>
@@ -1191,6 +826,22 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // sticky nav border on scroll
+        var nav = document.getElementById('nav');
+        var onScroll = () => { nav.classList.toggle('scrolled', window.scrollY > 8); };
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+
+        // scroll reveal
+        var io = new IntersectionObserver((entries) => {
+            entries.forEach((e) => {
+                if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+            });
+        }, { rootMargin: '0px 0px 18% 0px', threshold: 0 });
+        document.querySelectorAll('.reveal').forEach((el) => { io.observe(el); });
+    </script>
 
 </body>
 
