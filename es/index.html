@@ -253,7 +253,7 @@
         .accent { color: var(--accent); }
 
         /* ---- scroll reveal ---- */
-        .reveal { opacity: 1; transform: none; }
+        .reveal { opacity: 0; transform: translateY(10px); transition: opacity .4s var(--ease), transform .4s var(--ease); }
         .reveal.in { opacity: 1; transform: none; }
         .reveal.d1 { transition-delay: .04s; }
         .reveal.d2 { transition-delay: .08s; }
@@ -279,7 +279,7 @@
         .btn-ghost:hover { background: var(--bg-2); opacity: 1; box-shadow: inset 0 0 0 1px var(--ink-3); }
         .btn svg { width: 16px; height: 16px; }
 
-        .appstore img { height: 50px; display: block; transition: transform .2s var(--ease); }
+        .appstore img { height: 50px; width: auto; display: block; transition: transform .2s var(--ease); }
         .appstore:hover img { transform: scale(1.03); }
 
         /* ---- window frame for screenshots ---- */
@@ -329,7 +329,7 @@
             max-width: 34em; margin: 0 auto 34px; font-weight: 400;
         }
         .hero-ctas { display: flex; gap: 14px; justify-content: center; align-items: center; flex-wrap: wrap; }
-        .hero-note { margin-top: 22px; font-size: 13px; color: var(--ink-3); }
+        .hero-note { margin-top: 22px; font-size: 13px; color: var(--ink-3); text-wrap: balance; }
         .hero-note b { color: var(--ink-2); font-weight: 500; }
 
         .hero-shot { max-width: 1180px; margin: 64px auto 0; padding: 0 24px; }
@@ -465,7 +465,7 @@
         .cta h2 { font-size: clamp(30px, 4.2vw, 52px); line-height: 1.1; letter-spacing: -0.03em; max-width: 19ch; margin: 0 auto 20px; }
         .cta p { font-size: 19px; color: var(--ink-2); margin-bottom: 36px; }
         .cta .hero-ctas { margin-bottom: 0; }
-        .cta-note { margin-top: 22px; font-size: 13px; color: var(--ink-3); }
+        .cta-note { margin-top: 22px; font-size: 13px; color: var(--ink-3); text-wrap: balance; }
 
         /* =====================  FOOTER  ===================== */
         .footer { border-top: 1px solid var(--line-2); padding: 40px 0; }
@@ -576,7 +576,7 @@
                 </a>
                 <a href="#features" class="btn btn-ghost">Ver funciones</a>
             </div>
-            <p class="hero-note reveal d3"><b>Descarga gratuita</b> · Para Mac y iPad · macOS 14 / iPadOS 17 o posterior</p>
+            <p class="hero-note reveal d3"><b>Descarga gratuita</b> · Pago único, sin suscripción · Para Mac y iPad</p>
         </div>
         <div class="hero-shot reveal d2">
             <div class="window">
@@ -809,7 +809,7 @@
                         <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/es-es?size=250x83" alt="Descargar en el App Store">
                     </a>
                 </div>
-                <p class="cta-note">Descarga gratuita · Hasta 10 notas gratis · macOS 14 / iPadOS 17 o posterior</p>
+                <p class="cta-note">Hasta 10 notas gratis · Desbloqueo único, sin cuota mensual · macOS 14 / iPadOS 17 o posterior</p>
             </div>
         </div>
     </section>
@@ -837,12 +837,20 @@
         window.addEventListener('scroll', onScroll, { passive: true });
 
         // scroll reveal
-        var io = new IntersectionObserver((entries) => {
-            entries.forEach((e) => {
-                if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-            });
-        }, { rootMargin: '0px 0px 18% 0px', threshold: 0 });
-        document.querySelectorAll('.reveal').forEach((el) => { io.observe(el); });
+        // .reveal は初期状態が opacity:0 のため、IntersectionObserver が
+        // 使えない・失敗した場合は必ず全表示へフォールバックする
+        var reveals = document.querySelectorAll('.reveal');
+        try {
+            if (!('IntersectionObserver' in window)) throw new Error('unsupported');
+            var io = new IntersectionObserver((entries) => {
+                entries.forEach((e) => {
+                    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+                });
+            }, { rootMargin: '0px 0px 18% 0px', threshold: 0 });
+            reveals.forEach((el) => { io.observe(el); });
+        } catch (err) {
+            reveals.forEach((el) => { el.classList.add('in'); });
+        }
     </script>
 
 </body>
