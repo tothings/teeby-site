@@ -38,7 +38,9 @@
     <meta property="og:description" content="以日积月累的笔记为上下文,与 AI 一起撰写商务文档的 Mac / iPad 笔记应用。支持 Deep Research、规划、任务管理、本地保存,以及 BYOK(Gemini / Claude)。">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://teeby.nanakumi.net/zh-CN/">
-    <meta property="og:image" content="https://teeby.nanakumi.net/appstore/01.png">
+    <meta property="og:image" content="https://teeby.nanakumi.net/appstore/01-hero.png">
+    <meta property="og:image:width" content="2880">
+    <meta property="og:image:height" content="1800">
     <meta property="og:image:alt" content="Teeby 应用界面">
     <meta property="og:locale" content="zh_CN">
     <meta property="og:site_name" content="Teeby">
@@ -47,7 +49,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Teeby — 与 AI 并肩而写,属于你自己的笔记(Mac / iPad)">
     <meta name="twitter:description" content="以日积月累的笔记为上下文,与 AI 一起完成文稿的 Mac / iPad 笔记应用。支持 Deep Research、规划、任务管理、本地保存与 BYOK。">
-    <meta name="twitter:image" content="https://teeby.nanakumi.net/appstore/01.png">
+    <meta name="twitter:image" content="https://teeby.nanakumi.net/appstore/01-hero.png">
 
     <!-- Structured Data: SoftwareApplication -->
     <script type="application/ld+json">
@@ -62,7 +64,7 @@
         "applicationSubCategory": "AI Note-taking",
         "description": "Teeby 是一款 Mac / iPad 笔记应用,以你日积月累的笔记为上下文,与 AI 一起撰写商务文档。从会议记录、项目策划、提案到日报,支持 Deep Research、规划、任务管理、第二意见、本地保存与 BYOK(Gemini / Claude)。",
         "inLanguage": ["ja", "en", "ko", "de", "es", "fr", "it", "ru", "pt-BR", "hi", "zh-CN"],
-        "image": "https://teeby.nanakumi.net/appstore/01.png",
+        "image": "https://teeby.nanakumi.net/appstore/01-hero.png",
         "screenshot": [
             "https://teeby.nanakumi.net/appstore/raw/01.png",
             "https://teeby.nanakumi.net/appstore/raw/02.png",
@@ -186,7 +188,7 @@
                 "name": "支持哪些 AI 模型?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "支持 Gemini 3.5 Flash / 3.1 Flash Lite,以及 Claude Opus 4.7 / Sonnet 4.6。可以使用自动切换模式(根据每次的提示动态判定最合适的模型),也可以手动选择。"
+                    "text": "支持 Gemini 3.6 Flash / 3.5 Flash Lite,以及 Claude Opus 5 / Sonnet 5。可以使用自动切换模式(根据每次的提示动态判定最合适的模型),也可以手动选择。"
                 }
             },
             {
@@ -289,7 +291,7 @@
             box-shadow: 0 1px 4px rgba(0,0,0,.05), 0 12px 28px -12px rgba(20,20,40,.18);
             outline: 1px solid rgba(0,0,0,.06); outline-offset: -1px;
         }
-        .window img { width: 100%; }
+        .window img { width: 100%; height: auto; }
 
         /* =====================  NAV  ===================== */
         .nav {
@@ -580,7 +582,7 @@
         </div>
         <div class="hero-shot reveal d2">
             <div class="window">
-                <img src="../appstore/web/hero.png" alt="Teeby 应用界面" loading="eager" width="1180">
+                <img src="../appstore/web/hero.png" alt="Teeby 应用界面" loading="eager" fetchpriority="high" decoding="async" width="2400" height="1637">
             </div>
         </div>
     </header>
@@ -634,7 +636,7 @@
                     </ul>
                 </div>
                 <div class="feature-media reveal d1">
-                    <div class="window"><img src="../appstore/web/03.png" alt="自动参阅相关笔记的界面" loading="eager" decoding="async"></div>
+                    <div class="window"><img src="../appstore/web/03.png" alt="自动参阅相关笔记的界面" loading="lazy" decoding="async" width="1500" height="1096"></div>
                 </div>
             </div>
         </section>
@@ -648,7 +650,7 @@
                     <p>只要说一句"帮我研究一下……",AI 就会自行制定计划、检索 Web,并把带引用的研究报告整理到笔记里。执行前可以确认预估费用与所需时间,因此像平常聊天一样随手就能发起。</p>
                 </div>
                 <div class="feature-media reveal d1">
-                    <div class="window"><img src="../appstore/web/04.png" alt="深度研究的执行界面" loading="eager" decoding="async"></div>
+                    <div class="window"><img src="../appstore/web/04.png" alt="深度研究的执行界面" loading="lazy" decoding="async" width="1500" height="1096"></div>
                 </div>
             </div>
         </section>
@@ -662,7 +664,7 @@
                     <p>从文档旁的聊天面板里,既可以请 AI 起草,也可以现场调整文句。你的想法,被 AI 一行行落进文档里。视线一转,协作随即开始。</p>
                 </div>
                 <div class="feature-media reveal d1">
-                    <div class="window"><img src="../appstore/web/02.png" alt="文档旁的 AI 聊天" loading="eager" decoding="async"></div>
+                    <div class="window"><img src="../appstore/web/02.png" alt="文档旁的 AI 聊天" loading="lazy" decoding="async" width="1500" height="1096"></div>
                 </div>
             </div>
         </section>
@@ -714,10 +716,10 @@
                     <span class="t">交给 AI,或自己挑选。</span>
                     <span class="badge">BYOK</span>
                 </div>
-                <div class="model-row"><span class="v g">G</span><span class="nm">Gemini 3.5 Flash</span><span class="tier">FAST</span></div>
-                <div class="model-row"><span class="v g">G</span><span class="nm">Gemini 3.1 Flash Lite</span><span class="tier">LITE</span></div>
-                <div class="model-row"><span class="v c">C</span><span class="nm">Claude Opus 4.7</span><span class="tier">OPUS</span></div>
-                <div class="model-row"><span class="v c">C</span><span class="nm">Claude Sonnet 4.6</span><span class="tier">SONNET</span></div>
+                <div class="model-row"><span class="v g">G</span><span class="nm">Gemini 3.6 Flash</span><span class="tier">FAST</span></div>
+                <div class="model-row"><span class="v g">G</span><span class="nm">Gemini 3.5 Flash Lite</span><span class="tier">LITE</span></div>
+                <div class="model-row"><span class="v c">C</span><span class="nm">Claude Opus 5</span><span class="tier">OPUS</span></div>
+                <div class="model-row"><span class="v c">C</span><span class="nm">Claude Sonnet 5</span><span class="tier">SONNET</span></div>
             </div>
         </div>
     </section>
@@ -788,7 +790,7 @@
                 </details>
                 <details class="faq-item">
                     <summary class="faq-q"><span class="qt">支持哪些 AI 模型?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
-                    <div class="faq-a">支持 Gemini 3.5 Flash / 3.1 Flash Lite,以及 Claude Opus 4.7 / Sonnet 4.6。可以使用自动切换模式(根据每次的提示动态判定最合适的模型),也可以手动选择。</div>
+                    <div class="faq-a">支持 Gemini 3.6 Flash / 3.5 Flash Lite,以及 Claude Opus 5 / Sonnet 5。可以使用自动切换模式(根据每次的提示动态判定最合适的模型),也可以手动选择。</div>
                 </details>
                 <details class="faq-item">
                     <summary class="faq-q"><span class="qt">运行环境是什么?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>

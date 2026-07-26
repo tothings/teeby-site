@@ -38,7 +38,9 @@
     <meta property="og:description" content="Notiz-App für Mac und iPad, die deine gesammelten Notizen als Kontext nutzt, um gemeinsam mit KI Geschäftsdokumente zu erstellen. Mit Deep Research, Planung, Aufgabenverwaltung, lokaler Speicherung und BYOK (Gemini / Claude).">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://teeby.nanakumi.net/de/">
-    <meta property="og:image" content="https://teeby.nanakumi.net/appstore/01.png">
+    <meta property="og:image" content="https://teeby.nanakumi.net/appstore/01-hero.png">
+    <meta property="og:image:width" content="2880">
+    <meta property="og:image:height" content="1800">
     <meta property="og:image:alt" content="Bildschirm der Teeby-App">
     <meta property="og:locale" content="de_DE">
     <meta property="og:site_name" content="Teeby">
@@ -47,7 +49,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Teeby — Schreiben Seite an Seite mit KI, deine eigene Notiz (Mac / iPad)">
     <meta name="twitter:description" content="Notiz-App für Mac und iPad, die deine gesammelten Notizen als Kontext nutzt, um Texte gemeinsam mit KI fertigzustellen. Mit Deep Research, Planung, Aufgabenverwaltung, lokaler Speicherung und BYOK.">
-    <meta name="twitter:image" content="https://teeby.nanakumi.net/appstore/01.png">
+    <meta name="twitter:image" content="https://teeby.nanakumi.net/appstore/01-hero.png">
 
     <!-- Structured Data: SoftwareApplication -->
     <script type="application/ld+json">
@@ -62,7 +64,7 @@
         "applicationSubCategory": "AI Note-taking",
         "description": "Teeby ist eine Notiz-App für Mac und iPad, die deine gesammelten Notizen als Kontext nutzt, um gemeinsam mit KI Geschäftsdokumente zu erstellen. Von Besprechungsprotokollen über Konzepte und Angebote bis zu Tagesberichten — mit Deep Research, Planung, Aufgabenverwaltung, Zweitmeinung, lokaler Speicherung und BYOK (Gemini / Claude).",
         "inLanguage": ["ja", "en", "ko", "de", "es", "fr", "it", "ru", "pt-BR", "hi", "zh-CN"],
-        "image": "https://teeby.nanakumi.net/appstore/01.png",
+        "image": "https://teeby.nanakumi.net/appstore/01-hero.png",
         "screenshot": [
             "https://teeby.nanakumi.net/appstore/raw/01.png",
             "https://teeby.nanakumi.net/appstore/raw/02.png",
@@ -186,7 +188,7 @@
                 "name": "Welche KI-Modelle werden unterstützt?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Unterstützt werden Gemini 3.5 Flash / 3.1 Flash Lite sowie Claude Opus 4.7 / Sonnet 4.6. Du kannst zwischen einem automatischen Modus (das passende Modell wird je nach Prompt jedes Mal neu gewählt) und der manuellen Auswahl wählen."
+                    "text": "Unterstützt werden Gemini 3.6 Flash / 3.5 Flash Lite sowie Claude Opus 5 / Sonnet 5. Du kannst zwischen einem automatischen Modus (das passende Modell wird je nach Prompt jedes Mal neu gewählt) und der manuellen Auswahl wählen."
                 }
             },
             {
@@ -287,7 +289,7 @@
             box-shadow: 0 1px 4px rgba(0,0,0,.05), 0 12px 28px -12px rgba(20,20,40,.18);
             outline: 1px solid rgba(0,0,0,.06); outline-offset: -1px;
         }
-        .window img { width: 100%; }
+        .window img { width: 100%; height: auto; }
 
         /* =====================  NAV  ===================== */
         .nav {
@@ -579,7 +581,7 @@
         </div>
         <div class="hero-shot reveal d2">
             <div class="window">
-                <img src="../appstore/web/hero.png" alt="Bildschirm der Teeby-App" loading="eager" width="1180">
+                <img src="../appstore/web/hero.png" alt="Bildschirm der Teeby-App" loading="eager" fetchpriority="high" decoding="async" width="2400" height="1637">
             </div>
         </div>
     </header>
@@ -633,7 +635,7 @@
                     </ul>
                 </div>
                 <div class="feature-media reveal d1">
-                    <div class="window"><img src="../appstore/web/03.png" alt="Verwandte Notizen werden automatisch herangezogen" loading="eager" decoding="async"></div>
+                    <div class="window"><img src="../appstore/web/03.png" alt="Verwandte Notizen werden automatisch herangezogen" loading="lazy" decoding="async" width="1500" height="1096"></div>
                 </div>
             </div>
         </section>
@@ -647,7 +649,7 @@
                     <p>Sag einfach „recherchiere zu …“, und die KI plant selbst, durchsucht das Web und legt einen Bericht mit Quellen direkt in der Notiz ab. Vor dem Start kannst du Kosten und Dauer prüfen — so unkompliziert wie ein gewöhnlicher Chat.</p>
                 </div>
                 <div class="feature-media reveal d1">
-                    <div class="window"><img src="../appstore/web/04.png" alt="Deep Research in Aktion" loading="eager" decoding="async"></div>
+                    <div class="window"><img src="../appstore/web/04.png" alt="Deep Research in Aktion" loading="lazy" decoding="async" width="1500" height="1096"></div>
                 </div>
             </div>
         </section>
@@ -661,7 +663,7 @@
                     <p>Im Chat neben dem Dokument bittest du die KI um Entwürfe oder Feinarbeit, sofort und im Fluss. Was du denkst, gießt die KI direkt ins Dokument. Ein Blick zur Seite, und die Zusammenarbeit beginnt.</p>
                 </div>
                 <div class="feature-media reveal d1">
-                    <div class="window"><img src="../appstore/web/02.png" alt="KI-Chat neben dem Dokument" loading="eager" decoding="async"></div>
+                    <div class="window"><img src="../appstore/web/02.png" alt="KI-Chat neben dem Dokument" loading="lazy" decoding="async" width="1500" height="1096"></div>
                 </div>
             </div>
         </section>
@@ -713,10 +715,10 @@
                     <span class="t">Lass die KI wählen — oder entscheide selbst.</span>
                     <span class="badge">BYOK</span>
                 </div>
-                <div class="model-row"><span class="v g">G</span><span class="nm">Gemini 3.5 Flash</span><span class="tier">FAST</span></div>
-                <div class="model-row"><span class="v g">G</span><span class="nm">Gemini 3.1 Flash Lite</span><span class="tier">LITE</span></div>
-                <div class="model-row"><span class="v c">C</span><span class="nm">Claude Opus 4.7</span><span class="tier">OPUS</span></div>
-                <div class="model-row"><span class="v c">C</span><span class="nm">Claude Sonnet 4.6</span><span class="tier">SONNET</span></div>
+                <div class="model-row"><span class="v g">G</span><span class="nm">Gemini 3.6 Flash</span><span class="tier">FAST</span></div>
+                <div class="model-row"><span class="v g">G</span><span class="nm">Gemini 3.5 Flash Lite</span><span class="tier">LITE</span></div>
+                <div class="model-row"><span class="v c">C</span><span class="nm">Claude Opus 5</span><span class="tier">OPUS</span></div>
+                <div class="model-row"><span class="v c">C</span><span class="nm">Claude Sonnet 5</span><span class="tier">SONNET</span></div>
             </div>
         </div>
     </section>
@@ -787,7 +789,7 @@
                 </details>
                 <details class="faq-item">
                     <summary class="faq-q"><span class="qt">Welche KI-Modelle werden unterstützt?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
-                    <div class="faq-a">Unterstützt werden Gemini 3.5 Flash / 3.1 Flash Lite sowie Claude Opus 4.7 / Sonnet 4.6. Du kannst zwischen einem automatischen Modus (das passende Modell wird je nach Prompt jedes Mal neu gewählt) und der manuellen Auswahl wählen.</div>
+                    <div class="faq-a">Unterstützt werden Gemini 3.6 Flash / 3.5 Flash Lite sowie Claude Opus 5 / Sonnet 5. Du kannst zwischen einem automatischen Modus (das passende Modell wird je nach Prompt jedes Mal neu gewählt) und der manuellen Auswahl wählen.</div>
                 </details>
                 <details class="faq-item">
                     <summary class="faq-q"><span class="qt">Welche Systemanforderungen gelten?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>

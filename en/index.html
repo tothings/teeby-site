@@ -38,7 +38,9 @@
     <meta property="og:description" content="A Mac / iPad note-taking app that turns the notes you've already written into context for drafting documents with AI. Deep Research, planning, task management, fully local storage, BYOK (Gemini / Claude).">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://teeby.nanakumi.net/en/">
-    <meta property="og:image" content="https://teeby.nanakumi.net/appstore/01.png">
+    <meta property="og:image" content="https://teeby.nanakumi.net/appstore/01-hero.png">
+    <meta property="og:image:width" content="2880">
+    <meta property="og:image:height" content="1800">
     <meta property="og:image:alt" content="Teeby app screen">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="Teeby">
@@ -47,7 +49,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Teeby — Write side by side with AI, in a notebook of your own (Mac / iPad)">
     <meta name="twitter:description" content="A Mac / iPad note-taking app that turns your existing notes into context, then polishes them with AI. Deep Research, planning, task management, fully local, BYOK.">
-    <meta name="twitter:image" content="https://teeby.nanakumi.net/appstore/01.png">
+    <meta name="twitter:image" content="https://teeby.nanakumi.net/appstore/01-hero.png">
 
     <!-- Structured Data: SoftwareApplication -->
     <script type="application/ld+json">
@@ -62,7 +64,7 @@
         "applicationSubCategory": "AI Note-taking",
         "description": "Teeby is a Mac / iPad note-taking app that turns the notes you've already written into context for drafting business documents with AI — meeting minutes, briefs, proposals, daily reports — with Deep Research, planning, task management, second opinions, fully local storage, and BYOK (Gemini / Claude).",
         "inLanguage": ["ja", "en", "ko", "de", "es", "fr", "it", "ru", "pt-BR", "hi", "zh-CN"],
-        "image": "https://teeby.nanakumi.net/appstore/01.png",
+        "image": "https://teeby.nanakumi.net/appstore/01-hero.png",
         "screenshot": [
             "https://teeby.nanakumi.net/appstore/raw/01.png",
             "https://teeby.nanakumi.net/appstore/raw/02.png",
@@ -186,7 +188,7 @@
                 "name": "Which AI models are supported?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Gemini 3.5 Flash / 3.1 Flash Lite, plus Claude Opus 4.7 / Sonnet 4.6. You can use auto mode (the best model is chosen on every prompt) or pick a model manually."
+                    "text": "Gemini 3.6 Flash / 3.5 Flash Lite, plus Claude Opus 5 / Sonnet 5. You can use auto mode (the best model is chosen on every prompt) or pick a model manually."
                 }
             },
             {
@@ -287,7 +289,7 @@
             box-shadow: 0 1px 4px rgba(0,0,0,.05), 0 12px 28px -12px rgba(20,20,40,.18);
             outline: 1px solid rgba(0,0,0,.06); outline-offset: -1px;
         }
-        .window img { width: 100%; }
+        .window img { width: 100%; height: auto; }
 
         /* =====================  NAV  ===================== */
         .nav {
@@ -578,7 +580,7 @@
         </div>
         <div class="hero-shot reveal d2">
             <div class="window">
-                <img src="../appstore/web/hero.png" alt="The Teeby app screen" loading="eager" width="1180">
+                <img src="../appstore/web/hero.png" alt="The Teeby app screen" loading="eager" fetchpriority="high" decoding="async" width="2400" height="1637">
             </div>
         </div>
     </header>
@@ -632,7 +634,7 @@
                     </ul>
                 </div>
                 <div class="feature-media reveal d1">
-                    <div class="window"><img src="../appstore/web/03.png" alt="Related notes referenced automatically" loading="eager" decoding="async"></div>
+                    <div class="window"><img src="../appstore/web/03.png" alt="Related notes referenced automatically" loading="lazy" decoding="async" width="1500" height="1096"></div>
                 </div>
             </div>
         </section>
@@ -646,7 +648,7 @@
                     <p>Say "look into ___" and the AI plans on its own, browses the web, and pulls a cited research report straight into a note. Estimated cost and run time appear up front, so you can ask it as casually as a chat message.</p>
                 </div>
                 <div class="feature-media reveal d1">
-                    <div class="window"><img src="../appstore/web/04.png" alt="Deep Research running" loading="eager" decoding="async"></div>
+                    <div class="window"><img src="../appstore/web/04.png" alt="Deep Research running" loading="lazy" decoding="async" width="1500" height="1096"></div>
                 </div>
             </div>
         </section>
@@ -660,7 +662,7 @@
                     <p>From the chat right beside your document, request a draft or a quick rewrite on the spot. The AI shapes your thinking into the document, line by line. Just shift your gaze, and the collaboration begins.</p>
                 </div>
                 <div class="feature-media reveal d1">
-                    <div class="window"><img src="../appstore/web/02.png" alt="AI chat alongside the document" loading="eager" decoding="async"></div>
+                    <div class="window"><img src="../appstore/web/02.png" alt="AI chat alongside the document" loading="lazy" decoding="async" width="1500" height="1096"></div>
                 </div>
             </div>
         </section>
@@ -712,10 +714,10 @@
                     <span class="t">Let the AI decide, or pick it yourself.</span>
                     <span class="badge">BYOK</span>
                 </div>
-                <div class="model-row"><span class="v g">G</span><span class="nm">Gemini 3.5 Flash</span><span class="tier">FAST</span></div>
-                <div class="model-row"><span class="v g">G</span><span class="nm">Gemini 3.1 Flash Lite</span><span class="tier">LITE</span></div>
-                <div class="model-row"><span class="v c">C</span><span class="nm">Claude Opus 4.7</span><span class="tier">OPUS</span></div>
-                <div class="model-row"><span class="v c">C</span><span class="nm">Claude Sonnet 4.6</span><span class="tier">SONNET</span></div>
+                <div class="model-row"><span class="v g">G</span><span class="nm">Gemini 3.6 Flash</span><span class="tier">FAST</span></div>
+                <div class="model-row"><span class="v g">G</span><span class="nm">Gemini 3.5 Flash Lite</span><span class="tier">LITE</span></div>
+                <div class="model-row"><span class="v c">C</span><span class="nm">Claude Opus 5</span><span class="tier">OPUS</span></div>
+                <div class="model-row"><span class="v c">C</span><span class="nm">Claude Sonnet 5</span><span class="tier">SONNET</span></div>
             </div>
         </div>
     </section>
@@ -786,7 +788,7 @@
                 </details>
                 <details class="faq-item">
                     <summary class="faq-q"><span class="qt">Which AI models are supported?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
-                    <div class="faq-a">Gemini 3.5 Flash / 3.1 Flash Lite, plus Claude Opus 4.7 / Sonnet 4.6. You can use auto mode (the best model is chosen on every prompt) or pick a model manually.</div>
+                    <div class="faq-a">Gemini 3.6 Flash / 3.5 Flash Lite, plus Claude Opus 5 / Sonnet 5. You can use auto mode (the best model is chosen on every prompt) or pick a model manually.</div>
                 </details>
                 <details class="faq-item">
                     <summary class="faq-q"><span class="qt">What are the system requirements?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>

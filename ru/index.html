@@ -38,7 +38,9 @@
     <meta property="og:description" content="Приложение для заметок на Mac / iPad, в котором вы создаёте бизнес-документы вместе с ИИ, опираясь на накопленные записи. Поддержка Deep Research, планирования, задач, локального хранения и BYOK (Gemini / Claude).">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://teeby.nanakumi.net/ru/">
-    <meta property="og:image" content="https://teeby.nanakumi.net/appstore/01.png">
+    <meta property="og:image" content="https://teeby.nanakumi.net/appstore/01-hero.png">
+    <meta property="og:image:width" content="2880">
+    <meta property="og:image:height" content="1800">
     <meta property="og:image:alt" content="Экран приложения Teeby">
     <meta property="og:locale" content="ru_RU">
     <meta property="og:site_name" content="Teeby">
@@ -47,7 +49,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Teeby — Заметки, в которых вы пишете вместе с ИИ (Mac / iPad)">
     <meta name="twitter:description" content="Приложение для заметок на Mac / iPad: создавайте документы вместе с ИИ, опираясь на накопленные заметки. Deep Research, планирование, задачи, локальное хранение, BYOK.">
-    <meta name="twitter:image" content="https://teeby.nanakumi.net/appstore/01.png">
+    <meta name="twitter:image" content="https://teeby.nanakumi.net/appstore/01-hero.png">
 
     <!-- Structured Data: SoftwareApplication -->
     <script type="application/ld+json">
@@ -62,7 +64,7 @@
         "applicationSubCategory": "AI Note-taking",
         "description": "Teeby — приложение для заметок на Mac / iPad, в котором вы создаёте бизнес-документы вместе с ИИ, опираясь на накопленные записи. Протоколы встреч, брифы, предложения и ежедневные отчёты, Deep Research, планирование, управление задачами, второе мнение, локальное хранение и BYOK (Gemini / Claude).",
         "inLanguage": ["ja", "en", "ko", "de", "es", "fr", "it", "ru", "pt-BR", "hi", "zh-CN"],
-        "image": "https://teeby.nanakumi.net/appstore/01.png",
+        "image": "https://teeby.nanakumi.net/appstore/01-hero.png",
         "screenshot": [
             "https://teeby.nanakumi.net/appstore/raw/01.png",
             "https://teeby.nanakumi.net/appstore/raw/02.png",
@@ -186,7 +188,7 @@
                 "name": "Какие модели ИИ поддерживаются?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Поддерживаются Gemini 3.5 Flash / 3.1 Flash Lite, а также Claude Opus 4.7 / Sonnet 4.6. Доступны автоматический режим (модель подбирается под каждый запрос) и ручной выбор."
+                    "text": "Поддерживаются Gemini 3.6 Flash / 3.5 Flash Lite, а также Claude Opus 5 / Sonnet 5. Доступны автоматический режим (модель подбирается под каждый запрос) и ручной выбор."
                 }
             },
             {
@@ -287,7 +289,7 @@
             box-shadow: 0 1px 4px rgba(0,0,0,.05), 0 12px 28px -12px rgba(20,20,40,.18);
             outline: 1px solid rgba(0,0,0,.06); outline-offset: -1px;
         }
-        .window img { width: 100%; }
+        .window img { width: 100%; height: auto; }
 
         /* =====================  NAV  ===================== */
         .nav {
@@ -578,7 +580,7 @@
         </div>
         <div class="hero-shot reveal d2">
             <div class="window">
-                <img src="../appstore/web/hero.png" alt="Экран приложения Teeby" loading="eager" width="1180">
+                <img src="../appstore/web/hero.png" alt="Экран приложения Teeby" loading="eager" fetchpriority="high" decoding="async" width="2400" height="1637">
             </div>
         </div>
     </header>
@@ -632,7 +634,7 @@
                     </ul>
                 </div>
                 <div class="feature-media reveal d1">
-                    <div class="window"><img src="../appstore/web/03.png" alt="Автоматическое обращение к связанным заметкам" loading="eager" decoding="async"></div>
+                    <div class="window"><img src="../appstore/web/03.png" alt="Автоматическое обращение к связанным заметкам" loading="lazy" decoding="async" width="1500" height="1096"></div>
                 </div>
             </div>
         </section>
@@ -646,7 +648,7 @@
                     <p>Скажите «изучи такую-то тему», и ИИ сам составит план, обойдёт сеть и сведёт результаты в заметку с цитатами и ссылками. Перед запуском показываются ожидаемая стоимость и время, так что задание ставится так же легко, как обычный вопрос в чате.</p>
                 </div>
                 <div class="feature-media reveal d1">
-                    <div class="window"><img src="../appstore/web/04.png" alt="Запуск Deep Research" loading="eager" decoding="async"></div>
+                    <div class="window"><img src="../appstore/web/04.png" alt="Запуск Deep Research" loading="lazy" decoding="async" width="1500" height="1096"></div>
                 </div>
             </div>
         </section>
@@ -660,7 +662,7 @@
                     <p>Из чата рядом с документом попросите ИИ написать черновик или подправить фразу — прямо на месте. ИИ один за другим переносит ваши мысли в документ. Один взгляд в сторону — и совместная работа уже началась.</p>
                 </div>
                 <div class="feature-media reveal d1">
-                    <div class="window"><img src="../appstore/web/02.png" alt="ИИ-чат рядом с документом" loading="eager" decoding="async"></div>
+                    <div class="window"><img src="../appstore/web/02.png" alt="ИИ-чат рядом с документом" loading="lazy" decoding="async" width="1500" height="1096"></div>
                 </div>
             </div>
         </section>
@@ -712,10 +714,10 @@
                     <span class="t">Доверьте ИИ или выберите сами.</span>
                     <span class="badge">BYOK</span>
                 </div>
-                <div class="model-row"><span class="v g">G</span><span class="nm">Gemini 3.5 Flash</span><span class="tier">FAST</span></div>
-                <div class="model-row"><span class="v g">G</span><span class="nm">Gemini 3.1 Flash Lite</span><span class="tier">LITE</span></div>
-                <div class="model-row"><span class="v c">C</span><span class="nm">Claude Opus 4.7</span><span class="tier">OPUS</span></div>
-                <div class="model-row"><span class="v c">C</span><span class="nm">Claude Sonnet 4.6</span><span class="tier">SONNET</span></div>
+                <div class="model-row"><span class="v g">G</span><span class="nm">Gemini 3.6 Flash</span><span class="tier">FAST</span></div>
+                <div class="model-row"><span class="v g">G</span><span class="nm">Gemini 3.5 Flash Lite</span><span class="tier">LITE</span></div>
+                <div class="model-row"><span class="v c">C</span><span class="nm">Claude Opus 5</span><span class="tier">OPUS</span></div>
+                <div class="model-row"><span class="v c">C</span><span class="nm">Claude Sonnet 5</span><span class="tier">SONNET</span></div>
             </div>
         </div>
     </section>
@@ -786,7 +788,7 @@
                 </details>
                 <details class="faq-item">
                     <summary class="faq-q"><span class="qt">Какие модели ИИ поддерживаются?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
-                    <div class="faq-a">Поддерживаются Gemini 3.5 Flash / 3.1 Flash Lite, а также Claude Opus 4.7 / Sonnet 4.6. Доступны автоматический режим (модель подбирается под каждый запрос) и ручной выбор.</div>
+                    <div class="faq-a">Поддерживаются Gemini 3.6 Flash / 3.5 Flash Lite, а также Claude Opus 5 / Sonnet 5. Доступны автоматический режим (модель подбирается под каждый запрос) и ручной выбор.</div>
                 </details>
                 <details class="faq-item">
                     <summary class="faq-q"><span class="qt">Системные требования?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
